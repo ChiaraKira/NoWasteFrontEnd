@@ -14,6 +14,7 @@ import { BottoneComponent } from './bottone/bottone.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { CategorieComponent } from './categorie/categorie.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {MatButtonModule} from '@angular/material/button';
     CaroselComponent,
     CardComponent,
     HeaderHomeComponent,
-    BottoneComponent
+    BottoneComponent,
+    CategorieComponent
   ],
   imports: [
     BrowserModule,
