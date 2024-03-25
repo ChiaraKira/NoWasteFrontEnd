@@ -1,0 +1,17 @@
+.greenBg{
+    background-color: #A6CF98;
+}
+
+.navbar{
+    font-family: "Signika", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-toggler{
+    background-color: #7EAA5F;
+}
+
+.navbar-toggler:hover{
+    background-color: #557C55;
+}
