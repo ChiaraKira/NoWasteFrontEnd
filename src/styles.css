@@ -24,9 +24,10 @@
   font-style: normal;
 } */
 /* ciao Sara */
-html, body { height: 100%; }
-body { 
+
+html,body { 
   font-family: "Livvic", sans-serif;
   font-weight: 700;
   font-style: normal;
- }
+ 
+ }  
