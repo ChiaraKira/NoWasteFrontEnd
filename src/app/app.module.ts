@@ -17,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CategorieComponent } from './categorie/categorie.component';
 import { BlogComponent } from './blog/blog.component';
 import { VegetaliDiStagioneComponent } from './vegetali-di-stagione/vegetali-di-stagione.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { VegetaliDiStagioneComponent } from './vegetali-di-stagione/vegetali-di-
     BottoneComponent,
     CategorieComponent,
     BlogComponent,
-    VegetaliDiStagioneComponent
+    VegetaliDiStagioneComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
