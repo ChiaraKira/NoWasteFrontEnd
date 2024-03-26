@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { CategorieComponent } from './categorie/categorie.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CategorieComponent } from './categorie/categorie.component';
     CardComponent,
     HeaderHomeComponent,
     BottoneComponent,
-    CategorieComponent
+    CategorieComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
