@@ -1,0 +1,4 @@
+interface Rating {
+    id: number;
+   
+  }

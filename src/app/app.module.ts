@@ -19,6 +19,7 @@ import { BlogComponent } from './blog/blog.component';
 import { VegetaliDiStagioneComponent } from './vegetali-di-stagione/vegetali-di-stagione.component';
 import { FooterComponent } from './footer/footer.component';
 import { DettaglioRicettaComponent } from './dettaglio-ricetta/dettaglio-ricetta.component';
+import { StelleComponent } from './stelle/stelle.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DettaglioRicettaComponent } from './dettaglio-ricetta/dettaglio-ricetta
     BlogComponent,
     VegetaliDiStagioneComponent,
     FooterComponent,
-    DettaglioRicettaComponent
+    DettaglioRicettaComponent,
+    StelleComponent
   ],
   imports: [
     BrowserModule,
