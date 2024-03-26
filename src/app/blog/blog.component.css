@@ -19,7 +19,28 @@ span.s2 {
 	color: #A6CF98;
 }
 
+/* dispositivi mobili */
 
+span.ss1 {
+    margin-top: 100px;
+	top:0;
+	font-size: 50px;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: #A6CF98;
+	animation: forwards;
+}
+
+span.ss2 {
+	font-weight: 800;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 50px;
+	text-transform: uppercase;
+	color: #A6CF98;
+	top: 300px;
+}
 
 
 /* CARD */
@@ -35,6 +56,17 @@ span.s2 {
     bottom: 150px;
 }
 
+.cardSm{
+
+	height: 50px;
+	width: 200px;
+	margin: 20px auto;
+	background-color: #FFF;
+	-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+    bottom: 150px;
+}
 /* Img SX */
 .thumbnail {
 	float: left;
