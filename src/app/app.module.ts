@@ -25,8 +25,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FiltriComponent } from './components/filtri/filtri.component';
 import { LoginComponent } from './components/login/login.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +42,6 @@ import { LoginComponent } from './components/login/login.component';
     HomePageComponent,
     FiltriComponent,
     LoginComponent
-    
-    
-    
   ],
   imports: [
     BrowserModule,
