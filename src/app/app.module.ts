@@ -24,8 +24,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FiltriComponent } from './components/filtri/filtri.component';
 import { CommentoComponent } from './components/commento/commento.component';
+import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
 
-
+import {MatListModule} from '@angular/material/list';
+import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,9 +47,12 @@ import { CommentoComponent } from './components/commento/commento.component';
     HomePageComponent,
     FiltriComponent,
     CommentoComponent,
+    IngredientiComponent,
+    PaginaPortataComponent,
     
     
     
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +61,11 @@ import { CommentoComponent } from './components/commento/commento.component';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule
+   
+  
+    
     
   ],
   providers: [],
