@@ -31,6 +31,7 @@ import { IngredientiComponent } from './components/ingredienti/ingredienti.compo
 import {MatListModule} from '@angular/material/list';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
+import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { LoginComponent } from './components/login/login.component';
     
     
     
-    LoginComponent
+    LoginComponent,
+                   ListaCommentiComponent
   ],
   imports: [
     BrowserModule,

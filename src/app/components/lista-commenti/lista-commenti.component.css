@@ -1,0 +1,21 @@
+p{
+
+        font-family: "Signika", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 100;
+        font-style: normal;
+        font-variation-settings:
+          "GRAD" 0;
+}
+
+h6,h2{ 
+  font-family: "Livvic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #9e3434;
+}
+
+.cornice{
+  border: solid #9e3434 1px;
+  border-radius: 10px;
+}
