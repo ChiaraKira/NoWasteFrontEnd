@@ -14,6 +14,8 @@ import { BottoneComponent } from './components/bottone/bottone.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.component';
+import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { VegetaliDiStagioneComponent } from './components/vegetali-di-stagione/vegetali-di-stagione.component';
@@ -41,6 +43,8 @@ import { LoginComponent } from './components/login/login.component';
     BlogComponent,
     VegetaliDiStagioneComponent,
     FooterComponent,
+    ListaRicetteComponent,
+    PaginaNoWasteComponent,
     DettaglioRicettaComponent,
     StelleComponent,
     HomePageComponent,
