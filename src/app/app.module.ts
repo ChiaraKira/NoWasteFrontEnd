@@ -23,6 +23,7 @@ import { StelleComponent } from './components/stelle/stelle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FiltriComponent } from './components/filtri/filtri.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -42,6 +43,7 @@ import { FiltriComponent } from './components/filtri/filtri.component';
     StelleComponent,
     HomePageComponent,
     FiltriComponent,
+    LoginComponent
     
     
     
