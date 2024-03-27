@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="welcome">
+      <div class="greenbox" [style.transform]="greenboxTransform">
+        <div class="signup" [ngClass]="{ 'nodisplay': !signupVisible }">
+          <h1>registrati</h1>
+          <form autocomplete="off">
+            <input type="text" placeholder="nome">
+            <input type="text" placeholder="cognome">
+            <input type="email" placeholder="username">
+            <input type="password" placeholder="password">
+            <input type="password" placeholder="confirm password">
+            <button class="button submit">crea l'account</button>
+          </form>
+        </div>
+        <div class="signin" [ngClass]="{ 'nodisplay': !signinVisible }">
+          <h1>accedi</h1>
+          <form class="more-padding" autocomplete="off">
+            <input type="text" placeholder="username">
+            <input type="password" placeholder="password">
+            <div class="checkbox">
+              <input type="checkbox" id="remember" /><label for="remember">ricordami</label>
+            </div>
+            <button class="button submit">accedi</button>
+          </form>
+        </div>
+      </div>
+      <div class="leftbox">
+        <img src="../../assets/img/logo3.png" alt="" class="logo">
+        <p class="desc">Una lista di ricette <br>adatto a tutti i <span>fuori sede</span></p>
+        <img src="../../assets/img/no_waste.png" alt="" class="noWaste">
+        <p class="account">Hai già un account?</p>
+        <button class="button" (click)="onSigninClick()">accedi</button>
+      </div>
+      <div class="rightbox">
+        <img src="../../assets/img/logo3.png" alt="" class="logo">
+        <p class="desc">Una lista di ricette <br>adatto a tutti i <span>fuori sede</span></p>
+        <img src="../../assets/img/no_waste.png" alt="" class="noWaste">
+        <p class="account">Non hai un account?</p>
+        <button class="button" (click)="onSignupClick()">registrati</button>
+      </div>
+    </div>
+  </div>
+  
