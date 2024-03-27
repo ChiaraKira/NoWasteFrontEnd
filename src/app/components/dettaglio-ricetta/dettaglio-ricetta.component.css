@@ -1,0 +1,236 @@
+sup {
+    left: 2px;
+    top: -6px;
+  }
+  
+  sub {
+    bottom: -2px;
+    right: 3px;
+  }
+  
+  .banner {
+    background: url(https://3.bp.blogspot.com/-J612h0xyvWg/UUhvgwU8CAI/AAAAAAAANkw/d8014xHZnbU/s1600/chili+10.jpg) 0% 35% / cover;
+    height: 255px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .recipe--title{
+    font-weight: 500px;
+    color: #ffffff; 
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ 
+   
+
+  }
+
+  .banner:before {
+    background: rgba(0, 0, 0, .2);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  .banner:hover .recipe--title {
+    
+    animation: bounceOutUp .5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .banner:hover .recipe--author {
+    animation: fadeOut .3s;
+    animation-fill-mode: forwards;
+  }
+  
+  /* da far ciclare contet e immagine */
+  .banner:hover:after {
+    animation: fadeIn .5s;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    color: #fff;
+    content: 'My grandpappy used to make this chili over the campfire under the Texas stars. The secret ingredient was a little squeeze of scorpion venom in the pot.';
+    display: block;
+    font-size: 150%;
+    height: 255px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 90px calc(50% - 300px);
+    text-align: center;
+    z-index: 1;
+  }
+
+
+
+
+
+  .barra{
+    background-color: #FA7070;
+    width: 100vw;
+    height: 80px;
+    color: white;
+  }
+  
+  .recipe--author {
+    animation: fadeIn 2s;
+    color: #fff;
+    font-size: 18px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    top: 75px;
+    width: 135px;
+  }
+  
+  .recipe--author:before, .recipe--author:after {
+    border-bottom: 4px double rgba(255, 255, 255, .75);
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 12px;
+    width: 50px;
+  }
+  
+  .recipe--author:before {
+    right: 100%;
+  }
+  
+  .recipe--author:after {
+    left: 100%;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    50% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes bounceInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-500px);
+    }
+  
+    60% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+  
+    80% {
+      transform: translateY(-10px);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceOutUp {
+    0% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(-500px);
+    }
+  }
+  
+ .line {
+   
+    &:before {
+      content: '';
+      position: fixed;
+      top:0px;
+      left:33.4%;
+      bottom:0px;
+      transform:translateX(-50%);
+      width:4px;
+      background-color:#c52929 !important;
+      z-index: -3;
+    }
+}
+
+  .entries {
+    width:calc(100% - 80px);
+    max-width:800px;
+    margin:auto;
+    position: relative;
+    left:-5px;
+    .entry {
+      width:calc(50% - 80px);
+      float:left; 
+      padding:20px;
+      clear:both;
+      text-align:right;
+      &:not(:first-child) {
+        margin-top:-60px;
+      }
+      .title {
+        font-size:32px;
+        margin-bottom:12px;
+        position: relative;
+        color:#cd0c0c;
+        &:before {
+          content: '';
+          position: absolute;
+          width:8px;
+          height:8px;
+          border:4px solid #9e3434;
+          background-color:#fcfcfc;
+          border-radius:100%;
+          top:50%;
+          transform:translateY(-50%);
+          right:-73px;
+          z-index:1000;
+        }
+        &.big:before {
+          width:24px;
+          height:24px;
+          transform:translate(8px,-50%);
+        }
+      }
+.body {
+        color:#341212;
+        p {
+          line-height:1.4em;
+        }
+      }
+      &:nth-child(2n) {
+        text-align:left;
+        float:right;
+        .title {
+          &:before {
+            left:-63px;
+          }
+          &.big:before {
+            transform:translate(-8px,-50%);
+          }
+        }
+      }
+    }
+  }
