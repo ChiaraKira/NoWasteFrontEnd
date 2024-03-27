@@ -18,6 +18,8 @@ import { CategorieComponent } from './categorie/categorie.component';
 import { BlogComponent } from './blog/blog.component';
 import { VegetaliDiStagioneComponent } from './vegetali-di-stagione/vegetali-di-stagione.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListaRicetteComponent } from './lista-ricette/lista-ricette.component';
+import { PaginaNoWasteComponent } from './pagina-no-waste/pagina-no-waste.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FooterComponent } from './footer/footer.component';
     CategorieComponent,
     BlogComponent,
     VegetaliDiStagioneComponent,
-    FooterComponent
+    FooterComponent,
+    ListaRicetteComponent,
+    PaginaNoWasteComponent
   ],
   imports: [
     BrowserModule,
