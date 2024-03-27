@@ -4,19 +4,19 @@
       <div class="greenbox" [style.transform]="greenboxTransform">
         <div class="signup" [ngClass]="{ 'nodisplay': !signupVisible }">
           <h1>registrati</h1>
-          <form autocomplete="off">
-            <input type="text" placeholder="nome">
-            <input type="text" placeholder="cognome">
-            <input type="email" placeholder="username">
-            <input type="password" placeholder="password">
-            <input type="password" placeholder="confirm password">
+          <form autocomplete="off" [formGroup]="formRegistrati" (ngSubmit)="submitRegistrati()">
+            <input type="text" placeholder="nome" formControlName="nome">
+            <input type="text" placeholder="cognome" formControlName="cognome">
+            <input type="email" placeholder="username" formControlName="username">
+            <input type="password" placeholder="password" formControlName="password">
+            <input type="password" placeholder="confirm password" formControlName="confirmPassword">
             <button class="button submit">crea l'account</button>
           </form>
         </div>
         <div class="signin" [ngClass]="{ 'nodisplay': !signinVisible }">
           <h1>accedi</h1>
-          <form class="more-padding" autocomplete="off">
-            <input type="text" placeholder="username">
+          <form class="more-padding" autocomplete="off" [formGroup]="formAccedi" (ngSubmit)="submitAccedi()">
+            <input type="email" placeholder="username">
             <input type="password" placeholder="password">
             <div class="checkbox">
               <input type="checkbox" id="remember" /><label for="remember">ricordami</label>
