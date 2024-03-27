@@ -1,4 +1,4 @@
-<form class="rating">
+<!-- <form class="rating">
 	<div class="rating__stars">
 		<input id="rating-1" class="rating__input rating__input-1" type="radio" name="rating" value="1">
 		<input id="rating-2" class="rating__input rating__input-2" type="radio" name="rating" value="2">
@@ -116,4 +116,20 @@
 		<p class="rating__display" data-rating="4" hidden>Good</p>
 		<p class="rating__display" data-rating="5" hidden>Excellent</p>
 	</div>
-</form>
+</form> -->
+
+
+<!-- stelle.component.html -->
+
+<form [formGroup]="ratingForm">
+    <label *ngFor="let rating of ratings" class="rating__label">
+      <input type="radio" [value]="rating.id" formControlName="rating">
+      <span class="fa fa-star" [class.checked]="rating.id <= selectedRating!"></span>
+    </label>
+  </form>
+  
+  <div *ngIf="selectedRating !== undefined" class="selected-rating">
+    Punteggio selezionato: {{ selectedRating }}
+  </div>
+  
+  
