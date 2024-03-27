@@ -27,6 +27,7 @@ import { IngredientiComponent } from './components/ingredienti/ingredienti.compo
 
 import {MatListModule} from '@angular/material/list';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PaginaPortataComponent } from './components/pagina-portata/pagina-porta
     
     
     
+    LoginComponent
   ],
   imports: [
     BrowserModule,

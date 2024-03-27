@@ -1,0 +1,201 @@
+
+  body {
+    font-family: "Livvic", sans-serif;
+    font-weight: 700;
+  }
+  
+  .container {
+    margin: auto;
+    width: 650px;
+    height: 550px;
+  }
+  
+  .welcome {
+    background-color: #A6CF98;
+    width: 650px;
+    height: 415px;
+    position: absolute;
+    top: 25%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+  }
+  
+  .greenbox {
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    background-color: #557C55;
+    width: 330px;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, .1);
+    transition: all .5s ease-in-out;
+    z-index: 2;
+  }
+  
+  .nodisplay {
+    display: none;
+    transition: all .5s ease;
+  }
+  
+  .leftbox, .rightbox {
+    position: absolute;
+    width: 50%;
+    transition: 1s all ease;
+  }
+  
+  .leftbox {
+    left: -2%;
+  }
+  .rightbox {
+    right: -2%;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 95px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 2em;
+    letter-spacing: 8px;
+  }
+  
+  .title {
+    color: #3d3d3d;
+    font-size: 1.8em;
+    line-height: 1.1em;
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 20%;
+  }
+  .desc {
+    margin-top: -8px;
+    font-size: 15px;
+  }
+  .account {
+    margin-top: 45%;
+    font-size: 10px;
+  }
+  p {
+    font-size: .7em;
+    letter-spacing: 2px;
+    color: #3d3d3d;
+    text-align: center;
+  }
+  
+  span {
+    color: #cb5a5a;
+  }
+  
+  .noWaste {
+    position: absolute;
+    width: 150px;
+    aspect-ratio: 1/1;
+    top: 46%;
+    left: 29%;
+    opacity: .9;
+  }
+  
+
+  .logo{
+    position: relative;
+    width:130px;
+    left: 30%;
+
+  }
+  
+  button {
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    border-radius: 10px;
+    margin: auto;
+    outline: none;
+    display: block;
+  }
+  button:hover {
+    background: #557C55;
+    color: #F2FFE9;
+    transition: background-color 1s ease-out;
+  }
+  
+  .button {
+    margin-top: 3%;
+    background: #F2FFE9;
+    color: #557C55;
+    border: solid 1px #557C55;
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 7px;
+  }
+  .more-padding {
+    padding-top: 35px;
+  }
+  .more-padding input {
+    padding: 12px;
+  }
+  .more-padding .submit {
+    margin-top: 45px;
+  }
+  .submit {
+    margin-top: 25px;
+    padding: 12px;
+    border-color: #A6CF98;
+  }
+  .submit:hover {
+    background: #A6CF98;
+    border-color: #75936b;
+  }
+  
+  input {
+    background: var(--pale);
+    width: 65%;
+    color: white;
+    border: none;
+    border-bottom: 1px solid rgba(246, 246, 246, 0.5);
+    padding: 5px;
+    margin: 7px;
+  }
+  input::placeholder {
+    color: rgba(246, 246, 246, 1); 
+    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: 100;
+  }
+  input:focus {
+    outline: none;
+    border-bottom: 1.2px solid #C7E9B0;
+    font-size: 1rem;
+  }
+
+  label {
+    color: #C7E9B0;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin: 0px;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    left: -62px;
+    top: 5px;
+  }
+  
+  input[type=checkbox] {
+    width: 15px;
+    background: #F2FFE9;
+  }
+  
+  .checkbox input[type="checkbox"]:checked + label {
+    color: #fb7e7e;
+    transition: .5s all ease;
+  }
