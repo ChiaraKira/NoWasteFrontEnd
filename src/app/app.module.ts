@@ -3,21 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CaroselComponent } from './carosel/carosel.component';
-import { CardComponent } from './card/card.component';
-import { HeaderHomeComponent } from './header-home/header-home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CaroselComponent } from './components/carosel/carosel.component';
+import { CardComponent } from './components/card/card.component';
+import { HeaderHomeComponent } from './components/header-home/header-home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BottoneComponent } from './bottone/bottone.component';
+import { BottoneComponent } from './components/bottone/bottone.component';
 
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { CategorieComponent } from './categorie/categorie.component';
-import { BlogComponent } from './blog/blog.component';
-import { VegetaliDiStagioneComponent } from './vegetali-di-stagione/vegetali-di-stagione.component';
-import { FooterComponent } from './footer/footer.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { VegetaliDiStagioneComponent } from './components/vegetali-di-stagione/vegetali-di-stagione.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DettaglioRicettaComponent } from './components/dettaglio-ricetta/dettaglio-ricetta.component';
+import { StelleComponent } from './components/stelle/stelle.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { FiltriComponent } from './components/filtri/filtri.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +37,14 @@ import { FooterComponent } from './footer/footer.component';
     CategorieComponent,
     BlogComponent,
     VegetaliDiStagioneComponent,
-    FooterComponent
+    FooterComponent,
+    DettaglioRicettaComponent,
+    StelleComponent,
+    HomePageComponent,
+    FiltriComponent,
+    
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +52,9 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
