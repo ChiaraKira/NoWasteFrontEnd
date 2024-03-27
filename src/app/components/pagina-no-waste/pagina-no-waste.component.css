@@ -48,7 +48,7 @@ span.ss2 {
 .card {
 
 	height: 530px;
-	width: 1050px;
+	width: 1100px;
 	margin: 20px auto;
 	background-color: #FFF;
 	-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
@@ -102,6 +102,13 @@ img.left {
     top: auto;
    
 }
+.right-2 {
+	margin-left: 590px;
+    margin-right: 20px;
+	
+	margin-top: -450px;
+	
+}
 
 h2 {
 
@@ -128,6 +135,11 @@ h2 {
 
 
 .separator {
+	margin-top: 10px;
+	border: 1px solid #C3C3C3;
+    bottom: 70px;
+}
+.separator-2 {
 	margin-top: 10px;
 	border: 1px solid #C3C3C3;
     bottom: 70px;
@@ -189,8 +201,13 @@ li {
 	-moz-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
 }
-.image, .images {
-width: 200px;
-height: 200px;
+.image {
+width: 130px;
+height: 120px;
+padding: 5px;
 
+}
+.box-imgs{
+	width: 500px;
+    height: 500px;
 }
