@@ -23,6 +23,10 @@ import { StelleComponent } from './components/stelle/stelle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FiltriComponent } from './components/filtri/filtri.component';
+import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
+
+import {MatListModule} from '@angular/material/list';
+import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
@@ -41,6 +45,11 @@ import { LoginComponent } from './components/login/login.component';
     StelleComponent,
     HomePageComponent,
     FiltriComponent,
+    IngredientiComponent,
+    PaginaPortataComponent,
+    
+    
+    
     LoginComponent
   ],
   imports: [
@@ -50,7 +59,11 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatListModule
+   
+  
+    
     
   ],
   providers: [],
