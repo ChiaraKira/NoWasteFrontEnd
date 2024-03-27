@@ -1,10 +1,11 @@
 .fa-star {
-	color: #ccc; /* Colore delle stelle non selezionate */
+	color: #c52929; /* Colore delle stelle non selezionate */
 	cursor: pointer; /* Mostra il cursore come puntatore quando si passa sopra le stelle */
   }
   
   .fa-star.checked {
 	color: gold; /* Colore delle stelle selezionate */
+  
   }
   
 

@@ -7,22 +7,34 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 barra">
-            <div class="row ">
-                <div class="col-2">
+            <div class="row d-flex justify-content-center align-items-center m-2">
+                <div class="col-4">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
                     <p>TIME</p>
                 </div>
-                <div class="col-8 d-flex justify-content-center align-items-end">
+                <div class="col-3 d-flex justify-content-center align-items-end">
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
                   
                 </div>
-                <div class="col-2">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="restaurant" class="m-2"> </mat-icon> 
-                    <p>Porzioni  <span>+</span> <span>-</span></p>
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                  
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="restaurant"> </mat-icon>  -->
+                    <p class="m-2"> Aggiungi porzioni </p> 
+                   
+                    <div class="example-button-container m-2">
+                      <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </div> 
+                    <div class="example-button-container">
+                      <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+                        <mat-icon>remove</mat-icon>
+                      </button>
+                    </div>
                    
                   
                 </div>
@@ -86,6 +98,7 @@
         <div class="col-4 d-flex justify-content-start align-items-center flex-column">
            <div class="row d-flex justify-content-end align-items-center flex-column">
             <h2 class=" p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt" > </mat-icon> Ingredienti</h2>
+            <app-ingredienti></app-ingredienti>
            </div>
             
            <div class="row d-flex justify-content-end align-items-end flex-column h-25 bg">
