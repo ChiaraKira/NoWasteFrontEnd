@@ -1,0 +1,14 @@
+.carousel-control-prev, .carousel-control-next{
+    width: 6vh;
+    height: 6vh;
+    background-color: #F2FFE9;
+    background-color: #557C55;
+    border-radius: 50%;
+    border: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover{
+    opacity: 0.8;
+}
