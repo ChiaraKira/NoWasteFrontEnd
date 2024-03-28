@@ -35,7 +35,6 @@ import { PaginaPortataComponent } from './components/pagina-portata/pagina-porta
 import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -61,10 +60,6 @@ import { HttpClientModule } from '@angular/common/http';
     PaginaPortataComponent,
     LoginComponent,
     ListaCommentiComponent
-<<<<<<< HEAD
-=======
-
->>>>>>> a20464ab6d4af7873478970177c00e043ef9850a
   ],
   imports: [
     BrowserModule,
