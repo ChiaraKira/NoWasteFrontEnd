@@ -31,6 +31,9 @@ import {MatListModule} from '@angular/material/list';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +54,6 @@ import { LoginComponent } from './components/login/login.component';
     FiltriComponent,
     IngredientiComponent,
     PaginaPortataComponent,
-    
-    
-    
     LoginComponent
   ],
   imports: [
@@ -64,7 +64,8 @@ import { LoginComponent } from './components/login/login.component';
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
    
   
     
