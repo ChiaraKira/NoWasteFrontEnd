@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,9 @@ import { PaginaPortataComponent } from './components/pagina-portata/pagina-porta
 import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,11 +59,12 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     CommentoComponent,
     IngredientiComponent,
     PaginaPortataComponent,
-    
-    
-    
     LoginComponent,
-                   ListaCommentiComponent
+    ListaCommentiComponent
+<<<<<<< HEAD
+=======
+
+>>>>>>> a20464ab6d4af7873478970177c00e043ef9850a
   ],
   imports: [
     BrowserModule,
@@ -68,7 +74,8 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
    
   
     
