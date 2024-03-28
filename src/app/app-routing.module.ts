@@ -6,10 +6,11 @@ import { DettaglioRicettaComponent } from './components/dettaglio-ricetta/dettag
 import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.component';
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 const routes: Routes = [
-  {path: '/', component: AppComponent},
+  {path: '', component: AppComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricette', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},

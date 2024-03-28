@@ -3,6 +3,7 @@ import { Component, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginStatus } from 'src/app/model/login-status';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,9 @@ export class LoginComponent {
   formAccedi : FormGroup;
 
   constructor(private http : HttpClient, private formBuilder : FormBuilder,
-    private router : Router) {
-
+    private router : Router, private loginService : LoginService) {
+      loginService.checkLogin();
+      
       this.formAccedi = formBuilder.group({
         username: "",
         password: ""
