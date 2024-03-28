@@ -11,9 +11,7 @@ import { RicetteService } from 'src/app/services/ricette.service';
   styleUrls: ['./dettaglio-ricetta.component.css']
 })
 export class DettaglioRicettaComponent  {
-
-
-
+ricetta: any;
 
 
   // @Input() ricetta?: Ricetta;
