@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 banner d-flex justify-content-center align-items-center">
-            <h2 class="recipe--title"> Ricettissima</h2>
+            <h2 class="recipe--title"> {{ricetta?.nome}}</h2>
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
             <div class="row d-flex justify-content-center align-items-center m-2">
                 <div class="col-4">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
-                    <p>TIME</p>
+                    <p>{{ricetta?.tempoPreparazione}}</p>
                 </div>
                 <div class="col-3 d-flex justify-content-center align-items-end">
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
@@ -51,9 +51,9 @@
             <h2 class="bg-light p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
             <div class="entries ">
   <div class="entry line">
-    <div class="title">Step 1</div>
+    <div class="title"> Step 1</div>
     <div class="body">
-      <p>Neque sunt voluptatibus repellat pariatur ut enim. Eveniet rerum suscipit eveniet amet dignissimos. Doloremque et distinctio quod molestiae ut.</p>
+      <p>{{ricetta?.istruzioni}}</p>
     </div>
   </div>
   <div class="entry">
@@ -105,19 +105,19 @@
             <div class="d-flex justify-content-end align-items-center flex-column">
               <h3> Hai già provato questa ricetta?</h3>
               <p>Facci sapere come l'hai trovata e votala!!</p>
-              <app-stelle></app-stelle>
+              <!-- <app-stelle></app-stelle> -->
             </div>
           
            </div>
            <div class="row w-100 d-flex justify-content-start align-items-center mt-5">
             <div class="col-12 bgC">
              
-              <app-commento></app-commento>
+              <!-- <app-commento></app-commento> -->
             
             </div>
             <div class="col-12 bordo mt-5 ">
             
-              <app-lista-commenti></app-lista-commenti>
+              <!-- <app-lista-commenti></app-lista-commenti> -->
             
  
            </div>
@@ -126,3 +126,5 @@
         </div>
     </div>
 </div>
+
+<div></div>

@@ -1,31 +1,25 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-import { Ricetta } from 'src/app/model/ricetta';
-import { RicetteService } from 'src/app/services/ricette.service';
+import { Injectable } from '@angular/core';
+import { Ricetta } from '../model/ricetta';
 
-@Component({
-  selector: 'app-lista-ricette',
-  templateUrl: './lista-ricette.component.html',
-  styleUrls: ['./lista-ricette.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ListaRicetteComponent {
+export class RicetteService {
 
-  ricette? : Ricetta[];
+  ricette?: Ricetta[] = [];
 
-  constructor( private http: HttpClient) { 
-  this.http = http;
+  constructor(private http : HttpClient) {
+    this.http = http;
     this.getAllRicette();
-  }
+   }
 
-  
 
-  getAllRicette(){
+
+   getAllRicette(){
     var token = sessionStorage.getItem("token")
 
     console.log(token)
-  
-
-  
     if(token == null){
       token = "admin-2";
     }
@@ -39,8 +33,6 @@ export class ListaRicetteComponent {
 
     this.http.get("http://localhost:8080/api/recipe/allRecipes", {headers}).subscribe(risposta =>{
       this.ricette = risposta as Ricetta[];
-    });
+    })
   }
 }
-
-

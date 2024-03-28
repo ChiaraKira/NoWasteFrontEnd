@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,11 +56,8 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     CommentoComponent,
     IngredientiComponent,
     PaginaPortataComponent,
-    
-    
-    
     LoginComponent,
-                   ListaCommentiComponent
+    ListaCommentiComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +67,8 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
    
   
     
