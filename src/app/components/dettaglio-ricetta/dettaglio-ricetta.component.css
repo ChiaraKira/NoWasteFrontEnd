@@ -7,6 +7,35 @@ sup {
     bottom: -2px;
     right: 3px;
   }
+
+  h3{
+    color: #9e3434;
+    font-weight: 500;
+  }
+
+  .bordo{
+    border-top: solid 2px ;
+    border-color: #9e3434;
+  
+  }
+
+  .bgC{
+    background-color: #a6cf9887 ;
+    height: 250px;
+    padding-top: 30px;
+    border-radius: 10px;
+  }
+
+  p{
+  
+      font-family: "Signika", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 100;
+      font-style: normal;
+      font-variation-settings:
+        "GRAD" 0;
+    
+  }
   
   .banner {
     background: url(https://3.bp.blogspot.com/-J612h0xyvWg/UUhvgwU8CAI/AAAAAAAANkw/d8014xHZnbU/s1600/chili+10.jpg) 0% 35% / cover;

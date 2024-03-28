@@ -25,11 +25,13 @@ import { StelleComponent } from './components/stelle/stelle.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FiltriComponent } from './components/filtri/filtri.component';
+import { CommentoComponent } from './components/commento/commento.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
 
 import {MatListModule} from '@angular/material/list';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
+import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -52,9 +54,12 @@ import { HttpClientModule } from '@angular/common/http';
     StelleComponent,
     HomePageComponent,
     FiltriComponent,
+    CommentoComponent,
     IngredientiComponent,
     PaginaPortataComponent,
-    LoginComponent
+    LoginComponent,
+    ListaCommentiComponent
+
   ],
   imports: [
     BrowserModule,
