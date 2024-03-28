@@ -28,7 +28,7 @@ export class LoginService {
       if(check){
         if(token?.split("-")[0] == "USER"){
           //Pagina home-page
-          this.router.navigateByUrl('/home-page');
+          this.router.navigateByUrl('/no-waste');
         }
         else if(token?.split("-")[0] == "ADMIN"){
           //alert("Sei un admin")
