@@ -33,6 +33,9 @@ import { PaginaPortataComponent } from './components/pagina-portata/pagina-porta
 import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,11 +57,9 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     CommentoComponent,
     IngredientiComponent,
     PaginaPortataComponent,
-    
-    
-    
     LoginComponent,
-                   ListaCommentiComponent
+    ListaCommentiComponent
+
   ],
   imports: [
     BrowserModule,
@@ -68,7 +69,8 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     MatDividerModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
    
   
     
