@@ -1,21 +1,24 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginStatus } from 'src/app/model/login-status';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   
   formRegistrati : FormGroup;
   formAccedi : FormGroup;
 
   constructor(private http : HttpClient, private formBuilder : FormBuilder,
-    private router : Router) {
+    private router : Router, private loginService : LoginService) {
+      loginService.checkLogin();
       
       this.formAccedi = formBuilder.group({
         username: "",
@@ -43,7 +46,8 @@ export class LoginComponent {
 
       if(loginStatus.ruolo == "USER"){
         //Pagina user
-        this.router.navigateByUrl('/'); //aggiunger route
+        this.router.navigateByUrl('/login'); //aggiunger route
+
       }
       else if(loginStatus.ruolo == "ADMIN"){
         //Pagina ADMIN 
@@ -69,32 +73,26 @@ export class LoginComponent {
      const body = JSON.stringify(formValues);
      this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
      var ris : boolean = risposta as boolean;
-
+      console.log(body);
        if(ris){
          //Pagina login
-         this.router.navigateByUrl('/'); // routing da rendirizzare al login
+         this.router.navigateByUrl('/login'); // routing da rendirizzare al login
        }
        else{
          alert("ERRORE registrazione");
          this.formRegistrati.patchValue(
            {
-             username : "",
-             password : ""
+            nome: "",
+            cognome : "",
+            username : "",
+            password : "",
+            confirmPassword : ""
            }
          )
        }
 
      })
    }
-
-
-
-
-
-
-
-
-
 
   // Pulsanti per far spostare la greenbox a sinistra e destra
   //Andando a modifigare il contenuto della box
