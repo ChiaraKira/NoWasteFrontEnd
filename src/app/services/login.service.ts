@@ -41,6 +41,7 @@ export class LoginService {
     })
   }
 
+  
   public logout()
   {
     sessionStorage.clear();
