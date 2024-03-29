@@ -50,7 +50,6 @@ export class LoginComponent {
      
       if(loginStatus.ruolo == "USER"){
         //Pagina user
-        alert("cojione");
         this.router.navigateByUrl('home-page'); //aggiunger route
 
       } else if(loginStatus.ruolo == "ADMIN"){
@@ -80,7 +79,7 @@ export class LoginComponent {
       console.log(body);
        if(ris){
          //Pagina login
-         this.router.navigateByUrl('/login'); // routing da rendirizzare al login
+         this.router.navigateByUrl(''); // routing da rendirizzare al login
        }
        else{
          alert("ERRORE registrazione");

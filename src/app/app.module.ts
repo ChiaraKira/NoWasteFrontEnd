@@ -24,7 +24,6 @@ import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { VegetaliDiStagioneComponent } from './components/vegetali-di-stagione/vegetali-di-stagione.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DettaglioRicettaComponent } from './components/dettaglio-ricetta/dettaglio-ricetta.component';
 import { StelleComponent } from './components/stelle/stelle.component';
@@ -40,7 +39,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
-import { AreaAdminComponent } from './components/area-admin/area-admin.component';
+import { AreaAdminComponent } from './area-admin/area-admin.component';
 
 
 
@@ -54,7 +53,6 @@ import { AreaAdminComponent } from './components/area-admin/area-admin.component
     BottoneComponent,
     CategorieComponent,
     BlogComponent,
-    VegetaliDiStagioneComponent,
     FooterComponent,
     ListaRicetteComponent,
     PaginaNoWasteComponent,

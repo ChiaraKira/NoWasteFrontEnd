@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-card',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+   constructor(private http : HttpClient, private loginService: LoginService){
+    this.http = http;
+    this.loginService.checkLogin();
+  }
 }

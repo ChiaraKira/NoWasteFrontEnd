@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +10,7 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   bubbles: any[] = [];
 
-  constructor() {
+  constructor(private http : HttpClient, public loginservice : LoginService) {
     // Genera i dati casuali per le bolle
     for (let i = 0; i < 128; i++) {
       const size = 2 + Math.random() * 4;
@@ -19,6 +21,13 @@ export class FooterComponent {
 
       // Aggiungi l'oggetto bolla all'array delle bolle
       this.bubbles.push({ size, distance, position, time, delay });
+      this.http = http;
+      this.loginservice.checkLogin();
     }
+  }
+
+  public logout()
+  {
+    this.loginservice.logout();
   }
 }
