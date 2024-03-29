@@ -46,6 +46,8 @@ export class LoginService {
   {
     sessionStorage.clear();
     this.checkLogin();
+    window.location.reload();
+    
   }
 
 }

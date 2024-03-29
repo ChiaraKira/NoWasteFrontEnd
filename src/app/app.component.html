@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<!-- <app-navbar></app-navbar>
-<app-home-page></app-home-page>
-<app-footer></app-footer>  -->
-<!-- <app-header-home></app-header-home> -->
-
-<!-- <app-dettaglio-ricetta></app-dettaglio-ricetta> -->
-
-<!-- <app-pagina-portata></app-pagina-portata> -->
-<!-- <app-pagina-no-waste></app-pagina-no-waste> -->
-
-<app-area-admin></app-area-admin>
-<router-outlet></router-outlet>
-=======
 <ng-container *ngIf="isLoggedIn; else loginPage">
     <app-navbar></app-navbar>   
     <router-outlet></router-outlet>   
@@ -20,4 +6,3 @@
 <ng-template #loginPage>   
     <app-login></app-login> 
 </ng-template>
->>>>>>> master
