@@ -1,0 +1,51 @@
+.example-section {
+    margin: 12px 0;
+  }
+  
+p{
+  font-family: "Signika", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+    color: rgb(70, 70, 70);
+}
+
+h5{
+  font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3,.portata{
+  color: #557C55 !important;
+}
+
+.bottone{
+  background-color:  #557C55 !important;
+ 
+  
+}
+
+  /* varela-round-regular {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  
+
+  /* .signika-<uniquifier> {
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+      "GRAD" 0;
+  } */
+
+  /* .livvic-bold {
+  font-family: "Livvic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+} */

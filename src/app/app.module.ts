@@ -12,6 +12,10 @@ import { HeaderHomeComponent } from './components/header-home/header-home.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BottoneComponent } from './components/bottone/bottone.component';
 
+import {FormBuilder, FormsModule} from '@angular/forms';
+import {JsonPipe} from '@angular/common';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
@@ -34,6 +38,8 @@ import {MatListModule} from '@angular/material/list';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
+import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
+import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 
 
 
@@ -59,7 +65,9 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     IngredientiComponent,
     PaginaPortataComponent,
     LoginComponent,
-    ListaCommentiComponent
+    ListaCommentiComponent,
+    SceltaUtenteComponent,
+    RispostaUtenteComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +78,10 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
     MatButtonModule,
     ReactiveFormsModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    JsonPipe,
+    MatCheckboxModule
    
   
     

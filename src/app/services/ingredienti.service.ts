@@ -11,10 +11,13 @@ export class IngredientiService {
   ingredienti?: Ingrediente[] = [];
   ingredientiRicetta?: Ingrediente[] = [];
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+    this.http = http;
+    this.getIngredienti();
+   }
 
 
-  getIngredienti(){
+  getIngredienti() : Observable<any>{
     var token = sessionStorage.getItem("token");
 
     if (!token) {
@@ -26,9 +29,9 @@ export class IngredientiService {
       'token': token
     });
 
-      this.http.get("http://localhost:8080/api/ingredients/allIngredients", { headers }).subscribe(risposta => {
-      this.ingredienti = risposta as Ingrediente[]
-    });
+    
+
+    return this.http.get<Ingrediente[]>('http://localhost:8080/api/ingredients/allIngredients', {headers});
   }
 
   getIngredientiById(id : number){
@@ -45,7 +48,13 @@ export class IngredientiService {
 
     return this.http.get("http://localhost:8080/api/ingredients/ingredientById?id=" + id, { headers }).subscribe(risposta => {
       this.ingredientiRicetta = risposta as Ingrediente[]
-    });;
+    });
   }
   
+  // getIngredienti() : Ingrediente[]{
+
+  //   return this.ingredienti!.slice();
+  // }
+
+
 }
