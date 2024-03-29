@@ -1,0 +1,55 @@
+<section class="example-section" [formGroup]="formSceltaUtente" (ngSubmit)="submitSceltaIngredienti()">
+  <h4>Seleziona gli ingredienti a tua disposizione:</h4>
+  <div class="row d-flex justify-content-center  align-items-center flex-cloumn">
+   
+    <div class="col-4" *ngFor="let ingrediente of ingredienti">
+      <p>
+        <mat-checkbox [formControlName]="ingrediente.nome">{{ingrediente.nome}}</mat-checkbox>
+    </p>
+   
+    </div>
+    
+    <button  (click)="submitSceltaIngredienti()" mat-flat-button class="bottone">Cerca</button>
+  </div>  
+   
+ </section>
+  
+  <section class="example-section" [formGroup]="formSceltaUtente">
+    <h4>La tua scelta:</h4>
+    {{formSceltaUtente.value | json}}
+  </section>
+
+  <div *ngIf="ris.length>0">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-12">
+              <h2>Ecco la lista di tutte le ricette disponibili con gli ingredeinti selezionati </h2>
+  
+            
+          </div>
+      </div>
+      
+      <div class="row d-flex justify-content-start align-items-center ">
+          <div class="col-12 d-flex justify-content-center align-items-center" *ngFor="let risposta of ris">
+  
+            <div class="col-2">
+              <img [src]="risposta.linkRicetta" alt="immagine" style="height: 70px; width: 80px;">
+            </div>
+            <div class="col-6">
+              <p class="portata">{{risposta.portata}}</p>
+              <h3>{{risposta.nome}}</h3>
+              <p>{{risposta.istruzioni}}</p>
+              <div class="col-12 d-flex justify-content-around align-items-center">
+                <h5 class=""> Difficoltà: {{risposta.difficolta}}</h5>
+                <h5  class="ms-2">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule">  </mat-icon>  {{risposta.tempoPreparazione}}</h5>   
+                <h5 class="ms-2"> <mat-icon>people</mat-icon>{{risposta.serving}}</h5>
+              </div>
+              
+             
+            </div>
+  
+          </div>
+      </div>
+  </div>
+  </div>
+

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Ingrediente } from 'src/app/model/ingrediente';
-import { IngredientiService } from 'src/app/services/ingredienti-service.service';
+import { IngredientiService } from 'src/app/services/ingredienti.service';
 
 @Component({
   selector: 'app-header-home',
@@ -10,18 +10,31 @@ import { IngredientiService } from 'src/app/services/ingredienti-service.service
 })
 export class HeaderHomeComponent {
 
-  ingredienti?: Ingrediente[];
+  // @Input() ingrediente?: Ingrediente;
 
-  constructor(private http:HttpClient, private ingredientiService:IngredientiService)
+  // ingredienti : any;
+
+  ingredienti? : Ingrediente[];
+
+  constructor(public ingredientiService:IngredientiService)
   {
-    this.http = http;
+    this.fechtIngredienti();
   }
 
   ngOnInit():void
   {
-    this.ingredientiService.getIngredienti();
-    console.log(this.ingredientiService.getIngredienti());
+    // this.ingredientiService.getIngredienti();
+    // console.log(this.ingredientiService.getIngredienti());
+
+   
+
+
   }
 
+  fechtIngredienti() : void {
+    this.ingredientiService.getIngredienti().subscribe((data: any[]) => {
+        this.ingredienti = data;
+    })
+  }
 
 }
