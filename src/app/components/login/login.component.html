@@ -13,7 +13,7 @@
             <button class="button submit">crea l'account</button>
           </form>
         </div>
-        <div class="signin" [ngClass]="{ 'nodisplay': !signinVisible }">
+        <div class="signin" [ngClass]="{' nodisplay': !signinVisible }">
           <h1>accedi</h1>
           <form class="more-padding" autocomplete="off" [formGroup]="formAccedi" (ngSubmit)="submitAccedi()">
             <input type="email" placeholder="username" formControlName="username">

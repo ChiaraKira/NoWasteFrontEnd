@@ -1,7 +1,5 @@
-<!-- <app-navbar></app-navbar>
-<app-home-page></app-home-page>
 
-<app-footer></app-footer>   -->
+<!-- <app-home-page></app-home-page> -->
 
 <!-- <app-dettaglio-ricetta></app-dettaglio-ricetta> -->
 
@@ -12,3 +10,11 @@
 <!-- <app-lista-ricette></app-lista-ricette> -->
 
 <!-- <app-login></app-login> -->
+
+<div *ngIf="isLoginPage">
+    <app-login></app-login>
+</div>
+
+<router-outlet></router-outlet>
+
+
