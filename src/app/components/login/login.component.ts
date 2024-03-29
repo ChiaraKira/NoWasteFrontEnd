@@ -15,6 +15,7 @@ export class LoginComponent {
   
   formRegistrati : FormGroup;
   formAccedi : FormGroup;
+  login : boolean = true;
 
   constructor(private http : HttpClient, private formBuilder : FormBuilder,
     private router : Router, private loginService : LoginService) {
@@ -39,17 +40,20 @@ export class LoginComponent {
     const formValues = this.formAccedi.value;
     const headers = {'Content-Type' : 'application/json'}
     const body = JSON.stringify(formValues);
+    console.log(body);
     this.http.post("http://localhost:8080/api/login/signin", body, {'headers' : headers}).subscribe(risposta => {
+      this.login = false;
       var loginStatus : LoginStatus = risposta as LoginStatus;
-      
+      console.log(loginStatus);
       sessionStorage.setItem("token", loginStatus.token)
-
+   
+     
       if(loginStatus.ruolo == "USER"){
         //Pagina user
-        this.router.navigateByUrl('/login'); //aggiunger route
+        alert("cojione");
+        this.router.navigateByUrl('home-page'); //aggiunger route
 
-      }
-      else if(loginStatus.ruolo == "ADMIN"){
+      } else if(loginStatus.ruolo == "ADMIN"){
         //Pagina ADMIN 
       }
 
