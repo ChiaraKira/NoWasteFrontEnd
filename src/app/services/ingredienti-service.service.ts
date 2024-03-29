@@ -6,14 +6,15 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class IngredientiServiceService {
+export class IngredientiService {
 
   ingredienti?: Ingrediente[] = [];
+  ingredientiRicetta?: Ingrediente[] = [];
 
   constructor(private http : HttpClient) { }
 
 
-  getIngredienti() : Observable <Ingrediente[]> {
+  getIngredienti(){
     var token = sessionStorage.getItem("token");
 
     if (!token) {
@@ -25,10 +26,12 @@ export class IngredientiServiceService {
       'token': token
     });
 
-    return this.http.get<Ingrediente[]>("http://localhost:8080/api/ingredients/allIngredients", { headers });
+      this.http.get("http://localhost:8080/api/ingredients/allIngredients", { headers }).subscribe(risposta => {
+      this.ingredienti = risposta as Ingrediente[]
+    });
   }
 
-  getIngredientiById(id : number) : Observable <Ingrediente> {
+  getIngredientiById(id : number){
     var token = sessionStorage.getItem("token");
 
     if (!token) {
@@ -40,7 +43,9 @@ export class IngredientiServiceService {
       'token': token
     });
 
-    return this.http.get<Ingrediente>("http://localhost:8080/api/ingredients/ingredientById?id=" + id, { headers });
+    return this.http.get("http://localhost:8080/api/ingredients/ingredientById?id=" + id, { headers }).subscribe(risposta => {
+      this.ingredientiRicetta = risposta as Ingrediente[]
+    });;
   }
   
 }
