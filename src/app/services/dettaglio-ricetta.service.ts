@@ -3,12 +3,17 @@ import { Ricetta } from '../model/ricetta';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class DettaglioRicettaService implements OnInit {
 
   @Input() ricetta?: Ricetta;
+  
+  
+  
 
   constructor(private http: HttpClient) {}
 
@@ -42,6 +47,8 @@ export class DettaglioRicettaService implements OnInit {
 
   
   getStep(){
-   var  ingredienti = this.ricetta?.ingredienti;
+   var  istruzioni = this.ricetta?.istruzioni.split("\n");
+   console.log(istruzioni);
+    //deve essere chiamato nell'html 
   }
 }
