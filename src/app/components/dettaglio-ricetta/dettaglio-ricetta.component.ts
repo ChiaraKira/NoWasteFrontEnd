@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Ricetta } from 'src/app/model/ricetta';
 import { DettaglioRicettaService } from 'src/app/services/dettaglio-ricetta.service';
-import { RicetteService } from 'src/app/services/ricette.service';
+
 
 @Component({
   selector: 'app-dettaglio-ricetta',
@@ -11,16 +10,30 @@ import { RicetteService } from 'src/app/services/ricette.service';
   styleUrls: ['./dettaglio-ricetta.component.css']
 })
 export class DettaglioRicettaComponent  {
+<<<<<<< HEAD
 ricetta: any;
+=======
 
 
-  // @Input() ricetta?: Ricetta;
+  // stringaDalBackend = this.ricetta?.istruzioni;
+  // arrayValori: string[] ;
 
-  // constructor(private http: HttpClient) {}
+  @Input() ricetta?: Ricetta;
+>>>>>>> 83a593e50d4aa0e07f0765cb27f9614d3f0e4d9a
 
-  // ngOnInit(): void {
-  //   this.getRicetta();
-  // }
+  constructor(private http: HttpClient, public dettaglioRicettaService: DettaglioRicettaService) {
+    // this.arrayValori? = this.stringaDalBackend.split("'\'") ;
+    
+
+  }
+
+  ngOnInit(): void {
+    this.dettaglioRicettaService.getRicetta();
+    // this.dettaglioRicettaService.getStep();
+    //da ciclare in html con indice incrementale in blocchi di div (ngfor con un ciclo che cicla getstep let step of getStep) 
+    //e un altro ciclo che gira in maniera incremetale 
+    
+  }
 
   // getRicetta(): void {
   //   var token = sessionStorage.getItem("token");
@@ -45,4 +58,9 @@ ricetta: any;
   //     }
   //   );
   // }
+
+
+ 
+  
+
 }
