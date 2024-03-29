@@ -10,7 +10,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricette', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},

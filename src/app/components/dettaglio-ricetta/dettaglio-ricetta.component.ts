@@ -10,12 +10,16 @@ import { DettaglioRicettaService } from 'src/app/services/dettaglio-ricetta.serv
   styleUrls: ['./dettaglio-ricetta.component.css']
 })
 export class DettaglioRicettaComponent  {
+<<<<<<< HEAD
+ricetta: any;
+=======
 
 
   // stringaDalBackend = this.ricetta?.istruzioni;
   // arrayValori: string[] ;
 
   @Input() ricetta?: Ricetta;
+>>>>>>> 83a593e50d4aa0e07f0765cb27f9614d3f0e4d9a
 
   constructor(private http: HttpClient, public dettaglioRicettaService: DettaglioRicettaService) {
     // this.arrayValori? = this.stringaDalBackend.split("'\'") ;

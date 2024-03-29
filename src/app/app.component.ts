@@ -23,7 +23,7 @@ export class AppComponent {
     });
     this.router.events.subscribe(evento => {
       if(evento instanceof NavigationEnd){
-        this.isLoginPage = evento.urlAfterRedirects === "/loginpage";
+        this.isLoginPage = evento.urlAfterRedirects === "/login";
       }
     });
   }
