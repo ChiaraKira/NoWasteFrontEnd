@@ -28,7 +28,7 @@ export class LoginService {
       if(check){
         if(token?.split("-")[0] == "USER"){
           //Pagina home-page
-          this.router.navigateByUrl('/no-waste');
+          this.router.navigateByUrl('home-page');
         }
         else if(token?.split("-")[0] == "ADMIN"){
           //alert("Sei un admin")
@@ -36,9 +36,15 @@ export class LoginService {
         }
       }
       else{
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('');
       }
     })
+  }
+
+  public logout()
+  {
+    sessionStorage.clear();
+    this.checkLogin();
   }
 
 }

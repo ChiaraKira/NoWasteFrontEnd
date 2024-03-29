@@ -50,7 +50,6 @@ export class LoginComponent {
      
       if(loginStatus.ruolo == "USER"){
         //Pagina user
-        alert("cojione");
         this.router.navigateByUrl('home-page'); //aggiunger route
 
       } else if(loginStatus.ruolo == "ADMIN"){

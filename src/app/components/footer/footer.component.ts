@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class FooterComponent {
   bubbles: any[] = [];
 
-  constructor(private http : HttpClient, private loginservice : LoginService) {
+  constructor(private http : HttpClient, public loginservice : LoginService) {
     // Genera i dati casuali per le bolle
     for (let i = 0; i < 128; i++) {
       const size = 2 + Math.random() * 4;
@@ -24,5 +24,10 @@ export class FooterComponent {
       this.http = http;
       this.loginservice.checkLogin();
     }
+  }
+
+  public logout()
+  {
+    this.loginservice.logout();
   }
 }
