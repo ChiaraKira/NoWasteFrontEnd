@@ -12,7 +12,7 @@ export class ListaRicetteComponent {
 
   ricette? : Ricetta[];
 
-  constructor( private http: HttpClient) { 
+  constructor( private http: HttpClient, public ricetteService: RicetteService) { 
   this.http = http;
     this.getAllRicette();
   }
