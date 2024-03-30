@@ -8,7 +8,7 @@ import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-w
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
-import { AreaAdminComponent } from './area-admin/area-admin.component';
+import { AreaAdminComponent } from './components/area-admin/area-admin.component';
 
 
 const routes: Routes = [
