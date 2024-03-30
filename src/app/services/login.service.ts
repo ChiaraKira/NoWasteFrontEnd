@@ -41,10 +41,13 @@ export class LoginService {
     })
   }
 
+  
   public logout()
   {
     sessionStorage.clear();
     this.checkLogin();
+    window.location.reload();
+    
   }
 
 }

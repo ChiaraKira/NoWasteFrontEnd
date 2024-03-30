@@ -21,7 +21,7 @@ export class AppComponent {
     console.log(this.token);
     this.router.events.subscribe(evento => {
       if(evento instanceof NavigationEnd){
-        this.isMainPage = evento.urlAfterRedirects === "/";
+        this.isMainPage = evento.urlAfterRedirects === "";
         this.isLoginPage = evento.urlAfterRedirects === "";
       }
     });

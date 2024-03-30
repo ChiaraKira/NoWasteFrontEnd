@@ -50,7 +50,8 @@ export class LoginComponent {
      
       if(loginStatus.ruolo == "USER"){
         //Pagina user
-        this.router.navigateByUrl('home-page'); //aggiunger route
+        this.router.navigateByUrl('home-page');
+        window.location.reload(); //aggiunger route
 
       } else if(loginStatus.ruolo == "ADMIN"){
         //Pagina ADMIN 
