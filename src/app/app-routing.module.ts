@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { DettaglioRicettaComponent } from './components/dettaglio-ricetta/dettaglio-ricetta.component';
 import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.component';
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
-import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
 import { AreaAdminComponent } from './area-admin/area-admin.component';
@@ -14,10 +13,9 @@ import { AreaAdminComponent } from './area-admin/area-admin.component';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'dettaglio-ricetta', component: DettaglioRicettaComponent},
+  {path: 'dettaglio-ricetta/:id', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},
   {path: 'no-waste', component: PaginaNoWasteComponent},
-  {path: 'portata', component: PaginaPortataComponent},
   {path: 'home-page', component: HomePageComponent},
   {path: 'ingredienti' , component: IngredientiComponent},
   {path: 'area-admin' , component: AreaAdminComponent},

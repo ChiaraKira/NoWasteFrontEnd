@@ -1,7 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Ingrediente } from 'src/app/model/ingrediente';
 import { Ricetta } from 'src/app/model/ricetta';
 import { DettaglioRicettaService } from 'src/app/services/dettaglio-ricetta.service';
+
 
 
 @Component({
@@ -9,52 +12,43 @@ import { DettaglioRicettaService } from 'src/app/services/dettaglio-ricetta.serv
   templateUrl: './dettaglio-ricetta.component.html',
   styleUrls: ['./dettaglio-ricetta.component.css']
 })
-export class DettaglioRicettaComponent  {
+export class DettaglioRicettaComponent  implements OnInit {
+  ricettaId!: number;
 
+ 
+  ricetta?: Ricetta;
+  ingredienti?: Ingrediente;
 
-  // stringaDalBackend = this.ricetta?.istruzioni;
-  // arrayValori: string[] ;
-
-  @Input() ricetta?: Ricetta;
-
-  constructor(private http: HttpClient, public dettaglioRicettaService: DettaglioRicettaService) {
-    // this.arrayValori? = this.stringaDalBackend.split("'\'") ;
+  constructor(private http: HttpClient, public dettaglioRicettaService: DettaglioRicettaService, private route : ActivatedRoute) {
+  
     
 
   }
-
   ngOnInit(): void {
-    this.dettaglioRicettaService.getRicetta();
+    this.ricettaId = this.route.snapshot.params['id'];
+    
+    this.getData();
+    this.dettaglioRicettaService.getSteps(this.ricetta!);
+    console.log(this.ricetta);
+    console.log(this.ricettaId);
     // this.dettaglioRicettaService.getStep();
     //da ciclare in html con indice incrementale in blocchi di div (ngfor con un ciclo che cicla getstep let step of getStep) 
     //e un altro ciclo che gira in maniera incremetale 
-    
+ 
   }
+  
+  getData(): void {
+    this.dettaglioRicettaService.getData(this.ricettaId)
+      .subscribe(data => {
+        // Fai qualcosa con i dati ottenuti dall'observable
+       this.ricetta=data;
+      });
+  }
+ 
 
-  // getRicetta(): void {
-  //   var token = sessionStorage.getItem("token");
 
-  //   if (!token) {
-  //     token = "admin-2";
-  //   }
-
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'token': token
-  //   });
-
-  //   const idRicetta = 2; // Assuming you want to fetch recipe with id 2
-
-  //   this.http.get<Ricetta>("http://localhost:8080/api/recipe/recipeById?id=" + idRicetta, { headers }).subscribe(
-  //     (response: Ricetta) => {
-  //       this.ricetta = response;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching recipe:', error);
-  //     }
-  //   );
-  // }
-
+  // per agg porzioni logica nel service a tempo di esecuzione scateno evento che fa calcolo da front senza salvare niente in db e senza tyoccate il backend
+  
 
  
   

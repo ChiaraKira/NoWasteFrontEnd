@@ -34,12 +34,13 @@ import { CommentoComponent } from './components/commento/commento.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
 
 import {MatListModule} from '@angular/material/list';
-import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { AreaAdminComponent } from './area-admin/area-admin.component';
+
+
 
 
 
@@ -62,12 +63,13 @@ import { AreaAdminComponent } from './area-admin/area-admin.component';
     FiltriComponent,
     CommentoComponent,
     IngredientiComponent,
-    PaginaPortataComponent,
     LoginComponent,
     ListaCommentiComponent,
     SceltaUtenteComponent,
     RispostaUtenteComponent,
-    AreaAdminComponent
+    AreaAdminComponent,
+
+   
   ],
   imports: [
     BrowserModule,

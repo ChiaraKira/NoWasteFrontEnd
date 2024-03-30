@@ -1,21 +1,35 @@
+
+<!-- <div class="form-group">
+  <label for="portata">Filtra per portata:</label>
+  <select class="form-control" id="portata" [(ngModel)]="portataSelezionata" (change)="filtroPerPortata()">
+    <option value="">Tutte le portate</option>
+    <option *ngFor="let portata of portate" [value]="portata">{{ portata }}</option>
+  </select>
+</div> -->
+
+
 <div class="card-container">
-<div class="card" *ngFor="let ricetta of ricette">
+<div class="card" *ngFor="let ricetta of ricette"  >
+  
     <div class="card--image-wrapper">
-        <img [src]="ricetta.linkRicetta" alt="{{ricetta.nome}}">
+      <img [src]="ricetta.linkRicetta" alt="{{ricetta.nome}}">
       <div class="card--view">
         <p>
-          <a routerLink="dettaglio-ricetta"></a>
-          View Recipe
+          <a [routerLink]="['/dettaglio-ricetta', ricetta.id]">
+            Vai alla ricetta
+          </a>    
         </p>
       </div>
-      <div class="card--image"></div>
+      <div class="card--image">
+        
+      </div>
     </div>
     <div class="card--content-wrapper">
       <h1 class="card--title">{{ricetta.nome}}</h1>
       <div class="card--recipe-info">
         <h2 class="card--recipe-category">Raccomanda NoWaste</h2>
         <p class="card--recipe-time">
-          <i class="fa fa-clock-o" aria-hidden="true"></i>{{ricetta.tempoPreparazione}}</p>
+          <i class="fa fa-clock-o" ></i>{{ricetta.tempoPreparazione}}</p>
       </div>
       <p class="card--description">{{ricetta.ingredienti}}</p>
       <div class="card--rating-wrapper">
