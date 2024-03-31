@@ -7,6 +7,8 @@ import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { PaginaPortataComponent } from './components/pagina-portata/pagina-portata.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
+import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,10 @@ const routes: Routes = [
   {path: 'dettaglio-ricette', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},
   {path: 'no-waste', component: PaginaNoWasteComponent},
-  {path: 'portata', component: PaginaPortataComponent}
+  {path: 'portata', component: PaginaPortataComponent},
+  // {path: 'rispostaUtente', component: RispostaUtenteComponent},
+  {path: 'sceltaUtente', component: SceltaUtenteComponent},
+
 ];
 
 

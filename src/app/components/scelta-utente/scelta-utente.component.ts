@@ -4,24 +4,37 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Ingrediente } from 'src/app/model/ingrediente';
 import { Ricetta } from 'src/app/model/ricetta';
 import { IngredientiService } from 'src/app/services/ingredienti.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-scelta-utente',
   templateUrl: './scelta-utente.component.html',
-  styleUrls: ['./scelta-utente.component.css']
+  styleUrls: ['./scelta-utente.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1600)),
+    ]),
+  ]
 })
 export class SceltaUtenteComponent {
 
   ingredienti? : Ingrediente[];
   ricetta? : Ricetta[];
   formSceltaUtente : FormGroup;
+  selectedValue: string = '';
 
   ris: Ricetta[] = [];
 
-  constructor(private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder)
+  constructor(private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router)
   {
    this.formSceltaUtente = this.formBuilder.group({});
    this.fechtIngredienti();
+   selectedValue: [''];
   }
 
   ngOnInit():void
@@ -65,10 +78,10 @@ export class SceltaUtenteComponent {
        this.ris  = risposta as Ricetta[];
       console.log(body);
        if(this.ris.length > 0){
-         //Pagina login
-        //  this.router.navigateByUrl('/'); // routing da rendirizzare al login
+        
+        this.router.navigateByUrl('rispostaUtente'); // routing da rendirizzare al login
         alert(" ricetta trovata");
-        console.log(formValues);
+        console.log(this.router);
        }
        else{
          alert("Nessuna ricetta trovata");
@@ -91,5 +104,13 @@ export class SceltaUtenteComponent {
 
   getRisposta() {
     return this.ris;
+  }
+
+  getObjectKeys(obj: any): string[] {
+    return Object.keys(obj);
+  }
+
+  onSelectChange(event: any) {
+    this.selectedValue = event.target.value;
   }
 }
