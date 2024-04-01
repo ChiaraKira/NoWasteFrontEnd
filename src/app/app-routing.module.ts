@@ -9,11 +9,13 @@ import { PaginaPortataComponent } from './components/pagina-portata/pagina-porta
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
 import { AreaAdminComponent } from './area-admin/area-admin.component';
+import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
+import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'login', component: LoginComponent},
+  // {path: '', component: LoginComponent},
+  // {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricetta', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},
   {path: 'no-waste', component: PaginaNoWasteComponent},
@@ -22,6 +24,10 @@ const routes: Routes = [
   {path: 'ingredienti' , component: IngredientiComponent},
   {path: 'area-admin' , component: AreaAdminComponent},
   {path: 'app-component' , component: AppComponent},
+  {path: 'sceltaUtente', component: SceltaUtenteComponent},
+  {path: 'rispostaUtente', component: RispostaUtenteComponent},
+
+
 ];
 
 

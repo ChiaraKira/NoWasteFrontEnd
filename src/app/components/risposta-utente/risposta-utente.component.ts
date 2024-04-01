@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SceltaUtenteComponent } from '../scelta-utente/scelta-utente.component';
 import { Ricetta } from 'src/app/model/ricetta';
+import { SceltaUtenteService } from 'src/app/services/scelta-utente.service';
 
 @Component({
   selector: 'app-risposta-utente',
@@ -9,9 +10,15 @@ import { Ricetta } from 'src/app/model/ricetta';
 })
 export class RispostaUtenteComponent {
 
-@Input() ris? : Ricetta[];
+  @Input() ris: Ricetta[] = [];
 
-  private constructor(){
 
+  public constructor(private sceltaUtenteService: SceltaUtenteService){
+  
+    this.sceltaUtenteService.setRisposta(this.ris);
+    this.sceltaUtenteService.getRisposta();
+    this.ris = this.sceltaUtenteService.getRisposta();
   }
+
+  
 }
