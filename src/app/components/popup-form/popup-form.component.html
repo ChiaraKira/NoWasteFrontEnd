@@ -1,0 +1,29 @@
+<div *ngIf="popupService.isOpen" class="popup">
+    <div class="form-popup">
+        <div class="container form-wrapper">
+            <button class="btn close-form" (click)="close()">Close</button>
+            <form id="my-form" novalidate="novalidate" [formGroup]="ingredienteForm" (ngSubmit)="add()">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1 class="form-title">Aggiungi Ingrediente</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" formControlName="nome">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="checkbox" name="senzaGlutine" value="senzaGlutine" formControlName="senzaGlutine">
+                        <label for="senzaGlutine">Senza glutine</label>
+                        <input type="checkbox" name="vegetariano" value="vegetariano"  formControlName="vegetariano">
+                        <label for="vegetariano">Vegetariano</label>
+                        <input type="checkbox" name="vegano" value="vegano"  formControlName="vegano" >
+                        <label for="Vegano">Vegano</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn send-form">Aggiungi</button>
+            </form>
+        </div>
+    </div>
+  </div>
