@@ -40,7 +40,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
-import { AreaAdminComponent } from './area-admin/area-admin.component';
+import { AreaAdminComponent } from './components/area-admin/area-admin.component';
 
 
 
