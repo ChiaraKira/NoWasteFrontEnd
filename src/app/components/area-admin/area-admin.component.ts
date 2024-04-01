@@ -22,6 +22,7 @@ export class AreaAdminComponent {
 
   currentStep = 1;
   ingredienti! : Ingrediente[];
+  ingredientiSelezionati: Ingrediente[] = [];
   //ingredientiCheck : RicettaIngrediente[];
 
   constructor(private popupService:AddIngredientiPopupService, private http : HttpClient){
@@ -57,7 +58,7 @@ export class AreaAdminComponent {
     if (this.currentStep < 3) {
       this.currentStep++;
       if(this.currentStep == 2){
-        
+       
       }
     }
   }
@@ -72,4 +73,28 @@ export class AreaAdminComponent {
     this.popupService.open();
   }
   
+
+  selezionaIngrediente(ingrediente: Ingrediente, event: any) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement && inputElement.checked !== undefined) {
+      const isChecked = inputElement.checked;
+      if (isChecked) {
+        this.ingredientiSelezionati.push(ingrediente);
+      } else {
+        const index = this.ingredientiSelezionati.findIndex(i => i === ingrediente);
+        if (index !== -1) {
+          this.ingredientiSelezionati.splice(index, 1);
+        }
+      }
+    }
+  }
+  
+  inviaRicetta(){
+   
+  }
+  
+
+
 }
+
+
