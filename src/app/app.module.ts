@@ -40,6 +40,7 @@ import { ListaCommentiComponent } from './components/lista-commenti/lista-commen
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { AreaAdminComponent } from './components/area-admin/area-admin.component';
+import { PopupFormComponent } from './components/popup-form/popup-form.component';
 
 
 
@@ -67,7 +68,8 @@ import { AreaAdminComponent } from './components/area-admin/area-admin.component
     ListaCommentiComponent,
     SceltaUtenteComponent,
     RispostaUtenteComponent,
-    AreaAdminComponent
+    AreaAdminComponent,
+    PopupFormComponent
   ],
   imports: [
     BrowserModule,
