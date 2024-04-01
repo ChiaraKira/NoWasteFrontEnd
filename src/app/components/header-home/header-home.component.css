@@ -7,6 +7,64 @@
 
 
 
+  
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  
+
+  .colore{
+    background-color: #7EAA5F !important;
+  }
+
+  .waveContainer{
+    height: 100vh;
+   
+    z-index: -9999;
+  }
+  .viewBox{
+    height: 100%;
+    width: 100%;
+    z-index: -9999;
+  }
+  .path{
+    stroke: none;
+    fill: rgb(237, 115, 115);
+    z-index: -9999;
+  }
+
+  .bgC{
+    z-index: 9999;
+    position: fixed;
+  }
+
+
+
+
 
 
 

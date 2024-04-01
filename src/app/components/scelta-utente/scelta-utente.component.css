@@ -1,6 +1,15 @@
 .example-section {
     margin: 12px 0;
   }
+
+/* .bgC{
+  background-image: url(/assets/img/verdure-disposte-da-sinistra-a-destra-su-bianco.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+ 
+} */
+
   
 p{
   font-family: "Signika", sans-serif;
