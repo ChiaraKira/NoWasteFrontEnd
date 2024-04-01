@@ -18,6 +18,22 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
           style({ opacity: 1, offset: 1 })
         ]))
       ])
+    ]),
+    trigger('plateAnimation', [
+      state('out', style({
+        transform: 'scale(0)',
+        opacity: 0
+      })),
+      state('in', style({
+        transform: 'scale(1)',
+        opacity: 1
+      })),
+      transition('out => in', [
+        animate('0.5s')
+      ]),
+      transition('in => out', [
+        animate('0.5s')
+      ])
     ])
   ]
 })
@@ -26,6 +42,10 @@ export class HeaderHomeComponent {
   // @Input() ingrediente?: Ingrediente;
 
   // ingredienti : any;
+  animationState: string = 'in';
+  plates: string[] = ['assets/img/piatto1.png',  'assets/img/piatto1.png','assets/img/piatto2.png',  'assets/img/piatto2.png'];
+  currentPlateIndex: number = 0;
+  intervalId: any;
 
   ingredienti? : Ingrediente[];
 
@@ -41,10 +61,14 @@ export class HeaderHomeComponent {
   {
     // this.ingredientiService.getIngredienti();
     // console.log(this.ingredientiService.getIngredienti());
-
+    this.startAutoChange();
    
 
 
+  }
+
+  ngOnDestroy(): void {
+    this.stopAutoChange();
   }
 
   fechtIngredienti() : void {
@@ -64,5 +88,25 @@ export class HeaderHomeComponent {
     }, 100);
   }
 
+  togglePlate() {
+    this.animationState = (this.animationState === 'in' ? 'out' : 'in');
+    setTimeout(() => {
+      this.nextPlate();
+    }, 500); // Imposta il timeout in base alla durata dell'animazione
+  }
+
+  nextPlate() {
+    this.currentPlateIndex = (this.currentPlateIndex + 1) % this.plates.length;
+  }
+
+  startAutoChange() {
+    this.intervalId = setInterval(() => {
+      this.togglePlate();
+    }, 2000); // Cambia l'immagine ogni 3 secondi, puoi regolare l'intervallo a tuo piacimento
+  }
+
+  stopAutoChange() {
+    clearInterval(this.intervalId);
+  }
  
 }

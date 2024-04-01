@@ -4,7 +4,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Ingrediente } from 'src/app/model/ingrediente';
 import { Ricetta } from 'src/app/model/ricetta';
 import { IngredientiService } from 'src/app/services/ingredienti.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, keyframes, transition } from '@angular/animations';
+
 import { Router } from '@angular/router';
 
 
@@ -19,9 +20,23 @@ import { Router } from '@angular/router';
       })),
       transition('void <=> *', animate(1600)),
     ]),
+   trigger('slideInOut', [
+      transition(':enter', [
+        style({ transform: 'translateX(-100%)', opacity: 0 }), // Elementi entrano da sinistra
+        animate('800ms ease-in-out', style({ transform: 'translateX(0)', opacity: 1 }))
+      ]),
+      transition(':leave', [
+        animate('800ms ease-in-out', style({ transform: 'translateX(100%)', opacity: 0 })) // Elementi escono verso destra
+      ])
+    ]),
   ]
 })
+
+
+
 export class SceltaUtenteComponent {
+
+  shakeState = 'inactive';
 
   ingredienti? : Ingrediente[];
   ricetta? : Ricetta[];
@@ -79,8 +94,8 @@ export class SceltaUtenteComponent {
       console.log(body);
        if(this.ris.length > 0){
         
-        this.router.navigateByUrl('rispostaUtente'); // routing da rendirizzare al login
-        alert(" ricetta trovata");
+        this.router.navigate(['/rispostaUtente']);
+
         console.log(this.router);
        }
        else{
@@ -112,5 +127,10 @@ export class SceltaUtenteComponent {
 
   onSelectChange(event: any) {
     this.selectedValue = event.target.value;
+  }
+
+  startShakeAnimation() {
+    this.shakeState = 'active';
+    setTimeout(() => this.shakeState = 'inactive', 500);
   }
 }

@@ -67,7 +67,9 @@ export class SceltaUtenteService {
       console.log(body);
        if(this.ris.length > 0){
         
-        this.router.navigateByUrl('rispostaUtente'); // routing da rendirizzare al login
+              
+        this.router.navigate(['/rispostaUtente']);
+
         alert(" ricetta trovata");
         console.log(this.router);
        }
@@ -101,6 +103,12 @@ export class SceltaUtenteService {
   onSelectChange(event: any) {
     this.selectedValue = event.target.value;
   }
+
+  navigateToAbout() {
+    this.router.navigate(['/rispostaUtente']);
+  }
+
 }
+
 
 
