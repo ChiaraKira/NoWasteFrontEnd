@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Ingrediente } from 'src/app/model/ingrediente';
+import { AddIngredientiPopupService } from 'src/app/services/add-ingredienti-popup.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 
 @Component({
   selector: 'app-area-admin',
@@ -17,30 +21,44 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class AreaAdminComponent {
 
   currentStep = 1;
+  ingredienti! : Ingrediente[];
+  //ingredientiCheck : RicettaIngrediente[];
 
-  steps = [
-    { title: 'Crea ricetta', subtitle: 'Aggiungi la tua ricetta', fields: [
-      { type: 'text', name: 'nome', placeholder: 'Nome Ricetta' },
-      { type: 'text', name: 'istruzioni', placeholder: 'Istruzioni' },
-      { type: 'text', name: 'portata', placeholder: 'Primo piatto..' },
-      { type: 'number', name: 'difficolta', placeholder: '1', min: '1', max: '3'},
-      {type: 'number', name: 'difficolta', placeholder: '1', min: '10', max: '180'}
-    ]},
-    { title: 'Social Profiles', subtitle: 'Your presence on the social network', fields: [
-      { type: 'text', name: 'twitter', placeholder: 'Twitter' },
-      { type: 'text', name: 'facebook', placeholder: 'Facebook' },
-      { type: 'text', name: 'gplus', placeholder: 'Google Plus' }
-    ]},
-    { title: 'Create your account', subtitle: 'Fill in your credentials', fields: [
-      { type: 'text', name: 'email', placeholder: 'Email' },
-      { type: 'password', name: 'pass', placeholder: 'Password' },
-      { type: 'password', name: 'cpass', placeholder: 'Confirm Password' }
-    ]}
-  ];
+  constructor(private popupService:AddIngredientiPopupService, private http : HttpClient){
+    this.popupService.ingredienteAggiunto.subscribe( newIngrediente => 
+      this.ingredienti.push(newIngrediente));
+      this.getIngredienti();
+
+
+  }
+
+
+  getIngredienti(){
+
+    var token =  sessionStorage.getItem('token');
+
+    if(token == null){
+      token = "admin-2";
+    }
+
+    const headers = new HttpHeaders(
+      {'Content-Type' : 'application/json', 'token' : token as string}
+      );
+
+    this.http.get("http://localhost:8080/api/ingredients/allIngredients", {headers}).subscribe(risposta => {
+      
+      this.ingredienti = risposta as Ingrediente[];
+    
+
+    })
+  }
 
   nextStep() {
-    if (this.currentStep < this.steps.length) {
+    if (this.currentStep < 3) {
       this.currentStep++;
+      if(this.currentStep == 2){
+        
+      }
     }
   }
 
@@ -49,4 +67,9 @@ export class AreaAdminComponent {
       this.currentStep--;
     }
   }
+  
+  aggiungiIngrediente(){
+    this.popupService.open();
+  }
+  
 }
