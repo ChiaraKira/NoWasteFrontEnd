@@ -31,7 +31,7 @@
         <p class="card--recipe-time">
           <i class="fa fa-clock-o"  ></i>{{ricetta.tempoPreparazione}} min</p>
       </div>
-      <span class="card--description" *ngFor="let ingrediente of ricetta?.ingrediente">
+      <span class="card--description" *ngFor="let ingrediente of ricetta?.ingredienti">
         {{ingrediente.ingrediente.nome}} -
       </span>
       <div class="card--rating-wrapper">
