@@ -45,12 +45,12 @@
     </div>
 </div>
 
-<div class="container-fluid" >
+<div class="container-fluid vh-100"  >
     <div class="row " >
         <div class="col-8 d-flex justify-content-start align-items-center   flex-column ">
             <h2 class="bg-light p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
             <div class="entries ">
-  <div class="entry line" *ngFor="let step of dettaglioRicettaService.getSteps(ricetta!); let i = index">
+  <div class="entry line" *ngFor="let step of dettaglioRicettaService.getSteps(ricetta); let i = index">
     <div class="title"> Step {{i + 1}}</div>
     <div class="body">
       <p>{{step}}</p>
@@ -62,10 +62,10 @@
            <div class="row d-flex justify-content-end align-items-center flex-column">
             <h2 class=" p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt" > </mat-icon> Ingredienti</h2>
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingredienti">
-                {{ ingrediente }}
+              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingrediente">
+                {{ ingrediente?.ingrediente?.nome }} - {{ ingrediente?.quantita }} {{ ingrediente?.unitaMisura }}
               </li>
-            </ul>
+            </ul> 
            </div>
             
            <div class="row d-flex justify-content-end align-items-end flex-column h-25 bordo">
@@ -78,9 +78,20 @@
            </div>
            <div class="row w-100 d-flex justify-content-start align-items-center mt-5">
             <div class="col-12 bgC">
-             
+              <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="text-area" class="form-label">Inserisci un commento</label>
+                        <textarea class="form-control mb-2" aria-label="With textarea"></textarea>
+                    </div> 
+                    <div class="col-12 d-flex justify-content-end ">
+                        <button type="submit" mat-flat-button color="warn">Invia</button>
+                    </div>
+                       
+                  
+                </div>
+            </div>
               <!-- <app-commento></app-commento> -->
-            
             </div>
             <div class="col-12 bordo mt-5 ">
             

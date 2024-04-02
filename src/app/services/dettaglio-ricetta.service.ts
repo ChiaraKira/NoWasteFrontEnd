@@ -16,32 +16,9 @@ export class DettaglioRicettaService implements OnInit {
 
   ngOnInit(): void {
    
+
   }
 
-  // getRicetta(id: number): Ricetta {
-  //   var token = sessionStorage.getItem("token");
-  
-  //   if (!token) {
-  //     token = "admin-2";
-  //   }
-  
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'token': token
-  //   });
-  
-  //   let ricetta: Ricetta;
-  
-  //   this.http.get("http://localhost:8080/api/recipe/recipeById?id=" + id, { headers }).subscribe(
-  //     (response: Ricetta) => {
-  //       ricetta = response;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching recipe:', error);
-  //     }
-  //   );
-  
-  // }
 
   getData(id : number): Observable<any> {
     var token = sessionStorage.getItem("token");
@@ -60,6 +37,7 @@ export class DettaglioRicettaService implements OnInit {
         return of([]); // or any default value/error handling strategy
       })
     );
+    
   }
 
   
@@ -70,6 +48,10 @@ export class DettaglioRicettaService implements OnInit {
     }
     return [];
   }
+
+  // getingredienti() : string[] {
+  //   return this.ricetta?.ingredienti;
+  // }
 
 
 }

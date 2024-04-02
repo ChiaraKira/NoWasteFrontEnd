@@ -10,6 +10,6 @@ export interface Ricetta {
     tempoPreparazione: number;
     serving: number;
     linkRicetta: string;
-    ingredienti: RicettaIngrediente[];
+    ingrediente: RicettaIngrediente[];
     commenti: Commento[];
 }

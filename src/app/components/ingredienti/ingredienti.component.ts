@@ -15,11 +15,12 @@ export class IngredientiComponent {
 
   ricetta? : Ricetta[];
   ingredienti? : Ingrediente[];
+  listaIngredienti =  [];
 
   constructor(private http : HttpClient, public ingredientiService : IngredientiService ) { }
 
   // onInit() {
-  //   this.ingredienti = this.ingredientiService.getIngredienti();
+  //   this.listaIngredienti= this.ricetta?.getIngredienti();
     
   // }
 }
