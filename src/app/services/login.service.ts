@@ -33,6 +33,7 @@ export class LoginService {
         else if(token?.split("-")[0] == "ADMIN"){
           //alert("Sei un admin")
           //routing admin
+          this.router.navigateByUrl('area-admin');
         }
       }
       else{
