@@ -38,13 +38,13 @@ export class ListaRicetteComponent {
       this.ricette = risposta as Ricetta[];
     }); 
   }
-  // filtroPerPortata() {
-  //   if (this.portataSelezionata) {
-  //     this.ricette = this.ricetteService.getRicettePerPortata(this.portataSelezionata);
-  //   } else {
-  //     this.getAllRicette();
-  //   }
-  // }
+  filtroPerPortata() {
+    if (this.portataSelezionata) {
+      this.ricette = this.ricetteService.getRicettePerPortata(this.portataSelezionata);
+    } else {
+      this.getAllRicette();
+    }
+  }
 
 }
 

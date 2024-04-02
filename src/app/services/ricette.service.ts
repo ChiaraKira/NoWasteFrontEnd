@@ -36,7 +36,7 @@ export class RicetteService {
     })
   }
 
-  // getRicettePerPortata(portata: string): Ricetta[] {
-  //   return this.ricette.filter(ricetta => ricetta.portata === portata);
-  // }
+  getRicettePerPortata(portata: string): Ricetta[] {
+    return this.ricette.filter(ricetta => ricetta.portata === portata);
+  }
 }
