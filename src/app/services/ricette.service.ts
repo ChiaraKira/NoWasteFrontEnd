@@ -7,7 +7,7 @@ import { Ricetta } from '../model/ricetta';
 })
 export class RicetteService {
 
-  ricette?: Ricetta[] = [];
+  ricette: Ricetta[] = [];
 
   constructor(private http : HttpClient) {
     this.http = http;
@@ -34,5 +34,9 @@ export class RicetteService {
     this.http.get("http://localhost:8080/api/recipe/allRecipes", {headers}).subscribe(risposta =>{
       this.ricette = risposta as Ricetta[];
     })
+  }
+
+  getRicettePerPortata(portata: string): Ricetta[] {
+    return this.ricette.filter(ricetta => ricetta.portata === portata);
   }
 }
