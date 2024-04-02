@@ -6,7 +6,7 @@ import { Ricetta } from 'src/app/model/ricetta';
 import { IngredientiService } from 'src/app/services/ingredienti.service';
 import { trigger, state, style, animate, keyframes, transition } from '@angular/animations';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -45,7 +45,7 @@ export class SceltaUtenteComponent {
 
   ris: Ricetta[] = [];
 
-  constructor(private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router)
+  constructor(private route : ActivatedRoute , private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router)
   {
    this.formSceltaUtente = this.formBuilder.group({});
    this.fechtIngredienti();

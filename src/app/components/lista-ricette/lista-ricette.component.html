@@ -12,7 +12,7 @@
 <div class="card" *ngFor="let ricetta of ricette"  >
   
     <div class="card--image-wrapper">
-      <img [src]="ricetta.linkRicetta" alt="{{ricetta.nome}}">
+      <img [src]="ricetta.linkImmagine" alt="{{ricetta.nome}}">
       <div class="card--view">
         <p>
           <a [routerLink]="['/dettaglio-ricetta', ricetta.id]">
