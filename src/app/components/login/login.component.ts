@@ -46,7 +46,7 @@ export class LoginComponent {
       var loginStatus : LoginStatus = risposta as LoginStatus;
       console.log(loginStatus);
       sessionStorage.setItem("token", loginStatus.token)
-   
+      console.log(sessionStorage.getItem("token"));
      
       if(loginStatus.ruolo == "USER"){
         //Pagina user

@@ -43,15 +43,16 @@ export class HeaderHomeComponent {
 
   // ingredienti : any;
   animationState: string = 'in';
-  plates: string[] = [ 'assets/img/piatto2.png',  'assets/img/piatto2.png'];
+  plates: string[] = [ 'assets/img/piatto1.png','assets/img/piatto1.png','assets/img/piatto2.png',  'assets/img/piatto2.png'];
   currentPlateIndex: number = 0;
   intervalId: any;
 
   ingredienti? : Ingrediente[];
 
   text = '';
-  constructor(public ingredientiService:IngredientiService)
+  constructor(public ingredientiService:IngredientiService, public http: HttpClient)
   {
+    this.http = http;
     this.fechtIngredienti();
     this.typeWriterEffect("Cerca una ricetta con gli ingredienti a tua disposizione!!");
 

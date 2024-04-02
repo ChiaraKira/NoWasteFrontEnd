@@ -16,8 +16,6 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricetta/:id', component: DettaglioRicettaComponent},
-  // {path: '', component: LoginComponent},
-  // {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricetta', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},
   {path: 'no-waste', component: PaginaNoWasteComponent},
@@ -25,8 +23,8 @@ const routes: Routes = [
   {path: 'ingredienti' , component: IngredientiComponent},
   {path: 'area-admin' , component: AreaAdminComponent},
   {path: 'app-component' , component: AppComponent},
-  {path: 'sceltaUtente', component: SceltaUtenteComponent},
-  {path: 'rispostaUtente', component: RispostaUtenteComponent},
+  {path: 'scelta-utente', component: SceltaUtenteComponent},
+  {path: 'risposta-utente', component: RispostaUtenteComponent},
 
 
 ];

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 banner d-flex justify-content-center align-items-center">
-            <h2 class="recipe--title"> {{ricetta?.nome}}</h2>
+            <h2 class="recipe--title"> {{ricetta.nome}}</h2>
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
             <div class="row d-flex justify-content-center align-items-center m-2">
                 <div class="col-4">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
-                    <p>{{ricetta?.tempoPreparazione}}</p>
+                    <p>{{ricetta.tempoPreparazione}}</p>
                 </div>
                 <div class="col-3 d-flex justify-content-center align-items-end">
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
@@ -48,7 +48,7 @@
 <div class="container-fluid vh-100"  >
     <div class="row " >
         <div class="col-8 d-flex justify-content-start align-items-center   flex-column ">
-            <h2 class="bg-light p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
+            <h2 class="bg-white p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
             <div class="entries ">
   <div class="entry line" *ngFor="let step of dettaglioRicettaService.getSteps(ricetta); let i = index">
     <div class="title"> Step {{i + 1}}</div>
@@ -62,7 +62,7 @@
            <div class="row d-flex justify-content-end align-items-center flex-column">
             <h2 class=" p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt" > </mat-icon> Ingredienti</h2>
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingrediente">
+              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingredienti">
                 {{ ingrediente?.ingrediente?.nome }} - {{ ingrediente?.quantita }} {{ ingrediente?.unitaMisura }}
               </li>
             </ul> 
@@ -78,18 +78,19 @@
            </div>
            <div class="row w-100 d-flex justify-content-start align-items-center mt-5">
             <div class="col-12 bgC">
-              <div class="container">
+              <!-- <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <label for="text-area" class="form-label">Inserisci un commento</label>
+                    <div class="col-12"  [formGroup]="formCommento">
+                     
+                        <label for="text-area" class="form-label" >Inserisci un commento</label>
                         <textarea class="form-control mb-2" aria-label="With textarea"></textarea>
                     </div> 
                     <div class="col-12 d-flex justify-content-end ">
-                        <button type="submit" mat-flat-button color="warn">Invia</button>
+                        <button type="submit" mat-flat-button color="warn" (click)="submitCommento()">Invia</button>
                     </div>
                        
                   
-                </div>
+                </div> -->
             </div>
               <!-- <app-commento></app-commento> -->
             </div>

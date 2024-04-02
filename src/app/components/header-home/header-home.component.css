@@ -47,19 +47,20 @@
     z-index: -9999;
   }
   .viewBox{
-    height: 100%;
-    width: 100%;
+
     z-index: -9999;
+    margin-top: -400px;
   }
   .path{
     stroke: none;
     fill: rgb(237, 115, 115);
     z-index: -9999;
+   
   }
 
   .bgC{
     z-index: 9999;
-    position: relative;
+    
   }
 
 

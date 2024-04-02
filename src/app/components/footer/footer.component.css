@@ -68,9 +68,9 @@
 
 
 @keyframes bubble-size {
-0%, 75% {
-    width:var(--size, 400rem);
-    height:var(--size, 4000rem);
+0%, 45% {
+    width:var(--size, 40px);
+    height:var(--size, 40px);
 }
 100% {
     width:0rem;
@@ -82,6 +82,6 @@
     bottom:-4rem;
 }
 100% {
-    bottom:var(--distance, 1rem);
+    bottom:var(--distance, 10px);
 }
 }
