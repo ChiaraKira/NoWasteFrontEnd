@@ -96,9 +96,9 @@ export class SceltaUtenteComponent {
       console.log(body);
        if(this.ris.length > 0){
         
-        this.router.navigate(['/rispostaUtente']);
+        // this.router.navigate(['/rispostaUtente']);
 
-        console.log(this.router);
+        // console.log(this.router);
        }
        else{
          alert("Nessuna ricetta trovata");
