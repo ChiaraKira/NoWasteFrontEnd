@@ -45,11 +45,7 @@ export class SceltaUtenteComponent {
 
   ris: Ricetta[] = [];
 
-<<<<<<< HEAD
-  constructor(private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router, private route : ActivatedRoute )
-=======
   constructor(private route : ActivatedRoute , private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router)
->>>>>>> 9c74dcb15ddd4875f430fb507e211ddf4ff1b255
   {
    this.formSceltaUtente = this.formBuilder.group({});
    this.fechtIngredienti();
@@ -98,9 +94,9 @@ export class SceltaUtenteComponent {
       console.log(body);
        if(this.ris.length > 0){
         
-        this.router.navigate(['/rispostaUtente']);
+        // this.router.navigate(['/rispostaUtente']);
 
-        console.log(this.router);
+        // console.log(this.router);
        }
        else{
          alert("Nessuna ricetta trovata");
