@@ -1,20 +1,96 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <form id="msform">
-            <!-- progressbar -->
-            <ul id="progressbar">
-                <li [ngClass]="{'active': currentStep === 1}">Crea Ricetta</li>
-                <li [ngClass]="{'active': currentStep === 2}">Aggiungi ingredienti</li>
-                <li [ngClass]="{'active': currentStep === 3}">Scegli quantità</li>
-            </ul>
             <!-- fieldsets -->
-            <fieldset *ngFor="let step of steps; let i = index" [@fadeInOut]="'in'" [style.display]="currentStep == i + 1 ? 'block' : 'none'">
-                <h2 class="fs-title">{{ step.title }}</h2>
-                <h3 class="fs-subtitle">{{ step.subtitle }}</h3>
-                <input *ngFor="let field of step.fields" type="{{ field.type }}" name="{{ field.name }}" placeholder="{{ field.placeholder }}" min="{{field.min}}" max="{{field.max}}"/>
-                <input *ngIf="currentStep !== 1" type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="prevStep()"/>
-                <input *ngIf="currentStep !== steps.length" type="button" name="next" class="next action-button" value="Next" (click)="nextStep()"/>
-                <input *ngIf="currentStep === steps.length" type="submit" name="submit" class="submit action-button" value="Submit"/>
+            <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
+                <input type="text" name="nome" placeholder="Nome Ricetta">
+                <textarea name="istruzioni" id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.."></textarea>
+                <div class="row d-flex">
+                    <div class="col">
+                        <label for="portata">Portata: </label>
+                        <select name="portata" >
+                            <option value="Primo piatto">Primo</option>
+                            <option value="Secondo piatto">Secondo</option>
+                            <option value="Dolce">Dolce</option>
+                            <option value="Contorno">Contorno</option>
+                        </select>
+                    </div>
+                    <div class="col d-flex">
+                        <label for="difficolta" id="difficolta">Difficoltà:</label>
+                        <input type="radio" name="difficolta" value ="1">
+                        <label for="1">Facile</label>
+                        <input type="radio" name="difficolta" value="2">
+                        <label for="2">Medio</label>
+                        <input type="radio" name="difficolta" value="3">
+                        <label for="3">Difficile</label>
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="col">
+                        <label for="serving">Numero Persone: </label>
+                        <select name="serving" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="tempoPreparazione">Tempo Preparazione: </label>
+                        <input type="number" min="5" step="5" name="tempoPreparazione">
+                    </div>
+                </div>
+                <input type="button" name="next" class="next action-button" value="Next" (click)="nextStep()"/>
+            </fieldset>
+            <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">
+                <div class="row d-flex">
+                    <div class="col">
+                        <ul>
+                            <li *ngFor="let ingrediente of ingredienti">
+                                <input type="checkbox" name="{{ingrediente.nome}}" value="{{ingrediente.nome}}" (change)="selezionaIngrediente(ingrediente, $event)">
+                                <label for="{{ingrediente.nome}}">{{ingrediente.nome}}</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <button type="button" (click)="aggiungiIngrediente()">Aggiungi ingrediente</button>
+                    </div>
+                </div>
+                
+                <input  type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="prevStep()"/>
+                <input  type="button" name="next" class="next action-button" value="Next" (click)="nextStep()"/>
+            </fieldset>
+
+            <app-popup-form></app-popup-form>
+
+            <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 3 ? 'block' : 'none'">
+
+                <div class="row d-flex">
+                    <div class="col">
+                        <ul>
+                            <li *ngFor="let iCheck of ingredientiSelezionati">    
+                                {{iCheck.nome}}
+                                <input type="number" name="quantita" min="1" >
+                                <select name="unitaMisura">
+                                    <option value="g">g</option>
+                                    <option value="kg">kg</option>
+                                    <option value="ml">ml</option>
+                                    <option value="l">l</option>
+                                    <option value="cucchiaino">cucchiaino</option>
+                                    <option value="cucchiaio">cucchiaio</option>
+                                    <option value="pizzico">pizzico</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <input  type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="prevStep()"/>
+                <input  type="submit" name="submit" class="submit action-button" value="Invia Ricetta" (click)="inviaRicetta()"/>
             </fieldset>
         </form>
     </div>

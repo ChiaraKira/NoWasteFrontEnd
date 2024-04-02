@@ -54,6 +54,8 @@ export class LoginComponent {
         window.location.reload(); //aggiunger route
 
       } else if(loginStatus.ruolo == "ADMIN"){
+        this.router.navigateByUrl('area-admin');
+        window.location.reload();
         //Pagina ADMIN 
       }
 

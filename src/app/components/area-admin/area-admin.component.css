@@ -196,3 +196,11 @@ body {
     background: #C5C5F1;
     text-decoration: none;
 }
+
+#difficolta{
+    font-weight: 500;
+}
+
+label[for="1"], label[for="2"], label[for="3"]  {
+    font-weight: 300;
+}
