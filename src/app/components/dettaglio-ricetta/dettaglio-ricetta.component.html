@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 banner d-flex justify-content-center align-items-center">
-            <h2 class="recipe--title"> {{ricetta?.nome}}</h2>
+            <h2 class="recipe--title"> {{ricetta.nome}}</h2>
         </div>
     </div>
 </div>
@@ -12,7 +12,7 @@
             <div class="row d-flex justify-content-center align-items-center m-2">
                 <div class="col-4">
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
-                    <p>{{ricetta?.tempoPreparazione}}</p>
+                    <p>{{ricetta.tempoPreparazione}}</p>
                 </div>
                 <div class="col-3 d-flex justify-content-center align-items-end">
                    <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star" class="mb-5">  </mat-icon>  </span> 
@@ -48,7 +48,7 @@
 <div class="container-fluid vh-100"  >
     <div class="row " >
         <div class="col-8 d-flex justify-content-start align-items-center   flex-column ">
-            <h2 class="bg-light p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
+            <h2 class="bg-white p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu_book" > </mat-icon> Procedimento </h2>
             <div class="entries ">
   <div class="entry line" *ngFor="let step of dettaglioRicettaService.getSteps(ricetta); let i = index">
     <div class="title"> Step {{i + 1}}</div>

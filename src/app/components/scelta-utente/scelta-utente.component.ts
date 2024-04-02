@@ -45,7 +45,7 @@ export class SceltaUtenteComponent {
 
   ris: Ricetta[] = [];
 
-  constructor(private route : ActivatedRoute , private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router)
+  constructor(private http:HttpClient, public ingredientiService:IngredientiService, private formBuilder:FormBuilder, private router:Router, private route : ActivatedRoute )
   {
    this.formSceltaUtente = this.formBuilder.group({});
    this.fechtIngredienti();
