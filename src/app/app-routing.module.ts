@@ -7,7 +7,7 @@ import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
-import { AreaAdminComponent } from './area-admin/area-admin.component';
+import { AreaAdminComponent } from './components/area-admin/area-admin.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 
@@ -16,8 +16,6 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricetta/:id', component: DettaglioRicettaComponent},
-  // {path: '', component: LoginComponent},
-  // {path: 'login', component: LoginComponent},
   {path: 'dettaglio-ricetta', component: DettaglioRicettaComponent},
   {path: 'lista-ricette', component: ListaRicetteComponent},
   {path: 'no-waste', component: PaginaNoWasteComponent},

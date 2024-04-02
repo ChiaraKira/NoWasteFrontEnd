@@ -62,7 +62,7 @@
            <div class="row d-flex justify-content-end align-items-center flex-column">
             <h2 class=" p-5">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt" > </mat-icon> Ingredienti</h2>
             <ul class="list-group">
-              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingrediente">
+              <li class="list-group-item" *ngFor="let ingrediente of ricetta?.ingredienti">
                 {{ ingrediente?.ingrediente?.nome }} - {{ ingrediente?.quantita }} {{ ingrediente?.unitaMisura }}
               </li>
             </ul> 

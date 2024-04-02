@@ -1,14 +1,15 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <form id="msform">
-            <!-- fieldsets -->
+        <form id="msform" [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
+            <!-- fieldsets ossia un gruppo di form sotto uno stesso unico form name(form padre)-->
             <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
-                <input type="text" name="nome" placeholder="Nome Ricetta">
-                <textarea name="istruzioni" id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.."></textarea>
+                <h2>Inserimento Ricetta</h2>
+                <input type="text" placeholder="Nome Ricetta" formControlName="nome">
+                <textarea id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.." formControlName="istruzioni"></textarea>
                 <div class="row d-flex">
                     <div class="col">
                         <label for="portata">Portata: </label>
-                        <select name="portata" >
+                        <select id="portata" formControlName="portata">
                             <option value="Primo piatto">Primo</option>
                             <option value="Secondo piatto">Secondo</option>
                             <option value="Dolce">Dolce</option>
@@ -16,19 +17,18 @@
                         </select>
                     </div>
                     <div class="col d-flex">
-                        <label for="difficolta" id="difficolta">Difficoltà:</label>
-                        <input type="radio" name="difficolta" value ="1">
-                        <label for="1">Facile</label>
-                        <input type="radio" name="difficolta" value="2">
-                        <label for="2">Medio</label>
-                        <input type="radio" name="difficolta" value="3">
-                        <label for="3">Difficile</label>
+                        <input type="radio"  name="difficolta" formControlName="difficolta" value ="1" id="difficolta1">
+                        <label for="difficolta1">Facile</label>
+                        <input type="radio" name="difficolta" formControlName="difficolta" value="2" id="difficolta2">
+                        <label for="difficolta2">Medio</label>
+                        <input type="radio" name="difficolta" formControlName="difficolta" value="3" id="difficolta3">
+                        <label for="difficolta3">Difficile</label>
                     </div>
                 </div>
                 <div class="row d-flex">
                     <div class="col">
                         <label for="serving">Numero Persone: </label>
-                        <select name="serving" >
+                        <select id="serving" formControlName="serving">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -41,12 +41,14 @@
                     </div>
                     <div class="col">
                         <label for="tempoPreparazione">Tempo Preparazione: </label>
-                        <input type="number" min="5" step="5" name="tempoPreparazione">
+                        <input type="number" min="5" step="5" formControlName="tempoPreparazione">
                     </div>
                 </div>
-                <input type="button" name="next" class="next action-button" value="Next" (click)="nextStep()"/>
+                <input type="url" placeholder="inserisci link ricetta" formControlName="linkImmagine">
+                <button type="button" name="next" class="next action-button" (click)="nextStep()">Next</button>
             </fieldset>
             <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">
+                <h2>Scegli gli ingredienti</h2>
                 <div class="row d-flex">
                     <div class="col">
                         <ul>
@@ -61,21 +63,21 @@
                     </div>
                 </div>
                 
-                <input  type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="prevStep()"/>
-                <input  type="button" name="next" class="next action-button" value="Next" (click)="nextStep()"/>
+                <button  type="button" name="previous" class="previous action-button-previous" (click)="prevStep()">Prev</button>
+                <button type="button" name="next" class="next action-button" (click)="nextStep()">Next</button>
             </fieldset>
 
             <app-popup-form></app-popup-form>
 
             <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 3 ? 'block' : 'none'">
-
+                <h2>Scegli le quantita</h2>
                 <div class="row d-flex">
                     <div class="col">
                         <ul>
-                            <li *ngFor="let iCheck of ingredientiSelezionati">    
+                            <li *ngFor="let iCheck of ingredientiSelezionati; let i = index">    
                                 {{iCheck.nome}}
-                                <input type="number" name="quantita" min="1" >
-                                <select name="unitaMisura">
+                                <input type="number" min="1" formControlName="quantita{{i}}">
+                                <select name="unitaMisura" formControlName="unitaMisura{{i}}">
                                     <option value="g">g</option>
                                     <option value="kg">kg</option>
                                     <option value="ml">ml</option>
@@ -89,8 +91,8 @@
                     </div>
 
                 </div>
-                <input  type="button" name="previous" class="previous action-button-previous" value="Previous" (click)="prevStep()"/>
-                <input  type="submit" name="submit" class="submit action-button" value="Invia Ricetta" (click)="inviaRicetta()"/>
+                <button  type="button" name="previous" class="previous action-button-previous"  (click)="prevStep()">Prev</button>
+                <button  type="submit" class="submit action-button">Invia ricetta</button>
             </fieldset>
         </form>
     </div>
