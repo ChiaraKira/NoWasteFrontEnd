@@ -9,7 +9,7 @@ export interface Ricetta {
     difficolta: number;
     tempoPreparazione: number;
     serving: number;
-    linkRicetta: string;
+    linkImmagine: string;
     ingredienti: RicettaIngrediente[];
     commenti: Commento[];
 }
