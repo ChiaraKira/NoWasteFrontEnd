@@ -50,8 +50,9 @@ export class HeaderHomeComponent {
   ingredienti? : Ingrediente[];
 
   text = '';
-  constructor(public ingredientiService:IngredientiService)
+  constructor(public ingredientiService:IngredientiService, public http: HttpClient)
   {
+    this.http = http;
     this.fechtIngredienti();
     this.typeWriterEffect("Cerca una ricetta con gli ingredienti a tua disposizione!!");
 

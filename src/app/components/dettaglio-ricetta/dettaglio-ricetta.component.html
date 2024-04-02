@@ -78,18 +78,19 @@
            </div>
            <div class="row w-100 d-flex justify-content-start align-items-center mt-5">
             <div class="col-12 bgC">
-              <div class="container">
+              <!-- <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <label for="text-area" class="form-label">Inserisci un commento</label>
+                    <div class="col-12"  [formGroup]="formCommento">
+                     
+                        <label for="text-area" class="form-label" >Inserisci un commento</label>
                         <textarea class="form-control mb-2" aria-label="With textarea"></textarea>
                     </div> 
                     <div class="col-12 d-flex justify-content-end ">
-                        <button type="submit" mat-flat-button color="warn">Invia</button>
+                        <button type="submit" mat-flat-button color="warn" (click)="submitCommento()">Invia</button>
                     </div>
                        
                   
-                </div>
+                </div> -->
             </div>
               <!-- <app-commento></app-commento> -->
             </div>
