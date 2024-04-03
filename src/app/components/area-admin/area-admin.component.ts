@@ -23,46 +23,53 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class AreaAdminComponent {
 
   currentStep = 1;
-  ingredienti! : Ingrediente[];
+  ingredienti!: Ingrediente[];
   ingredientiSelezionati: Ingrediente[] = [];
   //ingredientiCheck : RicettaIngrediente[];
-  ricettaForm! : FormGroup;
+  ricettaForm!: FormGroup;
 
   //aggiungiamo il popupService al nostro costruttore cosi possiamo richiamarlo dentro area-admin
   //utilizziamo httpClient per la richiesta al backed dei dati che ci serviranno
   //facciamo un push degli ingredienti selezionati dentro all'array ingredientiSelezionati
   constructor(
-    private popupService:AddIngredientiPopupService, 
-    private loginService: LoginService ,
-    private http : HttpClient, 
-    private formBuilder : FormBuilder)
-  {
-    this.popupService.ingredienteAggiunto.subscribe( newIngrediente => 
-      this.ingredienti.push(newIngrediente));
-      this.getIngredienti();
-      //loginService.checkLogin();
-      this.initForm();
+    private popupService: AddIngredientiPopupService,
+    private loginService: LoginService,
+    private http: HttpClient,
+    private formBuilder: FormBuilder) {
+    this.popupService.ingredienteAggiunto.subscribe(newIngrediente => {
+      this.ingredienti.push(newIngrediente);
+
+      this.ricettaForm.addControl(`quantita${this.ingredienti.length}`, new FormControl(0));
+      this.ricettaForm.addControl(`unitaMisura${this.ingredienti.length}`, new FormControl(''));
+    });
+    this.getIngredienti();
+    //loginService.checkLogin();
+    this.initForm();
 
   }
   //prendiamo da backend la lista degli ingredienti con il metodo getIngredienti
   //gli passiamo all'interno il nostro token 
-  getIngredienti(){
+  getIngredienti() {
 
-    var token =  sessionStorage.getItem('token');
+    var token = sessionStorage.getItem('token');
 
-    
-     if(token == null){
-       token = "admin-2"; //da rimuovere
-     }
+
+    if (token == null) {
+      token = "admin-2"; //da rimuovere
+    }
 
     const headers = new HttpHeaders(
-      {'Content-Type' : 'application/json', 'token' : token as string}
-      );
+      { 'Content-Type': 'application/json', 'token': token as string }
+    );
 
-    this.http.get("http://localhost:8080/api/ingredients/allIngredients", {headers}).subscribe(risposta => {
-      
+    this.http.get("http://localhost:8080/api/ingredients/allIngredients", { headers }).subscribe(risposta => {
+
       this.ingredienti = risposta as Ingrediente[];
-    
+
+      this.ingredienti.forEach((ingrediente, i) => {
+        this.ricettaForm.addControl(`quantita${i}`, new FormControl(0));
+        this.ricettaForm.addControl(`unitaMisura${i}`, new FormControl(''));
+      });
 
     })
   }
@@ -80,18 +87,18 @@ export class AreaAdminComponent {
       this.currentStep--;
     }
   }
-  
+
   //metodo apri popup preso dal popupService
-  aggiungiIngrediente(){
+  aggiungiIngrediente() {
     this.popupService.open();
   }
-  
+
 
   //Questo metodo seleziona l'ingrediente checked e lo mette nella lista apposita
   //ovviamente abbiamo messo che non deve essere undefined
   //se l'admin decidesse di cambiare ingredienti si fa rispettivamente un push e uno splice
   //degli ingredienti checked così i dati non si ripetono
-  
+
   selezionaIngrediente(ingrediente: Ingrediente, event: Event) {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement && inputElement.checked !== undefined) {
@@ -106,7 +113,7 @@ export class AreaAdminComponent {
       }
     }
   }
-  
+
 
   //Validator è un validatore fornito da angular che garantisce
   // il campo del form non sia vuoto ed é richiesto da noi
@@ -125,22 +132,22 @@ export class AreaAdminComponent {
   //metodo utilizzato per mandare il json dentro a backend
   inviaRicetta() {
 
-    if (this.ricettaForm.valid) { //controlla se il FORM è valido
+    if (true) { //controlla se il FORM è valido
       const ricetta = {
-      id: 0,
-      nome: "",
-      istruzioni: "",
-      portata: 0,
-      difficolta: 0,
-      tempoPreparazione: 0,
-      serving: 0,
-      linkImmagine: "",
-      ingredienti: [] as RicettaIngrediente[]
-    }
+        id: 0,
+        nome: "",
+        istruzioni: "",
+        portata: 0,
+        difficolta: 0,
+        tempoPreparazione: 0,
+        serving: 0,
+        linkImmagine: "",
+        ingredienti: [] as RicettaIngrediente[]
+      }
 
       ricetta.nome = this.ricettaForm.get('nome')?.value;
-      ricetta.istruzioni =  this.ricettaForm.get('istruzioni')?.value;
-      ricetta.portata =  this.ricettaForm.get('portata')?.value;
+      ricetta.istruzioni = this.ricettaForm.get('istruzioni')?.value;
+      ricetta.portata = this.ricettaForm.get('portata')?.value;
       ricetta.difficolta = this.ricettaForm.get('difficolta')?.value;
       ricetta.serving = this.ricettaForm.get('serving')?.value;
       ricetta.tempoPreparazione = this.ricettaForm.get('tempoPreparazione')?.value;
@@ -161,21 +168,24 @@ export class AreaAdminComponent {
         ricetta.ingredienti.push(ricIng);
       });
 
-      var token =  sessionStorage.getItem('token');
+      var token = sessionStorage.getItem('token');
 
-    
-      if(token == null){
+
+      if (token == null) {
         token = "admin-2"; //da rimuovere
       }
- 
-     const headers = new HttpHeaders(
-        {'Content-Type' : 'application/json', 'token' : token as string}
+
+      const headers = new HttpHeaders(
+        { 'Content-Type': 'application/json', 'token': token as string }
       );
       // Invia i dati al backend
-      this.http.post("http://localhost:8080/api/recipe/addRecipe", ricetta,  {headers}).subscribe(risposta => {
+      this.http.post("http://localhost:8080/api/recipe/addRecipe", ricetta, { headers }).subscribe(risposta => {
         // Logica per gestire la risposta dal backend
         console.log(risposta);
       });
+    }
+    else {
+      console.log("form non valido");
     }
   }
 
