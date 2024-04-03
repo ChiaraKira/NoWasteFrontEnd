@@ -3,14 +3,15 @@
     flex-wrap: wrap;
     grid-gap:20px;
     row-gap: 30px;
-    margin: 0 50px;
+    margin: 0 40px;
     justify-content: space-between;
   }
 .card {
-    flex-basis: calc(22% - 20px);
+    flex-basis: calc(30% - 20px);
     margin-bottom: 30px;
     position: relative;
-    width: 350px;
+    width: 850px;
+    height: 500px;
     margin: 0 10px 30px 10px;
     border-radius: 3px;
     overflow: hidden;
@@ -43,7 +44,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 400px;
+    width: 100%;
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
     z-index: 2;
@@ -56,6 +57,10 @@
     font-size: 12px;
     letter-spacing: 1px;
   }
+
+  .card--view a {
+    text-align: center;
+}
   .card:hover .card--view {
     opacity: 1;
   }
