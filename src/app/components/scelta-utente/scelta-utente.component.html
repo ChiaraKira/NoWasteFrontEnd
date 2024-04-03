@@ -59,7 +59,7 @@
                     <h5 class="portata"> Difficoltà: {{risposta.difficolta}}</h5>
                     <h5  class="ms-2 portata">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule">  </mat-icon>  {{risposta.tempoPreparazione}}</h5>   
                     <h5 class="ms-2 portata"> <mat-icon>people</mat-icon>{{risposta.serving}}</h5>
-                    <button mat-flat-button class="bottone" [routerLink]="['/dettaglio-ricetta/:id']">Scopri di più</button> 
+                    <button mat-flat-button class="bottone" [routerLink]="['/dettaglio-ricetta', risposta.id]">Scopri di più</button> 
                   </div>
                   
                  
