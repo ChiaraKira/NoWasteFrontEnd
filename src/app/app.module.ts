@@ -41,7 +41,6 @@ import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { AreaAdminComponent } from './components/area-admin/area-admin.component';
 import { PopupFormComponent } from './components/popup-form/popup-form.component';
-import { RicettaIngredienteComponent } from './components/ricetta-ingrediente/ricetta-ingrediente.component';
 
 
 
@@ -70,8 +69,7 @@ import { RicettaIngredienteComponent } from './components/ricetta-ingrediente/ri
     SceltaUtenteComponent,
     RispostaUtenteComponent,
     AreaAdminComponent,
-    PopupFormComponent,
-    RicettaIngredienteComponent
+    PopupFormComponent
   ],
   imports: [
     BrowserModule,
