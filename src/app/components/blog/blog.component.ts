@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,7 +19,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, public route: ActivatedRoute) { 
+    this.http = http;
+  }
 
   ngOnInit(): void {
   }
