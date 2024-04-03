@@ -45,7 +45,6 @@ import { PopupFormComponent } from './components/popup-form/popup-form.component
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +83,8 @@ import { PopupFormComponent } from './components/popup-form/popup-form.component
     HttpClientModule,
     FormsModule,
     JsonPipe,
-    MatCheckboxModule
+    MatCheckboxModule,
+    
    
   
     

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
