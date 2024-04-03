@@ -31,9 +31,9 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
       transition('out => in', [
         animate('0.5s')
       ]),
-      transition('in => out', [
-        animate('0.5s')
-      ])
+      // transition('in => out', [
+      //   animate('0.5s')
+      // ])
     ])
   ]
 })
@@ -43,7 +43,7 @@ export class HeaderHomeComponent {
 
   // ingredienti : any;
   animationState: string = 'in';
-  plates: string[] = [ 'assets/img/piatto1.png','assets/img/piatto1.png','assets/img/piatto2.png',  'assets/img/piatto2.png'];
+  plates: string[] = [ 'assets/img/piatto2.png'];
   currentPlateIndex: number = 0;
   intervalId: any;
 
