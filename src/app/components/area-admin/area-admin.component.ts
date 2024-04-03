@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 import { LoginService } from 'src/app/services/login.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-area-admin',
@@ -24,24 +25,25 @@ export class AreaAdminComponent {
 
   currentStep = 1;
   ingredienti!: Ingrediente[];
-  ingredientiSelezionati: Ingrediente[] = [];
-  //ingredientiCheck : RicettaIngrediente[];
+  ingredientiCheck : RicettaIngrediente[] = [];
   ricettaForm!: FormGroup;
 
   //aggiungiamo il popupService al nostro costruttore cosi possiamo richiamarlo dentro area-admin
   //utilizziamo httpClient per la richiesta al backed dei dati che ci serviranno
   //facciamo un push degli ingredienti selezionati dentro all'array ingredientiSelezionati
   constructor(
-    private popupService: AddIngredientiPopupService,
+    // private popupService: AddIngredientiPopupService,
     private loginService: LoginService,
     private http: HttpClient,
-    private formBuilder: FormBuilder) {
-    this.popupService.ingredienteAggiunto.subscribe(newIngrediente => {
-      this.ingredienti.push(newIngrediente);
+    private formBuilder: FormBuilder,
+    private router: Router
+    ) {
+    // this.popupService.ingredienteAggiunto.subscribe(newIngrediente => {
+    //   this.ingredienti.push(newIngrediente);
 
-      this.ricettaForm.addControl(`quantita${this.ingredienti.length}`, new FormControl(0));
-      this.ricettaForm.addControl(`unitaMisura${this.ingredienti.length}`, new FormControl(''));
-    });
+    //   this.ricettaForm.addControl(`quantita${this.ingredienti.length}`, new FormControl(0));
+    //   this.ricettaForm.addControl(`unitaMisura${this.ingredienti.length}`, new FormControl(''));
+    // });
     this.getIngredienti();
     //loginService.checkLogin();
     this.initForm();
@@ -77,7 +79,7 @@ export class AreaAdminComponent {
 
   //metodi bottoni che cambia fieldset
   nextStep() {
-    if (this.currentStep < 3) {
+    if (this.currentStep < 2) {
       this.currentStep++;
     }
   }
@@ -89,9 +91,9 @@ export class AreaAdminComponent {
   }
 
   //metodo apri popup preso dal popupService
-  aggiungiIngrediente() {
-    this.popupService.open();
-  }
+  // aggiungiIngrediente() {
+  //   this.popupService.open();
+  // }
 
 
   //Questo metodo seleziona l'ingrediente checked e lo mette nella lista apposita
@@ -99,16 +101,25 @@ export class AreaAdminComponent {
   //se l'admin decidesse di cambiare ingredienti si fa rispettivamente un push e uno splice
   //degli ingredienti checked così i dati non si ripetono
 
-  selezionaIngrediente(ingrediente: Ingrediente, event: Event) {
+  selezionaIngrediente(ingrediente: Ingrediente, index:number, event: Event) {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement && inputElement.checked !== undefined) {
       const isChecked = inputElement.checked;
       if (isChecked) {
-        this.ingredientiSelezionati.push(ingrediente);
+        var ricIng = {
+          id: index,
+          quantita: 0,
+          unitaMisura: "",
+          ingrediente: {} as Ingrediente,
+          idRicetta: 0
+        }
+
+        ricIng.ingrediente = ingrediente;
+        this.ingredientiCheck.push(ricIng);
       } else {
-        const index = this.ingredientiSelezionati.findIndex(i => i === ingrediente);
-        if (index !== -1) {
-          this.ingredientiSelezionati.splice(index, 1);
+        const index = this.ingredientiCheck.findIndex(i => i.ingrediente == ingrediente);
+        if (index != -1) {
+          this.ingredientiCheck.splice(index, 1);
         }
       }
     }
@@ -131,8 +142,6 @@ export class AreaAdminComponent {
 
   //metodo utilizzato per mandare il json dentro a backend
   inviaRicetta() {
-
-    if (true) { //controlla se il FORM è valido
       const ricetta = {
         id: 0,
         nome: "",
@@ -152,22 +161,14 @@ export class AreaAdminComponent {
       ricetta.serving = this.ricettaForm.get('serving')?.value;
       ricetta.tempoPreparazione = this.ricettaForm.get('tempoPreparazione')?.value;
       ricetta.linkImmagine = this.ricettaForm.get('linkImmagine')?.value;
-
-      this.ingredientiSelezionati.forEach((ingrediente, index) => {
-        var ricIng = {
-          id: 0,
-          quantita: 0,
-          unitaMisura: "",
-          ingrediente: {} as Ingrediente,
-          idRicetta: 0
-        }
-        ricIng.quantita = this.ricettaForm.get(`quantita${index}`)?.value;
-        ricIng.unitaMisura = this.ricettaForm.get(`unitaMisura${index}`)?.value;
-        ricIng.ingrediente = ingrediente;
-
-        ricetta.ingredienti.push(ricIng);
-      });
-
+      this.ingredientiCheck.forEach(ricettaIngrediente =>{
+        ricettaIngrediente.quantita = this.ricettaForm.get(`quantita${ricettaIngrediente.id}`)?.value;
+        ricettaIngrediente.unitaMisura = this.ricettaForm.get(`unitaMisura${ricettaIngrediente.id}`)?.value;
+      })
+      
+      ricetta.ingredienti = this.ingredientiCheck;
+    
+      console.log(ricetta);
       var token = sessionStorage.getItem('token');
 
 
@@ -180,13 +181,17 @@ export class AreaAdminComponent {
       );
       // Invia i dati al backend
       this.http.post("http://localhost:8080/api/recipe/addRecipe", ricetta, { headers }).subscribe(risposta => {
-        // Logica per gestire la risposta dal backend
-        console.log(risposta);
+        var ris : boolean = risposta as boolean;
+         if(ris){
+           //Pagina login
+           this.router.navigateByUrl('area-admin'); // routing da rendirizzare al login
+         }
+         else{
+          alert("Ricetta non inserita");
+         }
       });
-    }
-    else {
-      console.log("form non valido");
-    }
+    
+
   }
 
 
