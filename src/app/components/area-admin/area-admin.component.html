@@ -70,7 +70,26 @@
             <app-popup-form></app-popup-form>
 
             <fieldset  [@fadeInOut]="'in'" [style.display]="currentStep == 3 ? 'block' : 'none'">
-                <app-ricetta-ingrediente-form [ingredientiSelezionati]="ingredientiSelezionati"></app-ricetta-ingrediente-form>
+                <h2>Scegli le quantita</h2>
+                <div class="row d-flex">
+                    <div class="col">
+                        <ul>
+                            <li *ngFor="let iCheck of ingredientiSelezionati; let i = index">    
+                                {{iCheck.nome}}
+                                <input type="number" min="1" formControlName="quantita{{i}}">
+                                <select name="unitaMisura" formControlName="unitaMisura{{i}}">
+                                    <option value="g">g</option>
+                                    <option value="kg">kg</option>
+                                    <option value="ml">ml</option>
+                                    <option value="l">l</option>
+                                    <option value="cucchiaino">cucchiaino</option>
+                                    <option value="cucchiaio">cucchiaio</option>
+                                    <option value="pizzico">pizzico</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                
                 <button  type="button" name="previous" class="previous action-button-previous" (click)="prevStep()">Prev</button>
                 <button  type="submit" class="submit action-button">Invia ricetta</button>
             </fieldset>

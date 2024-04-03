@@ -118,8 +118,7 @@ export class AreaAdminComponent {
       difficolta: [0, Validators.required],
       serving: [0, Validators.required],
       tempoPreparazione: [0, Validators.required],
-      linkImmagine: ['', Validators.required],
-     ingredienti: this.formBuilder.array([])
+      linkImmagine: ['', Validators.required]
     });
   }
 
@@ -136,7 +135,7 @@ export class AreaAdminComponent {
       tempoPreparazione: 0,
       serving: 0,
       linkImmagine: "",
-      ingredienti: []
+      ingredienti: [] as RicettaIngrediente[]
     }
 
       ricetta.nome = this.ricettaForm.get('nome')?.value;
@@ -146,19 +145,20 @@ export class AreaAdminComponent {
       ricetta.serving = this.ricettaForm.get('serving')?.value;
       ricetta.tempoPreparazione = this.ricettaForm.get('tempoPreparazione')?.value;
       ricetta.linkImmagine = this.ricettaForm.get('linkImmagine')?.value;
-              // Aggiungi gli ingredienti selezionati alla formData
+
       this.ingredientiSelezionati.forEach((ingrediente, index) => {
         var ricIng = {
           id: 0,
           quantita: 0,
           unitaMisura: "",
-          ingrediente: {},
+          ingrediente: {} as Ingrediente,
           idRicetta: 0
         }
         ricIng.quantita = this.ricettaForm.get(`quantita${index}`)?.value;
         ricIng.unitaMisura = this.ricettaForm.get(`unitaMisura${index}`)?.value;
         ricIng.ingrediente = ingrediente;
 
+        ricetta.ingredienti.push(ricIng);
       });
 
       var token =  sessionStorage.getItem('token');
