@@ -39,8 +39,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ListaCommentiComponent } from './components/lista-commenti/lista-commenti.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
-import { AreaAdminComponent } from './components/area-admin/area-admin.component';
-import { PopupFormComponent } from './components/popup-form/popup-form.component';
+import { FormRicettaComponent } from './components/form-ricetta/form-ricetta.component';
+import { FormIngredienteComponent } from './components/form-ingrediente/form-ingrediente.component';
 
 
 
@@ -68,8 +68,8 @@ import { PopupFormComponent } from './components/popup-form/popup-form.component
     ListaCommentiComponent,
     SceltaUtenteComponent,
     RispostaUtenteComponent,
-    AreaAdminComponent,
-    PopupFormComponent
+    FormRicettaComponent,
+    FormIngredienteComponent
   ],
   imports: [
     BrowserModule,
