@@ -54,7 +54,7 @@ export class LoginComponent {
         window.location.reload(); //aggiunger route
 
       } else if(loginStatus.ruolo == "ADMIN"){
-        this.router.navigateByUrl('area-admin');
+        this.router.navigateByUrl('home-page');
         window.location.reload();
         //Pagina ADMIN 
       }
@@ -82,7 +82,9 @@ export class LoginComponent {
       console.log(body);
        if(ris){
          //Pagina login
+         alert("Registrazione Effettuata");
          this.router.navigateByUrl(''); // routing da rendirizzare al login
+         window.location.reload();
        }
        else{
          alert("ERRORE registrazione");
@@ -117,9 +119,6 @@ export class LoginComponent {
     this.signupVisible = false;
     this.signinVisible = true;
   }
-
-
-
 
 
 }

@@ -1,8 +1,9 @@
-<div *ngIf="popupService.isOpen" class="popup">
-    <div class="form-popup">
-        <div class="container form-wrapper">
-            <button class="btn close-form" (click)="close()">Close</button>
-            <form id="my-form" novalidate="novalidate" [formGroup]="ingredienteForm" (ngSubmit)="add()">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform"  [formGroup]="ingredienteForm" (ngSubmit)="add()">
+            <div class="fieldset">
+
+            
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h1 class="form-title">Aggiungi Ingrediente</h1>
@@ -22,8 +23,9 @@
                         <label for="Vegano">Vegano</label>
                     </div>
                 </div>
-                <button type="submit" class="btn send-form">Aggiungi</button>
-            </form>
-        </div>
+                    <button type="submit" class="submit action-button">Invia ricetta</button>
+            </div>
+        </form>
     </div>
-  </div>
+</div>
+

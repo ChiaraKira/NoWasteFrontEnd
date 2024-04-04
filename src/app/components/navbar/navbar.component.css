@@ -19,3 +19,18 @@
 .nav-link{
     color: #3d3d3d;
 }
+
+#logout{
+    width: min-content;
+    cursor: pointer;
+    background-color: #F2FFE9;
+    border-radius: 15px;
+    padding: 5px;
+    border:2px solid #557C55;
+}
+
+#logout:hover{
+    background-color: #557C55;
+    color: #F2FFE9;
+    border-color:#F2FFE9;
+}
