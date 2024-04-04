@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginStatus } from 'src/app/model/login-status';
 import { LoginService } from 'src/app/services/login.service';
@@ -27,12 +27,12 @@ export class LoginComponent {
       })
 
       this.formRegistrati = formBuilder.group({
-        nome: "",
-        cognome : "",
-        username : "",
-        password : "",
-        confirmPassword : ""
-      })
+        nome: ["", Validators.required], // Campo obbligatorio
+        cognome : ["", Validators.required], 
+        username : ["", Validators.required], 
+        password : ["", Validators.required], 
+        confirmPassword : ["", Validators.required] 
+      });
       
   }
 
@@ -74,36 +74,30 @@ export class LoginComponent {
 
 
   submitRegistrati(){
-     const formValues = this.formRegistrati.value;
-     const headers = {'Content-Type' : 'application/json'}
-     const body = JSON.stringify(formValues);
-    if(formValues.password == formValues.confirmPassword){
-      this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
-        var ris : boolean = risposta as boolean;
-          if(ris){
-            //Pagina login
-            alert("Registrazione Effettuata");
-            this.router.navigateByUrl(''); // routing da rendirizzare al login
-            window.location.reload();
-          }
-          else{
-            alert("ERRORE registrazione");
-            this.formRegistrati.patchValue(
-              {
-                nome: "",
-                cognome : "",
-                username : "",
-                password : "",
-                confirmPassword : ""
-              }
-            )
-          }
-      })
-    }
-    else{
-      alert("Le password non combaciano");
-    }
-  }
+    const formValues = this.formRegistrati.value;
+    const headers = {'Content-Type' : 'application/json'};
+    const body = JSON.stringify(formValues);
+    
+   // Aggiungi validazione per la corrispondenza delle password
+   if(formValues.password == formValues.confirmPassword && this.formRegistrati.valid){
+     this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
+       var ris : boolean = risposta as boolean;
+         if(ris){
+           //Pagina login
+           alert("Registrazione Effettuata");
+           this.router.navigateByUrl('');
+           window.location.reload();
+         }
+         else{
+           alert("ERRORE registrazione");
+           this.formRegistrati.reset(); 
+         }
+     })
+   }
+   else{
+     alert("Si prega di compilare tutti i campi e assicurarsi che le password combacino.");
+   }
+ }
 
   // Pulsanti per far spostare la greenbox a sinistra e destra
   //Andando a modifigare il contenuto della box
