@@ -73,34 +73,37 @@ export class LoginComponent {
   }
 
 
-   submitRegistrati(){
+  submitRegistrati(){
      const formValues = this.formRegistrati.value;
      const headers = {'Content-Type' : 'application/json'}
      const body = JSON.stringify(formValues);
-     this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
-     var ris : boolean = risposta as boolean;
-      console.log(body);
-       if(ris){
-         //Pagina login
-         alert("Registrazione Effettuata");
-         this.router.navigateByUrl(''); // routing da rendirizzare al login
-         window.location.reload();
-       }
-       else{
-         alert("ERRORE registrazione");
-         this.formRegistrati.patchValue(
-           {
-            nome: "",
-            cognome : "",
-            username : "",
-            password : "",
-            confirmPassword : ""
-           }
-         )
-       }
-
-     })
-   }
+    if(formValues.password == formValues.confirmPassword){
+      this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
+        var ris : boolean = risposta as boolean;
+          if(ris){
+            //Pagina login
+            alert("Registrazione Effettuata");
+            this.router.navigateByUrl(''); // routing da rendirizzare al login
+            window.location.reload();
+          }
+          else{
+            alert("ERRORE registrazione");
+            this.formRegistrati.patchValue(
+              {
+                nome: "",
+                cognome : "",
+                username : "",
+                password : "",
+                confirmPassword : ""
+              }
+            )
+          }
+      })
+    }
+    else{
+      alert("Le password non combaciano");
+    }
+  }
 
   // Pulsanti per far spostare la greenbox a sinistra e destra
   //Andando a modifigare il contenuto della box
