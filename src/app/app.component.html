@@ -1,10 +1,6 @@
 <ng-container *ngIf="isLoggedIn; else loginPage">
     <app-navbar></app-navbar>
-        <router-outlet></router-outlet>
-   <div class="h-25">
-
-   </div>
-
+    <router-outlet></router-outlet>
     <app-footer></app-footer>
 </ng-container>
 <ng-template #loginPage>
