@@ -8,7 +8,7 @@ import { Ricetta } from 'src/app/model/ricetta';
   styleUrls: ['./carosel.component.css']
 })
 export class CaroselComponent {
-   icetta?: Ricetta ;
+   ricetta?: Ricetta ;
    ricette?: Ricetta[] ;
 
   constructor (private http  : HttpClient) {
