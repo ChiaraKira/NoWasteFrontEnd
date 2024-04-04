@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,19 +5,19 @@
 
 }
 
-.co{
-    height: 60.58vh;
+.co {
     display: flex;
     align-items: center;
 }
-.row{
 
-    display:flex;
+.row {
+
+    display: flex;
     width: 100%;
     justify-content: center;
 }
 
-h2{
+h2 {
     margin-bottom: 10px;
 }
 
@@ -37,11 +36,12 @@ h2{
     width: auto;
     max-width: 800px;
     margin: 0 auto;
-    
+
 }
 
 /*input*/
-#msform input, #msform textarea  {
+#msform input,
+#msform textarea {
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 15px;
@@ -51,14 +51,16 @@ h2{
     font-size: 20px;
 }
 
-#msform select{
+#msform select {
     border: 1px solid #ccc;
     border-radius: 15px;
     padding: 10px;
     font-size: 20px;
 }
 
-#msform input:focus, #msform textarea:focus, #msform select:focus {
+#msform input:focus,
+#msform textarea:focus,
+#msform select:focus {
     border: 1px solid #557C55;
     outline-width: 0;
 }
@@ -77,7 +79,8 @@ h2{
     font-size: 20px;
 }
 
-#msform .action-button:hover, #msform .action-button:focus {
+#msform .action-button:hover,
+#msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #F2FFE9;
 }
 
@@ -94,29 +97,30 @@ h2{
     font-size: 20px;
 }
 
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px #557C55, 0 0 0 3px #F2FFE9;
 }
 
-.box{
+.box {
     display: flex;
-    align-items : center;
+    align-items: center;
 }
 
-li{
+li {
     list-style: none;
 }
 
-select{
+select {
     text-align: center;
 }
 
-.list-ingredient{
+.list-ingredient {
     width: 100%;
 }
 
 
-#msform .quantita{
+#msform .quantita {
     padding: 5px;
     width: 50px;
     font-size: 20px;
@@ -125,7 +129,7 @@ select{
     text-align: center;
 }
 
-#msform label{
+#msform label {
     font-size: 20px;
 }
 
@@ -139,5 +143,3 @@ select{
     width: 20px;
     height: 20px;
 }
-  
-
