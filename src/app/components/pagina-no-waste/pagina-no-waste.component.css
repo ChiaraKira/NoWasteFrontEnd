@@ -1,7 +1,7 @@
 
 span.s1 {
     margin-top: 1000px;
-	top:0;
+	top:10px;
 	font-size: 15rem;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -13,12 +13,12 @@ span.s1 {
 span.s2 {
 	font-weight: 800;
 	position: absolute;
-	bottom: 30px;
+	bottom: 100px;
 	right: 0;
 	font-size: 15rem;
 	text-transform: uppercase;
-	color: #A6CF98;
-	z-index: -5;
+	color: #FA7070;
+	
 	
 }
 
@@ -91,7 +91,7 @@ span.ss2 {
 	-webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-  
+	bottom: 1000px;
 }
 
 .cardSm{
@@ -213,6 +213,8 @@ p {
 	color: #557C55;
 }
 
+
+
 h6 {
 	position: absolute;
 	right: 30px;
@@ -260,4 +262,45 @@ padding: 5px;
 .box-imgs{
 	width: 500px;
     height: 500px;
+}
+
+
+
+  
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  
+
+  .colore{
+    background-color: #7EAA5F !important;
+  }
+
+
+.link{
+color: #557C55;;
 }

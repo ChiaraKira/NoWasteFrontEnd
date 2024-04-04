@@ -1,11 +1,11 @@
-<div class="container bgC">
+<div class="container-fluid bgC d-flex justify-content-center align-items-center h-75">
   <div class="row m-5">
 
     <section  class="example-section" [formGroup]="formSceltaUtente">
       <h2 class="mt-5 mb-5" [@fadeInOut]>Seleziona gli ingredienti a tua disposizione:</h2>
-      <div class="row d-flex justify-content-center  align-items-center flex-cloumn">
+      <div class="row d-flex justify-content-center align-items-center ">
        
-        <div class="col-4" *ngFor="let ingrediente of ingredienti; let i = index" [@slideInOut]>
+        <div class="col-2" *ngFor="let ingrediente of ingredienti; let i = index" [@slideInOut]>
           <p>
             <mat-checkbox [formControlName]="ingrediente.nome">{{ingrediente.nome}}</mat-checkbox>
         </p>
@@ -13,9 +13,13 @@
         </div>
        
         <!-- Aggiunto il routerLink al bottone per la navigazione -->
-        <button mat-flat-button class="bottone" (click)="submitSceltaIngredienti()" >Cerca</button> 
+       
         
       </div>  
+      <div class="row d-flex justify-content-end align-items-end">
+        <button mat-flat-button class="bottone" (click)="submitSceltaIngredienti()" >Cerca</button> 
+
+      </div>
        
      </section>
       
@@ -32,12 +36,12 @@
   </div>
 </div>
 
-<div class="container h-100">
+<div class="container h-100 mb-5">
   <div class="row">
     <div class="col-12">
       <div *ngIf="ris.length>0">
         <div class="container-fluid">
-          <div class="row">
+          <div class="row ">
               <div class="col-12 d-flex mt-5 ">
                   <h2 [@fadeInOut]>Ecco la lista di tutte le ricette disponibili con gli ingredienti selezionati </h2>
       
@@ -45,7 +49,7 @@
               </div>
           </div>
           
-          <div class="row d-flex justify-content-start align-items-center mt-5">
+          <div class="row d-flex justify-content-start align-items-center mt-5 ">
               <div class="col-12 d-flex justify-content-center align-items-center" *ngFor="let risposta of ris; let i = index" [@slideInOut]>
       
                 <div class="col-3">
