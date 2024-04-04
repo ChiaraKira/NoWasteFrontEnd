@@ -1,85 +1,91 @@
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <form id="msform" [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
-            <!-- divs ossia un gruppo di form sotto uno stesso unico form name(form padre)-->
-            <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
-                <h2>Inserimento Ricetta</h2>
-                <input type="text" placeholder="Nome Ricetta" formControlName="nome">
-                <textarea id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.."
-                    formControlName="istruzioni"></textarea>
-                <div class="row d-flex">
-                    <div class="col">
-                        <label for="portata">Portata: </label>
-                        <select id="portata" formControlName="portata">
-                            <option value="Primo piatto">Primo</option>
-                            <option value="Secondo piatto">Secondo</option>
-                            <option value="Dolce">Dolce</option>
-                            <option value="Contorno">Contorno</option>
-                        </select>
+<div class="co">
+    <div class="row">
+        <div class="col-xxl-6">
+            <form id="msform" [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
+                <!-- divs ossia un gruppo di form sotto uno stesso unico form name(form padre)-->
+                <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
+                    <h2>Inserimento Ricetta</h2>
+                    <input type="text" placeholder="Nome Ricetta" formControlName="nome">
+                    <textarea id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.."
+                        formControlName="istruzioni"></textarea>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col mb-3">
+                            <label for="portata">Portata: </label>
+                            <select id="portata" formControlName="portata" class="mx-2">
+                                <option value="Primo piatto">Primo</option>
+                                <option value="Secondo piatto">Secondo</option>
+                                <option value="Dolce">Dolce</option>
+                                <option value="Contorno">Contorno</option>
+                            </select>
+                        </div>
+                        <div class="col d-flex justify-content-between">
+                            <div class="box">
+                                <input type="radio" name="difficolta" formControlName="difficolta" value="1" id="difficolta1" class="mb-0 me-1">
+                                <label for="difficolta1">Facile</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" name="difficolta" formControlName="difficolta" value="2" id="difficolta2" class="mb-0 me-1">
+                                <label for="difficolta2">Medio</label>
+                            </div>
+                            <div class="box">
+                                <input type="radio" name="difficolta" formControlName="difficolta" value="3" id="difficolta3" class="mb-0 me-1">
+                                <label for="difficolta3">Difficile</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col d-flex">
-                        <input type="radio" name="difficolta" formControlName="difficolta" value="1" id="difficolta1">
-                        <label for="difficolta1">Facile</label>
-                        <input type="radio" name="difficolta" formControlName="difficolta" value="2" id="difficolta2">
-                        <label for="difficolta2">Medio</label>
-                        <input type="radio" name="difficolta" formControlName="difficolta" value="3" id="difficolta3">
-                        <label for="difficolta3">Difficile</label>
+                    <div class="row d-flex my-3 align-items-center justify-content-between">
+                        <div class="col mb-2">
+                            <label for="serving">Numero Persone: </label>
+                            <select id="serving" formControlName="serving" class="mx-2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <label for="tempoPreparazione">Tempo Preparazione: </label>
+                            <input type="number" min="5" step="5" formControlName="tempoPreparazione"  style="width:80px; text-align: center;" class="my-0">
+                        </div>
                     </div>
-                </div>
-                <div class="row d-flex">
-                    <div class="col">
-                        <label for="serving">Numero Persone: </label>
-                        <select id="serving" formControlName="serving">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="tempoPreparazione">Tempo Preparazione: </label>
-                        <input type="number" min="5" step="5" formControlName="tempoPreparazione">
-                    </div>
-                </div>
-                <input type="url" placeholder="inserisci link ricetta" formControlName="linkImmagine">
-                <button type="button" name="next" class="next action-button" (click)="nextStep()">Next</button>
-            </fieldset>
-            <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">
-                <h2>Scegli gli ingredienti</h2>
-                <div class="row d-flex">
-                    <div class="col">
-                        <ul>
-                            <li *ngFor="let ingrediente of ingredienti; let i = index">
-                                <input type="checkbox" name="{{ingrediente.nome}}" value="{{ingrediente.nome}}"
-                                    (change)="selezionaIngrediente(ingrediente, i, $event)">
-                                <label for="{{ingrediente.nome}}">{{ingrediente.nome}}</label>
-                                <input type="number" min="1" formControlName="quantita{{i}}">
-                                <select name="unitaMisura" formControlName="unitaMisura{{i}}">
-                                    <option value="g">g</option>
-                                    <option value="kg">kg</option>
-                                    <option value="ml">ml</option>
-                                    <option value="l">l</option>
-                                    <option value="cucchiaino">cucchiaino</option>
-                                    <option value="cucchiaio">cucchiaio</option>
-                                    <option value="pizzico">pizzico</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- <div class="col">
-                        <button type="button" (click)="aggiungiIngrediente()">Aggiungi ingrediente</button>
-                    </div> -->
-                </div>
+                    <input type="url" placeholder="inserisci link ricetta" formControlName="linkImmagine">
+                    <button type="button" name="next" class="next action-button" (click)="nextStep()">Vai agli ingredienti</button>
+                </fieldset>
+                <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">
+                    <h2>Scegli gli ingredienti</h2>
+                            <ul class="row d-flex list-ingredient">
+                                <li *ngFor="let ingrediente of ingredienti; let i = index" class="col-md-6 d-flex align-items-center mb-2">
+                                        <input type="checkbox" name="{{ingrediente.nome}}" value="{{ingrediente.nome}}"
+                                            (change)="selezionaIngrediente(ingrediente, i, $event)" class="my-0 col-1">
+                                        <label class="col-4" for="{{ingrediente.nome}}">{{ingrediente.nome}}</label>
+                                        <input type="number" min="1" formControlName="quantita{{i}}"  class="quantita mr-2">
+                                        <select name="unitaMisura" formControlName="unitaMisura{{i}}" class="unitaMisura">
+                                            <option value="g">g</option>
+                                            <option value="kg">kg</option>
+                                            <option value="ml">ml</option>
+                                            <option value="l">l</option>
+                                            <option value="q.b.">q.b.</option>
+                                            <option value="pz.">pz.</option>
+                                            
+                                        </select>
 
-                <!-- <app-popup-form></app-popup-form> -->
-                <button type="button" name="previous" class="previous action-button-previous"
-                    (click)="prevStep()">Prev</button>
-                <button type="submit" class="submit action-button">Invia ricetta</button>
-            </fieldset>
-        </form>
+                                </li>
+                            </ul>     
+                    <div class="row">
+                        <div class="col mx-2">
+                            <button type="button" name="previous" class="previous action-button-previous"
+                            (click)="prevStep()">Ritorna alla ricetta</button>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="submit action-button">Invia ricetta</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
