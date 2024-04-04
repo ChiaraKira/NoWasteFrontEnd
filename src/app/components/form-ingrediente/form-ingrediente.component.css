@@ -4,58 +4,41 @@
     font-family: "Livvik", sans-serif;
 }
 
-.row {}
-
-/*form styles*/
 #msform {
-    text-align: justify;
+    text-align: center;
     margin-top: 30px;
 }
 
 #msform .fieldset {
     background: #A6CF98;
     border: 0 none;
-    border-radius: 0px;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 1px #557C55;
+    padding: 20px 20px;
     box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /*inputs*/
-#msform input,
-#msform textarea {
+#msform input {
     padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 15px;
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
-    font-size: 13px;
+    font-size: 20px;
 }
 
-#msform input:focus,
-#msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ee0979;
+#msform input:focus {
+    border: 1px solid #557C55;
     outline-width: 0;
-    transition: All 0.5s ease-in;
-    -webkit-transition: All 0.5s ease-in;
-    -moz-transition: All 0.5s ease-in;
-    -o-transition: All 0.5s ease-in;
 }
 
-/*buttons*/
 #msform .action-button {
-    width: 100px;
+    width: 100%;
     background: #557C55;
     font-weight: bold;
     color: white;
@@ -64,78 +47,21 @@
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+    font-size: 20px;
 }
 
 #msform .action-button:hover,
 #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #F2FFE9;
 }
 
-#msform .action-button-previous {
-    width: 100px;
-    background: #C5C5F1;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px;
+#msform label {
+    font-size: 20px;
 }
 
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
-}
-
-/*headings*/
-.fs-title {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.fs-subtitle {
-    font-weight: normal;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Not relevant to this form */
-.dme_link {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.dme_link a {
-    background: #FFF;
-    font-weight: bold;
-    color: #ee0979;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 5px 25px;
-    font-size: 12px;
-}
-
-.dme_link a:hover,
-.dme_link a:focus {
-    background: #C5C5F1;
-    text-decoration: none;
-}
-
-#difficolta {
-    font-weight: 500;
-}
-
-label[for="1"],
-label[for="2"],
-label[for="3"] {
-    font-weight: 300;
+#msform input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 }
 
 /* 
@@ -144,3 +70,7 @@ label[for="3"] {
     justify-content: center;
     align-items: center;
 } */
+
+ul {
+    list-style: none;
+}

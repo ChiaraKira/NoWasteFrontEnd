@@ -4,40 +4,23 @@
             <div class="fieldset">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1 class="form-title">Aggiungi Ingrediente</h1>
+                        <h1 class="form-title mb-2">Aggiungi Ingrediente</h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-12">
+                    <div class="col">
                         <label for="name">Nome</label>
                         <input type="text" class="form-control" id="name" name="name" formControlName="nome">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-2">
-                                <input class="my-0" type="checkbox" name="senzaGlutine" value="senzaGlutine"
-                                    formControlName="senzaGlutine">
-                            </div>
-                            <div class="col-6">
-                                <label for="senzaGlutine">Senza glutine</label>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-2">
-                                <input class="my-0" type="checkbox" name="vegetariano" value="vegetariano"
-                                    formControlName="vegetariano">
-                            </div>
-                            <div class="col-6">
-                                <label for="vegetariano">Vegetariano</label>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-2">
-                                <input class="my-0" type="checkbox" name="vegano" value="vegano"
-                                    formControlName="vegano">
-                            </div>
-                            <div class="col-6">
-                                <label for="Vegano">Vegano</label>
-                            </div>
-                        </div>
+
+                        <input class="my-0 col-1" type="checkbox" name="senzaGlutine" value="senzaGlutine"
+                            formControlName="senzaGlutine">
+                        <label class="mx-3" for="senzaGlutine">Senza glutine</label>
+                        <input class="my-0 col-1" type="checkbox" name="vegetariano" value="vegetariano"
+                            formControlName="vegetariano">
+                        <label class="mx-3" for="vegetariano">Vegetariano</label>
+
+                        <input class="my-0 col-1" type="checkbox" name="vegano" value="vegano" formControlName="vegano">
+                        <label class="mx-3" for="vegano">Vegano</label>
                     </div>
                 </div>
                 <button type="submit" class="submit action-button">Conferma</button>
