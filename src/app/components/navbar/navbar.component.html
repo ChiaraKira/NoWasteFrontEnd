@@ -3,7 +3,7 @@
         <div class="col-12">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <img src="assets/img/logo1.png" alt="logo" width="150px">
+                    <img src="assets/img/logo1.png" alt="logo" width="200px">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span><img width="35" height="35" src="https://img.icons8.com/external-vitaliy-gorbachev-fill-vitaly-gorbachev/60/F2FFE9/external-food-ecology-vitaliy-gorbachev-fill-vitaly-gorbachev.png" alt="external-food-ecology-vitaliy-gorbachev-fill-vitaly-gorbachev"/></span>
                     </button>
@@ -27,8 +27,19 @@
                                     <li><a class="dropdown-item" href="#">Dolci</a></li>                                
                                 </ul>
                             </li>
+                            <li class="nav-item dropdown" *ngIf="isAdmin">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" [routerLink]="['form-ricetta']">Aggiungi Ricetta</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['form-ingrediente']">Aggiungi Ingrediente</a></li>                              
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" > Logout</a>
+                                <a class="nav-link" id="logout" (click)="logout()" routerLinkActive="router-link-active" >Logout</a>
                             </li>
                         </ul>
                     </div>
