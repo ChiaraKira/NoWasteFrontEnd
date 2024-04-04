@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Ricetta } from 'src/app/model/ricetta';
 import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 import { DettaglioRicettaService } from 'src/app/services/dettaglio-ricetta.service';
-import { LoginService } from 'src/app/services/login.service';
+import { LoginService } from 'src/app/services/login.service'; 
 import { RicetteService } from 'src/app/services/ricette.service';
 
 @Component({
@@ -14,12 +14,12 @@ import { RicetteService } from 'src/app/services/ricette.service';
 })
 export class CardComponent implements OnInit{
                                     
-  // ricette? : Ricetta[];
+  ricette? : Ricetta[];
   ricettaIngrediente? : RicettaIngrediente[];
   portataSelezionata?: string;
   portate? : string[];
   ricettaId!: number;
-  @Input() ricette?: Ricetta[];
+  
   @Input() ricetta?: Ricetta ;
 
 
@@ -72,6 +72,19 @@ export class CardComponent implements OnInit{
         console.error(error);
       }
     );
+  }
+
+  convertiDifficolta(difficolta: number): string {
+    switch (difficolta) {
+      case 1:
+        return 'Facile';
+      case 2:
+        return 'Media';
+      case 3:
+        return 'Difficile';
+      default:
+        return 'Sconosciuta';
+    }
   }
   
   

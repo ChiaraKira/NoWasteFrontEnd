@@ -30,13 +30,13 @@
       <div class="carousel-item">
         <div class="row">
           <div class="col-md-4 mb-3">
-              <app-card></app-card>
+              <app-card *ngIf="ricette" [ricetta]="ricette[6]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[7]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[8]"></app-card>
           </div>
         </div>
       </div>
