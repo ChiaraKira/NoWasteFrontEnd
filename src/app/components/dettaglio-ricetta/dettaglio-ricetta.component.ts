@@ -24,6 +24,8 @@ export class DettaglioRicettaComponent implements OnInit {
   commenti? : Commento[];
   formCommento : FormGroup;
   punteggio? : number;
+  commentSuccess: boolean = false;
+
 
   commento: Commento = {
     id: 0,
@@ -142,12 +144,20 @@ sendCommentToBackend(commentForm: NgForm) {
       console.error('Errore durante la chiamata al backend:', error);
     }
   );
+
+  if (commentForm.valid) {
+    // Invia il commento al backend
+    // Se l'invio è andato a buon fine, impostare commentSuccess a true
+    this.commentSuccess = true;
+  }else{
+    this.commentSuccess = false;
+    alert('Verifica che il punteggio sia compreso tra 1 e 5 e che il campo del commento sia compilato')
+  }
 }
 
 generateUniqueId(): number {
-  // Implementa qui la logica per generare un ID univoco
-  // Ad esempio, puoi utilizzare un contatore che incrementa ogni volta che viene aggiunto un nuovo commento
-  return Math.floor(Math.random() * 1000); // Esempio di generazione casuale dell'ID
+
+  return Math.floor(Math.random() * 1000); // generazione casuale dell'ID
 }
 
 
