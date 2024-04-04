@@ -105,7 +105,7 @@
             <div class="container">
               <div class="row">
                   <div class="col-12">
-                      <form #commentForm="ngForm" (ngSubmit)="sendCommentToBackend(commentForm)">
+                      <form #commentForm="ngForm" (ngSubmit)="sendCommentToBackend(commentForm); commentForm.reset(); router.navigateByUrl('/dettaglio-ricetta/' + ricetta.id)">
                           <label for="punteggio" class="form-label">Punteggio (da 1 a 5)</label>
                           <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required>
                           
@@ -113,7 +113,7 @@
                           <textarea class="form-control mb-2" id="commento" name="commento" ngModel required></textarea>
                           
                           <div class="col-12 d-flex justify-content-end ">
-                              <button type="submit" mat-flat-button color="warn">Invia</button>
+                              <button type="submit" mat-flat-button color="warn">Invia </button>
                           </div>
                       </form>
                   </div> 
