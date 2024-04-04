@@ -10,6 +10,7 @@ import { IngredientiComponent } from './components/ingredienti/ingredienti.compo
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
 import { FormRicettaComponent } from './components/form-ricetta/form-ricetta.component';
+import { FormIngredienteComponent } from './components/form-ingrediente/form-ingrediente.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'app-component' , component: AppComponent},
   {path: 'scelta-utente', component: SceltaUtenteComponent},
   {path: 'risposta-utente', component: RispostaUtenteComponent},
+  {path: 'form-ingrediente', component: FormIngredienteComponent},
 
 
 ];
