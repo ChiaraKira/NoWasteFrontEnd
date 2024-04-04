@@ -3,10 +3,11 @@
     justify-content: space-between;
   }
 .card {
-    flex-basis: calc(28% - 20px);
+    flex-basis: calc(22% - 20px);
     margin-bottom: 30px;
     position: relative;
-    height: 500px;
+    height: 450px;
+    width: 300px;
     margin: 0 10px 30px 10px;
     border-radius: 3px;
     overflow: hidden;
@@ -19,22 +20,25 @@
   }
   
   .page-padding {
-    padding: 0 10px; /* Puoi regolare questo valore a tuo piacimento */
+    padding: 0 20px; /* Puoi regolare questo valore a tuo piacimento */
   }
   
   .card--image-wrapper {
     position: relative; 
     width: 300px;
-    height: 250px;
+    height: 200px;
     padding-bottom: 66.66%;;
     background-color: #ccc;
     overflow: hidden;
   }
   
   .card--image {  
-    height: 100%;
-    width: 100%;
-    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100% !important;
+    width: 300px !important;
+    background-size: cover !important;
     background-position: center;
     transition: 0.25s ease transform;
   }
@@ -46,7 +50,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: 300px;
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
     z-index: 2;

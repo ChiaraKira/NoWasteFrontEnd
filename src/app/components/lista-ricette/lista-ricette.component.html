@@ -7,99 +7,51 @@
           <option value="">Tutte le portate</option>
           <option *ngFor="let portata of portate" [value]="portata">{{ portata }}</option>
         </select>
-
-
-
-
-<!-- <div class="container-fluid mt-5">
-  <div class="row">
-    <div class="col-12">
-      <div class="row card-container">
-        <div class="card" *ngFor="let ricetta of ricetteCopia"  >
-          
-            <div class="card--image-wrapper">
-              <img style="height: 250px; width: 300px;" [src]="ricetta.linkImmagine" alt="{{ricetta.nome}}">
-              <div class="card--view">
-                <p>
-                  <a [routerLink]="['/dettaglio-ricetta', ricetta.id]">
-                    Vai alla ricetta
-                  </a>    
-                </p>
-              </div>
-              <div class="card--image">
-                
-              </div>
-            </div>
-            <div class="card--content-wrapper">
-              <h1 class="card--title">{{ricetta.nome}}</h1>
-              <div class="card--recipe-info">
-                <h2 class="card--recipe-category" >Raccomanda NoWaste</h2>
-                <p class="card--recipe-time">
-                  <i class="fa fa-clock-o"  ></i>{{ricetta.tempoPreparazione}} min</p>
-              </div>
-              <span class="card--description" *ngFor="let ingrediente of ricetta?.ingredienti">
-                {{ingrediente.ingrediente.nome}} -
-              </span>
-              <div class="card--rating-wrapper">
-                <div class="card--rating-stars--wrapper">
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star">☆</div>
-                </div>
-                <span class="card--rating-count">{{ricetta.commenti.length}}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
 
- -->
-
- <div class="container-fluid mt-5 page-padding ">
+<div class="container-fluid mt-5">
   <div class="row">
-    <div class="col-12">
-      <div class="row card-container">
-        <div class="col-md-3 card-margin" *ngFor="let ricetta of ricetteCopia">
-          <div class="card">
-            <div class="card--image-wrapper">
-              <img style="height: 250px; width: 100%;" [src]="ricetta.linkImmagine" alt="{{ricetta.nome}}">
-              <div class="card--view">
-                <p>
-                  <a [routerLink]="['/dettaglio-ricetta', ricetta.id]">
-                    Vai alla ricetta
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div class="card--content-wrapper">
-              <h1 class="card--title">{{ricetta.nome}}</h1>
-              <div class="card--recipe-info">
-                <h2 class="card--recipe-category">Raccomanda NoWaste</h2>
-                <p class="card--recipe-time">
-                  <i class="fa fa-clock-o"></i>{{ricetta.tempoPreparazione}} min</p>
-              </div>
-              <span class="card--description" *ngFor="let ingrediente of ricetta?.ingredienti">
-                {{ingrediente.ingrediente.nome}} -
-              </span>
-              <div class="card--rating-wrapper">
-                <div class="card--rating-stars--wrapper">
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star filled">☆</div>
-                  <div class="card--rating-star">☆</div>
-                </div>
-                <span class="card--rating-count">{{ricetta.commenti.length}}</span>
-              </div>
-            </div>
+    <div class="col-md-3 card-margin" *ngFor="let ricetta of ricetteCopia">
+      <div class="card">
+        <div class="card--image-wrapper">
+          <img style="height: 250px; width: 100%;" [src]="ricetta.linkImmagine" alt="{{ricetta.nome}}">
+          <div class="card--view">
+            <p>
+              <a [routerLink]="['/dettaglio-ricetta', ricetta.id]">
+                Vai alla ricetta
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="card--content-wrapper">
+          <h1 class="card--title">{{ricetta.nome}}</h1>
+          <div class="card--recipe-info">
+            <h2 class="card--recipe-category">Raccomanda NoWaste</h2>
+            <p class="card--recipe-time">
+              <i class="fa fa-clock-o"></i>{{ricetta.tempoPreparazione}} min</p>
+          </div>
+          <!-- <span class="card--description" *ngFor="let ingrediente of ricetta?.ingredienti">
+            {{ingrediente.ingrediente.nome}} -
+          </span> -->
+          <span class="card--description">
+            Difficoltà: {{convertiDifficolta(ricetta.difficolta)}}
+          </span>
+          <div class="card--rating-wrapper">
+            <!-- <div class="card--rating-stars--wrapper">
+              <div class="card--rating-star filled">☆</div>
+              <div class="card--rating-star filled">☆</div>
+              <div class="card--rating-star filled">☆</div>
+              <div class="card--rating-star filled">☆</div>
+              <div class="card--rating-star">☆</div>
+            </div> -->
+            <span class="card--rating-count">Commenti Utenti: {{ricetta.commenti.length}}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
