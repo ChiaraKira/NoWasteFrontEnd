@@ -20,10 +20,7 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
       ])
     ]),
     trigger('plateAnimation', [
-      state('out', style({
-        transform: 'scale(0)',
-        opacity: 0
-      })),
+      
       state('in', style({
         transform: 'scale(1)',
         opacity: 1
@@ -31,9 +28,7 @@ import { trigger, state, style, animate, transition, keyframes } from '@angular/
       transition('out => in', [
         animate('0.5s')
       ]),
-      // transition('in => out', [
-      //   animate('0.5s')
-      // ])
+     
     ])
   ]
 })

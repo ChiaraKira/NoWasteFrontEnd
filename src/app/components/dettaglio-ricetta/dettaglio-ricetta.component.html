@@ -11,36 +11,25 @@
         <div class="col-12 barra">
             <div class="row d-flex justify-content-center align-items-center m-2">
                 <div class="col-4 d-flex justify-content-center align-items-center">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
-                    <p class="fw-bold fs-5">{{ricetta.tempoPreparazione}}</p>
+                  <p class="m-2"> Portata: {{ricetta.portata}}</p> 
                 </div>
-                <div class="col-3 d-flex justify-content-center align-items-end" *ngFor="let commento of commenti">
-                          <span class="fa fa-star" *ngIf="commento.punteggio >= 1"></span>
-                          <span class="fa fa-star" *ngIf="commento.punteggio >= 2"></span>
-                          <span class="fa fa-star" *ngIf="commento.punteggio >= 3"></span>
-                          <span class="fa fa-star" *ngIf="commento.punteggio >= 4"></span>
-                          <span class="fa fa-star" *ngIf="commento.punteggio == 5"></span>
-     
-                  
+                <div class="col-3 d-flex justify-content-center align-items-end">
+                        
+                 
+                  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule" class="m-2">  </mat-icon> 
+                    <p class="fw-bold fs-5">{{ricetta.tempoPreparazione}}</p>
+
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center">
                   
                     <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="restaurant"> </mat-icon>  -->
-                    <p class="m-2"> Aggiungi porzioni </p> 
-                   
-                    <div class="example-button-container m-2">
-                      <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
-                        <mat-icon>add</mat-icon>
-                      </button>
-                    </div> 
-                    <div class="example-button-container">
-                      <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
-                        <mat-icon>remove</mat-icon>
-                      </button>
-                    </div>
+                    <p class="m-2 "> Difficoltà: {{convertiDifficolta(ricetta.difficolta)}}</p> 
+                  
+                  </div>
+                 
                    
                   
-                </div>
+               
         
             </div>
             
@@ -69,7 +58,13 @@
             <mat-list role="list" class="mb-5 pb-5">
    
               <mat-list-item role="listitem" *ngFor="let ingrediente of ricetta?.ingredienti">
-                {{ ingrediente?.ingrediente?.nome }} - {{ ingrediente?.quantita }} {{ ingrediente?.unitaMisura }} </mat-list-item>
+                {{ ingrediente?.ingrediente?.nome }} - 
+                <ng-container *ngIf="ingrediente.quantita === 0">
+                  qb <!-- Visualizza solo "qb" quando la quantità è zero -->
+                </ng-container>
+                <ng-container *ngIf="ingrediente.quantita !== 0">
+                  {{ ingrediente.quantita }} <!-- Visualizza quantità e nome solo quando la quantità è diversa da zero -->
+                </ng-container> {{ ingrediente?.unitaMisura }} </mat-list-item>
       
           
       
@@ -86,36 +81,24 @@
            </div>
            <div class="row w-100 d-flex justify-content-start align-items-center mt-5">
             <div class="col-12 bgC">
-              <!-- <div class="container">
-                <div class="row">
-                    <div class="col-12"  [formGroup]="formCommento">
-                     
-                        <label for="text-area" class="form-label" >Inserisci un commento</label>
-                        <textarea class="form-control mb-2" aria-label="With textarea"></textarea>
-                    </div> 
-                    <div class="col-12 d-flex justify-content-end ">
-                        <button type="submit" mat-flat-button color="warn" (click)="submitCommento()">Invia</button>
-                    </div>
-                       
-                  
-                </div> -->
+              <form #commentForm="ngForm" (ngSubmit)="sendCommentToBackend(commentForm); commentForm.reset(); router.navigateByUrl('/dettaglio-ricetta/' + ricetta.id)">
+                <label for="punteggio" class="form-label">Punteggio (da 1 a 5)</label>
+                <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required>
+                
+                <label for="commento" class="form-label">Inserisci un commento</label>
+                <textarea class="form-control mb-2" id="commento" name="commento" ngModel required></textarea>
+                
+                <div class="col-12 d-flex justify-content-end ">
+                    <button type="submit" mat-flat-button color="warn">Invia </button>
+                </div>
+            </form>
                 
             </div>
             
             <div class="container">
               <div class="row">
                   <div class="col-12">
-                      <form #commentForm="ngForm" (ngSubmit)="sendCommentToBackend(commentForm); commentForm.reset(); router.navigateByUrl('/dettaglio-ricetta/' + ricetta.id)">
-                          <label for="punteggio" class="form-label">Punteggio (da 1 a 5)</label>
-                          <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required>
-                          
-                          <label for="commento" class="form-label">Inserisci un commento</label>
-                          <textarea class="form-control mb-2" id="commento" name="commento" ngModel required></textarea>
-                          
-                          <div class="col-12 d-flex justify-content-end ">
-                              <button type="submit" mat-flat-button color="warn">Invia </button>
-                          </div>
-                      </form>
+                      
                   </div> 
               </div>
           </div>
@@ -131,7 +114,7 @@
                         <p>Commento: {{ commento.commento }}</p>
                         <p>Punteggio: <app-stelle [punteggio]="commento.punteggio"></app-stelle></p>
                        
-                          <span class="fa fa-star" *ngIf="commento.punteggio >= 1"></span>
+                          <span class="fa fa-star coloreS" *ngIf="commento.punteggio >= 1"></span>
                           <span class="fa fa-star" *ngIf="commento.punteggio >= 2"></span>
                           <span class="fa fa-star" *ngIf="commento.punteggio >= 3"></span>
                           <span class="fa fa-star" *ngIf="commento.punteggio >= 4"></span>
@@ -141,7 +124,7 @@
                 </div>
             </div>
             
-              <!-- <app-lista-commenti></app-lista-commenti> -->
+             
             
             
            </div>
