@@ -23,7 +23,7 @@ sup {
 
   .bgC{
     background-color: #a6cf9887 ;
-    height: 250px;
+    max-height: 550px;
     padding-top: 30px;
     border-radius: 10px;
   }

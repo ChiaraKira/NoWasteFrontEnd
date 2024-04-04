@@ -60,7 +60,7 @@
               <mat-list-item role="listitem" *ngFor="let ingrediente of ricetta?.ingredienti">
                 {{ ingrediente?.ingrediente?.nome }} - 
                 <ng-container *ngIf="ingrediente.quantita === 0">
-                  qb <!-- Visualizza solo "qb" quando la quantità è zero -->
+                   <!-- Visualizza solo "qb" quando la quantità è zero -->
                 </ng-container>
                 <ng-container *ngIf="ingrediente.quantita !== 0">
                   {{ ingrediente.quantita }} <!-- Visualizza quantità e nome solo quando la quantità è diversa da zero -->
@@ -83,33 +83,52 @@
             <div class="col-12 bgC">
               <form #commentForm="ngForm" (ngSubmit)="sendCommentToBackend(commentForm); commentForm.reset(); router.navigateByUrl('/dettaglio-ricetta/' + ricetta.id)">
                 <label for="punteggio" class="form-label">Punteggio (da 1 a 5)</label>
-                <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required>
-                
+                <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required #punteggio="ngModel">
+                <div *ngIf="punteggio.invalid && (punteggio.dirty || punteggio.touched)">
+                    <div *ngIf="punteggio?.errors?.['required']">
+                        Il punteggio è obbligatorio.
+                    </div>
+                    <div *ngIf="punteggio?.errors?.['min'] || punteggio?.errors?.['max']">
+                        Il punteggio deve essere compreso tra 1 e 5.
+                    </div>
+                </div>
+            
                 <label for="commento" class="form-label">Inserisci un commento</label>
-                <textarea class="form-control mb-2" id="commento" name="commento" ngModel required></textarea>
-                
-                <div class="col-12 d-flex justify-content-end ">
+                <textarea class="form-control mb-2" id="commento" name="commento" ngModel required #commento="ngModel"></textarea>
+                <div *ngIf="commento.invalid && (commento.dirty || commento.touched)">
+                    <div *ngIf="commento.errors?.['required']">
+                        Il commento è obbligatorio.
+                    </div>
+                </div>
+            
+                <div class="col-12 d-flex justify-content-end">
                     <button type="submit" mat-flat-button color="warn">Invia </button>
+                </div>
+            
+                <!-- Notifica di successo -->
+                <div *ngIf="commentSuccess" class="alert " role="alert">
+                    Commento inviato con successo!
                 </div>
             </form>
                 
             </div>
             
-            <div class="container">
-              <div class="row">
-                  <div class="col-12">
-                      
-                  </div> 
-              </div>
-          </div>
+          
 
             </div>
             <div class="col-12 bordo mt-5 ">
               <div class="container">
-                <div class="row">
+                
+                <div class="row d-flex justify-content-center align-items-center">
+                  <div class="col-12">
                     <h2 class="text-center">Opinoni Utenti</h2>
+                    <div *ngIf="commenti!.length < 1">
+                      Nessun commento per questa ricetta.
+                    </div> 
+                  </div>
+                    
                     <div class="col-12 mt-5 cornice" *ngFor="let commento of commenti">
-                       
+                      
                         <h6> <mat-icon>account_circle</mat-icon> Utente: {{ commento.utente.nome }}</h6>
                         <p>Commento: {{ commento.commento }}</p>
                         <p>Punteggio: <app-stelle [punteggio]="commento.punteggio"></app-stelle></p>
