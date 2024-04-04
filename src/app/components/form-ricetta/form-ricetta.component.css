@@ -4,14 +4,12 @@
     padding: 0;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     font-family: "Livvik", sans-serif;
     background: transparent;
+    width: 100%;
 }
+
 
 .row{
 
@@ -27,7 +25,6 @@ h2{
 /*form styles*/
 #msform {
     text-align: center;
-    position: relative;
     margin-top: 30px;
 }
 
@@ -38,9 +35,8 @@ h2{
     box-shadow: 0 0 15px 1px #557C55;
     padding: 20px 30px;
     box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
-    position: relative;
+    width: 90%;
+    margin: 0 5%;
     
 }
 
@@ -99,23 +95,6 @@ h2{
     box-shadow: 0 0 0 2px #557C55, 0 0 0 3px #F2FFE9;
 }
 
-/*headings*/
-.fs-title {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.fs-subtitle {
-    font-weight: normal;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
 #difficolta{
     font-weight: 500;
 }
@@ -137,6 +116,12 @@ select{
     width: 100%;
 }
 
-#msform .unita-misura{
+#msform .unitaMisura{
     padding: 5px;
+}
+
+#msform .quantita{
+    padding: 5px;
+    width: 50px;
+    font-size: 20px;
 }

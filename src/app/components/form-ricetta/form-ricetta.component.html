@@ -1,6 +1,6 @@
-<div class="container-fluid">
+
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-xl-6  offset-xl-3">
             <form id="msform" [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
                 <!-- divs ossia un gruppo di form sotto uno stesso unico form name(form padre)-->
                 <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
@@ -57,20 +57,20 @@
                 </fieldset>
                 <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">
                     <h2>Scegli gli ingredienti</h2>
-                            <ul class="row d-flex list-ingredient">
-                                <li *ngFor="let ingrediente of ingredienti; let i = index" class="col d-flex align-items-center">
+                            <ul class="row d-flex flex-wrap list-ingredient">
+                                <li *ngFor="let ingrediente of ingredienti; let i = index" class="col-md-6 d-flex align-items-center">
                                         <input type="checkbox" name="{{ingrediente.nome}}" value="{{ingrediente.nome}}"
-                                            (change)="selezionaIngrediente(ingrediente, i, $event)" class="my-0">
+                                            (change)="selezionaIngrediente(ingrediente, i, $event)">
                                         <label for="{{ingrediente.nome}}">{{ingrediente.nome}}</label>
-                                        <input type="number" min="1" formControlName="quantita{{i}}" style="width: 50px;">
-                                        <select name="unitaMisura" formControlName="unitaMisura{{i}}" class="unita-misura">
+                                        <input type="number" min="1" formControlName="quantita{{i}}"  class="quantita">
+                                        <select name="unitaMisura" formControlName="unitaMisura{{i}}" class="unitaMisura">
                                             <option value="g">g</option>
                                             <option value="kg">kg</option>
                                             <option value="ml">ml</option>
                                             <option value="l">l</option>
                                             <option value="cucchiaino">cucchiaino</option>
                                             <option value="cucchiaio">cucchiaio</option>
-                                            <option value="pizzico">pizzico</option>
+                                            <option value="q.b.">q.b.</option>
                                         </select>
 
                                 </li>
@@ -88,4 +88,3 @@
             </form>
         </div>
     </div>
-</div>

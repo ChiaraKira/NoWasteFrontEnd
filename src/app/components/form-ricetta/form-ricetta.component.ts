@@ -166,7 +166,6 @@ export class FormRicettaComponent {
       
       ricetta.ingredienti = this.ingredientiCheck;
     
-      console.log(ricetta);
       var token = sessionStorage.getItem('token');
 
 
@@ -182,7 +181,8 @@ export class FormRicettaComponent {
         var ris : boolean = risposta as boolean;
          if(ris){
            //Pagina login
-           this.router.navigateByUrl('area-admin'); // routing da rendirizzare al login
+           alert("Ricetta Inserita");
+           this.router.navigateByUrl('home-page'); // routing da rendirizzare al login
          }
          else{
           alert("Ricetta non inserita");
