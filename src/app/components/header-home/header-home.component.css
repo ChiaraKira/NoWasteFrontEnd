@@ -39,6 +39,7 @@
 
   .colore{
     background-color: #7EAA5F !important;
+    color: white !important;
   }
 
   .waveContainer{
@@ -62,6 +63,7 @@
     z-index: 9999;
     
   }
+
 
 
 
