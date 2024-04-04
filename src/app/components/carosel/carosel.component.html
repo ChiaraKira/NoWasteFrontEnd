@@ -4,26 +4,26 @@
       <div class="carousel-item active">
         <div class="row">
           <div class="col-md-4 mb-3">
-              <app-card></app-card>
+              <app-card *ngIf="ricette" [ricetta]="ricette[0]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[1]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[2]"></app-card>
           </div>
         </div>
       </div>
       <div class="carousel-item">
         <div class="row">
           <div class="col-md-4 mb-3">
-              <app-card></app-card>
+              <app-card *ngIf="ricette" [ricetta]="ricette[3]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[4]"></app-card>
           </div>
           <div class="col-md-4 mb-3">
-            <app-card></app-card>
+            <app-card *ngIf="ricette" [ricetta]="ricette[5]"></app-card>
           </div>
         </div>
       </div>

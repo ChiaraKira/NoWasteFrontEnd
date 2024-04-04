@@ -1,6 +1,7 @@
 .card {
     position: relative;
-    width: 350px;
+    width: 370px;
+    height: 450px;
     margin: 0px 25px;
     border-radius: 3px;
     overflow: hidden;
@@ -11,6 +12,7 @@
   
   .card--image-wrapper {
     position: relative;
+    height: 250px;
     width: 100%;
     padding-bottom: 50%;
     background-color: #ccc;
@@ -23,7 +25,6 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url('https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-videoSixteenByNineJumbo1600.jpg');
     background-size: cover;
     background-position: center;
     transition: 0.25s ease transform;

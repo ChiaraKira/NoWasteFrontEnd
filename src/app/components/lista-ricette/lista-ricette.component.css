@@ -7,7 +7,7 @@
     justify-content: space-between;
   }
 .card {
-    flex-basis: calc(30% - 20px);
+    flex-basis: calc(28% - 20px);
     margin-bottom: 30px;
     position: relative;
     width: 850px;

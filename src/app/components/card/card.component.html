@@ -1,21 +1,25 @@
 <div class="card">
     <div class="card--image-wrapper">
+      <img style="height: 250px; width: 370px;" [src]="ricetta?.linkImmagine" alt="{{ricetta?.nome}}">
       <div class="card--view">
         <p>
-          <a routerLink="dettaglio-ricetta"></a>
-          View Recipe
+          <a [routerLink]="['/dettaglio-ricetta', ricetta?.id]">
+            Vai alla ricetta
+          </a>   
         </p>
       </div>
       <div class="card--image"></div>
     </div>
     <div class="card--content-wrapper">
-      <h1 class="card--title">Perfect pancakes</h1>
+      <h1 class="card--title">{{ricetta?.nome}}</h1>
       <div class="card--recipe-info">
-        <h2 class="card--recipe-category">Season Favorite</h2>
+        <h2 class="card--recipe-category">Raccomanda NoWaste</h2>
         <p class="card--recipe-time">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> 15-25 minutes</p>
+          <i class="fa fa-clock-o" aria-hidden="true"></i> {{ricetta?.tempoPreparazione}} min</p>
       </div>
-      <p class="card--description">Eos ne dicam democritum. Congue labores quaestio ei qui, his nominavi constituto cu. Mea natum scripserit reprehendunt id. Duo agam offendit percipitur ut, ne vim falli oratio virtute, at possim consetetur efficiantur eam.</p>
+      <span class="card--description" *ngFor="let ingrediente of ricetta?.ingredienti">
+        {{ingrediente.ingrediente.nome}} -
+      </span>
       <div class="card--rating-wrapper">
         <div class="card--rating-stars--wrapper">
           <div class="card--rating-star filled">☆</div>
@@ -24,7 +28,7 @@
           <div class="card--rating-star filled">☆</div>
           <div class="card--rating-star">☆</div>
         </div>
-        <span class="card--rating-count">425 reviews</span>
+        <span class="card--rating-count">{{ricetta?.commenti?.length}}</span>
       </div>
     </div>
   </div>

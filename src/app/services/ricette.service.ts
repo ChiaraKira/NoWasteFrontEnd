@@ -19,7 +19,7 @@ export class RicetteService {
    getAllRicette(){
     var token = sessionStorage.getItem("token")
 
-    console.log(token)
+    
     if(token == null){
       token = "admin-2";
     }
