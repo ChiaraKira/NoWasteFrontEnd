@@ -162,11 +162,13 @@ export class FormRicettaComponent {
       this.ingredientiCheck.forEach(ricettaIngrediente =>{
         ricettaIngrediente.quantita = this.ricettaForm.get(`quantita${ricettaIngrediente.id}`)?.value;
         ricettaIngrediente.unitaMisura = this.ricettaForm.get(`unitaMisura${ricettaIngrediente.id}`)?.value;
+        if(ricettaIngrediente.unitaMisura == 'q.b.'){
+          ricettaIngrediente.quantita = 0;
+        }
       })
       
       ricetta.ingredienti = this.ingredientiCheck;
     
-      console.log(ricetta);
       var token = sessionStorage.getItem('token');
 
 
@@ -182,7 +184,8 @@ export class FormRicettaComponent {
         var ris : boolean = risposta as boolean;
          if(ris){
            //Pagina login
-           this.router.navigateByUrl('area-admin'); // routing da rendirizzare al login
+           alert("Ricetta Inserita");
+           this.router.navigateByUrl('home-page'); // routing da rendirizzare al login
          }
          else{
           alert("Ricetta non inserita");
