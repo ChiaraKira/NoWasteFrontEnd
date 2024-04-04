@@ -7,16 +7,16 @@
           <form autocomplete="off" [formGroup]="formRegistrati" (ngSubmit)="submitRegistrati()">
             <input type="text" placeholder="nome" formControlName="nome">
             <input type="text" placeholder="cognome" formControlName="cognome">
-            <input type="email" placeholder="username" formControlName="username">
+            <input type="email" placeholder="email" formControlName="username">
             <input type="password" placeholder="password" formControlName="password">
-            <input type="password" placeholder="confirm password" formControlName="confirmPassword">
+            <input type="password" placeholder="conferma password" formControlName="confirmPassword">
             <button class="button submit">crea l'account</button>
           </form>
         </div>
         <div class="signin" [ngClass]="{' nodisplay': !signinVisible }">
           <h1>accedi</h1>
           <form class="more-padding" autocomplete="off" [formGroup]="formAccedi" (ngSubmit)="submitAccedi()">
-            <input type="email" placeholder="username" formControlName="username">
+            <input type="email" placeholder="email" formControlName="username">
             <input type="password" placeholder="password" formControlName="password">
             <button class="button submit" >accedi</button>
           </form>
