@@ -2,15 +2,15 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-body {
     font-family: "Livvik", sans-serif;
-    background: transparent;
-    width: 100%;
+
 }
 
-
+.co{
+    height: 60.58vh;
+    display: flex;
+    align-items: center;
+}
 .row{
 
     display:flex;
@@ -22,7 +22,6 @@ h2{
     margin-bottom: 10px;
 }
 
-/*form styles*/
 #msform {
     text-align: center;
     margin-top: 30px;
@@ -33,10 +32,11 @@ h2{
     border: 0 none;
     border-radius: 15px;
     box-shadow: 0 0 15px 1px #557C55;
-    padding: 20px 30px;
+    padding: 20px 20px;
     box-sizing: border-box;
-    width: 90%;
-    margin: 0 5%;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
     
 }
 
@@ -48,13 +48,14 @@ h2{
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 20px;
 }
 
 #msform select{
     border: 1px solid #ccc;
     border-radius: 15px;
     padding: 10px;
+    font-size: 20px;
 }
 
 #msform input:focus, #msform textarea:focus, #msform select:focus {
@@ -73,6 +74,7 @@ h2{
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+    font-size: 20px;
 }
 
 #msform .action-button:hover, #msform .action-button:focus {
@@ -89,14 +91,11 @@ h2{
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
+    font-size: 20px;
 }
 
 #msform .action-button-previous:hover, #msform .action-button-previous:focus {
     box-shadow: 0 0 0 2px #557C55, 0 0 0 3px #F2FFE9;
-}
-
-#difficolta{
-    font-weight: 500;
 }
 
 .box{
@@ -116,12 +115,29 @@ select{
     width: 100%;
 }
 
-#msform .unitaMisura{
-    padding: 5px;
-}
 
 #msform .quantita{
     padding: 5px;
     width: 50px;
     font-size: 20px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    text-align: center;
 }
+
+#msform label{
+    font-size: 20px;
+}
+
+
+#msform input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+#msform input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+  
+
