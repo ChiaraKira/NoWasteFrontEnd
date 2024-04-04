@@ -6,8 +6,6 @@
 
 html {
     height: 100%;
-    background: #6441A5; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
 }
 
 body {
@@ -16,12 +14,15 @@ body {
 }
 
 .row{
-    width: 100%;
+
     display:flex;
     width: 100%;
     justify-content: center;
 }
 
+h2{
+    margin-bottom: 10px;
+}
 
 /*form styles*/
 #msform {
@@ -31,53 +32,44 @@ body {
 }
 
 #msform fieldset {
-    background: white;
+    background: #A6CF98;
     border: 0 none;
-    border-radius: 0px;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 0 15px 1px #557C55;
     padding: 20px 30px;
     box-sizing: border-box;
     width: 80%;
     margin: 0 10%;
-
-    /*stacking fieldsets above each other*/
     position: relative;
+    
 }
 
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-    display: none;
-}
-
-/*inputs*/
-#msform input, #msform textarea {
+/*input*/
+#msform input, #msform textarea  {
     padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 15px;
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2C3E50;
     font-size: 13px;
 }
 
-#msform input:focus, #msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ee0979;
+#msform select{
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#msform input:focus, #msform textarea:focus, #msform select:focus {
+    border: 1px solid #557C55;
     outline-width: 0;
-    transition: All 0.5s ease-in;
-    -webkit-transition: All 0.5s ease-in;
-    -moz-transition: All 0.5s ease-in;
-    -o-transition: All 0.5s ease-in;
 }
 
 /*buttons*/
 #msform .action-button {
-    width: 100px;
-    background: #ee0979;
+    width: 100%;
+    background: #557C55;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -88,14 +80,14 @@ body {
 }
 
 #msform .action-button:hover, #msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #F2FFE9;
 }
 
 #msform .action-button-previous {
-    width: 100px;
-    background: #C5C5F1;
+    width: 100%;
+    background: #F2FFE9;
     font-weight: bold;
-    color: white;
+    color: #557C55;
     border: 0 none;
     border-radius: 25px;
     cursor: pointer;
@@ -104,7 +96,7 @@ body {
 }
 
 #msform .action-button-previous:hover, #msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+    box-shadow: 0 0 0 2px #557C55, 0 0 0 3px #F2FFE9;
 }
 
 /*headings*/
@@ -124,32 +116,27 @@ body {
     margin-bottom: 20px;
 }
 
-
-/* Not relevant to this form */
-.dme_link {
-    margin-top: 30px;
-    text-align: center;
-}
-.dme_link a {
-    background: #FFF;
-    font-weight: bold;
-    color: #ee0979;
-    border: 0 none;
-    border-radius: 25px;
-    cursor: pointer;
-    padding: 5px 25px;
-    font-size: 12px;
-}
-
-.dme_link a:hover, .dme_link a:focus {
-    background: #C5C5F1;
-    text-decoration: none;
-}
-
 #difficolta{
     font-weight: 500;
 }
 
-label[for="1"], label[for="2"], label[for="3"]  {
-    font-weight: 300;
+.box{
+    display: flex;
+    align-items : center;
+}
+
+li{
+    list-style: none;
+}
+
+select{
+    text-align: center;
+}
+
+.list-ingredient{
+    width: 100%;
+}
+
+#msform .unita-misura{
+    padding: 5px;
 }
