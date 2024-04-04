@@ -7,9 +7,9 @@ import { ListaRicetteComponent } from './components/lista-ricette/lista-ricette.
 import { PaginaNoWasteComponent } from './components/pagina-no-waste/pagina-no-waste.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { IngredientiComponent } from './components/ingredienti/ingredienti.component';
-import { AreaAdminComponent } from './components/area-admin/area-admin.component';
 import { RispostaUtenteComponent } from './components/risposta-utente/risposta-utente.component';
 import { SceltaUtenteComponent } from './components/scelta-utente/scelta-utente.component';
+import { FormRicettaComponent } from './components/form-ricetta/form-ricetta.component';
 
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'no-waste', component: PaginaNoWasteComponent},
   {path: 'home-page', component: HomePageComponent},
   {path: 'ingredienti' , component: IngredientiComponent},
-  {path: 'area-admin' , component: AreaAdminComponent},
+  {path: 'form-ricetta' , component: FormRicettaComponent},
   {path: 'app-component' , component: AppComponent},
   {path: 'scelta-utente', component: SceltaUtenteComponent},
   {path: 'risposta-utente', component: RispostaUtenteComponent},

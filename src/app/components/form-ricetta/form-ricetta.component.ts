@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Ingrediente } from 'src/app/model/ingrediente';
-import { AddIngredientiPopupService } from 'src/app/services/add-ingredienti-popup.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 import { LoginService } from 'src/app/services/login.service';
@@ -9,9 +8,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-area-admin',
-  templateUrl: './area-admin.component.html',
-  styleUrls: ['./area-admin.component.css'],
+  selector: 'app-form-ricetta',
+  templateUrl: './form-ricetta.component.html',
+  styleUrls: ['./form-ricetta.component.css'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({
@@ -21,8 +20,7 @@ import { Router } from '@angular/router';
     ])
   ]
 })
-export class AreaAdminComponent {
-
+export class FormRicettaComponent {
   currentStep = 1;
   ingredienti!: Ingrediente[];
   ingredientiCheck : RicettaIngrediente[] = [];
@@ -193,8 +191,4 @@ export class AreaAdminComponent {
     
 
   }
-
-
 }
-
-
