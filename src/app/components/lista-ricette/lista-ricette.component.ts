@@ -20,7 +20,6 @@ export class ListaRicetteComponent {
   constructor( private http: HttpClient, public ricetteService: RicetteService) { 
   this.http = http;
     this.getAllRicette();
-    this.getAllPortate();
   }
 
   

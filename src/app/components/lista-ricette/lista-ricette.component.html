@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="form-group">
         <label for="portata">Filtra per portata:</label>
-        <select class="form-control" id="portata" [(ngModel)]="portataSelezionata" (click)="getRicettePerPortata(portataSelezionata!)">
+        <select class="form-control" id="portata" [(ngModel)]="portataSelezionata">
           <option value="">Tutte le portate</option>
           <option *ngFor="let portata of portate" [value]="portata">{{ portata }}</option>
         </select>
