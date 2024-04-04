@@ -57,7 +57,7 @@ export class ListaRicetteComponent {
     );
     this.http.get("http://localhost:8080/api/recipe/allPortate", {headers}).subscribe(risposta =>{
       this.portate = risposta as string[];
-    }); 
+    });
   }
 
   // filtroPerPortata() {
