@@ -162,6 +162,9 @@ export class FormRicettaComponent {
       this.ingredientiCheck.forEach(ricettaIngrediente =>{
         ricettaIngrediente.quantita = this.ricettaForm.get(`quantita${ricettaIngrediente.id}`)?.value;
         ricettaIngrediente.unitaMisura = this.ricettaForm.get(`unitaMisura${ricettaIngrediente.id}`)?.value;
+        if(ricettaIngrediente.unitaMisura == 'q.b.'){
+          ricettaIngrediente.quantita = 0;
+        }
       })
       
       ricetta.ingredienti = this.ingredientiCheck;

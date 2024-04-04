@@ -22,8 +22,8 @@ export class LoginComponent {
       loginService.checkLogin();
       
       this.formAccedi = formBuilder.group({
-        username: "",
-        password: ""
+        username : ["", Validators.required], 
+        password : ["", Validators.required]
       })
 
       this.formRegistrati = formBuilder.group({
@@ -40,36 +40,37 @@ export class LoginComponent {
     const formValues = this.formAccedi.value;
     const headers = {'Content-Type' : 'application/json'}
     const body = JSON.stringify(formValues);
-    console.log(body);
-    this.http.post("http://localhost:8080/api/login/signin", body, {'headers' : headers}).subscribe(risposta => {
-      this.login = false;
-      var loginStatus : LoginStatus = risposta as LoginStatus;
-      console.log(loginStatus);
-      sessionStorage.setItem("token", loginStatus.token)
-      console.log(sessionStorage.getItem("token"));
-     
-      if(loginStatus.ruolo == "USER"){
-        //Pagina user
-        this.router.navigateByUrl('home-page');
-        window.location.reload(); //aggiunger route
 
-      } else if(loginStatus.ruolo == "ADMIN"){
-        this.router.navigateByUrl('home-page');
-        window.location.reload();
-        //Pagina ADMIN 
-      }
-
-      else{
-        alert("ERRORE ACCEDI");
-        this.formAccedi.patchValue(
-          {
-            username : "",
-            password : ""
+    if (this.formAccedi.valid) {
+      this.http.post("http://localhost:8080/api/login/signin", body, {'headers' : headers})
+        .subscribe({
+          next: (risposta: any) => {
+            this.login = false;
+            var loginStatus: LoginStatus = risposta as LoginStatus;
+            sessionStorage.setItem("token", loginStatus.token);
+        
+            if (loginStatus.ruolo == "USER" || loginStatus.ruolo == "ADMIN") {
+              // Pagina user o ADMIN
+              this.router.navigateByUrl('home-page');
+              window.location.reload(); //aggiunger route
+            } else {
+              alert("ERRORE: Ruolo non valido");
+            }
+          },
+          error: (error: any) => {
+            if (error.status === 404) {
+              // Utente non trovato
+              alert("Utente non trovato. Controlla le credenziali e riprova.");
+            } else {
+              // Gestione degli altri tipi di errori
+              alert("Si è verificato un errore durante l'accesso: " + error.message);
+            }
+            console.error(error); // Stampa l'errore nella console per eventuali debug
           }
-        )
-      }
-
-    })
+        });
+    } else {
+      alert("Username e password non validi");
+    }
   }
 
 
@@ -78,7 +79,6 @@ export class LoginComponent {
     const headers = {'Content-Type' : 'application/json'};
     const body = JSON.stringify(formValues);
     
-   // Aggiungi validazione per la corrispondenza delle password
    if(formValues.password == formValues.confirmPassword && this.formRegistrati.valid){
      this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
        var ris : boolean = risposta as boolean;
@@ -109,6 +109,7 @@ export class LoginComponent {
     this.greenboxTransform = 'translateX(80%)';
     this.signinVisible = false;
     this.signupVisible = true;
+    this.formAccedi.reset();
   }
 
   onSigninClick() {
