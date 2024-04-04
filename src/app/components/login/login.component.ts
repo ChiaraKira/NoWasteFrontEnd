@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginStatus } from 'src/app/model/login-status';
 import { LoginService } from 'src/app/services/login.service';
@@ -22,17 +22,17 @@ export class LoginComponent {
       loginService.checkLogin();
       
       this.formAccedi = formBuilder.group({
-        username: "",
-        password: ""
+        username : ["", Validators.required], 
+        password : ["", Validators.required]
       })
 
       this.formRegistrati = formBuilder.group({
-        nome: "",
-        cognome : "",
-        username : "",
-        password : "",
-        confirmPassword : ""
-      })
+        nome: ["", Validators.required], // Campo obbligatorio
+        cognome : ["", Validators.required], 
+        username : ["", Validators.required], 
+        password : ["", Validators.required], 
+        confirmPassword : ["", Validators.required] 
+      });
       
   }
 
@@ -40,70 +40,64 @@ export class LoginComponent {
     const formValues = this.formAccedi.value;
     const headers = {'Content-Type' : 'application/json'}
     const body = JSON.stringify(formValues);
-    console.log(body);
-    this.http.post("http://localhost:8080/api/login/signin", body, {'headers' : headers}).subscribe(risposta => {
-      this.login = false;
-      var loginStatus : LoginStatus = risposta as LoginStatus;
-      console.log(loginStatus);
-      sessionStorage.setItem("token", loginStatus.token)
-      console.log(sessionStorage.getItem("token"));
-     
-      if(loginStatus.ruolo == "USER"){
-        //Pagina user
-        this.router.navigateByUrl('home-page');
-        window.location.reload(); //aggiunger route
 
-      } else if(loginStatus.ruolo == "ADMIN"){
-        this.router.navigateByUrl('home-page');
-        window.location.reload();
-        //Pagina ADMIN 
-      }
-
-      else{
-        alert("ERRORE ACCEDI");
-        this.formAccedi.patchValue(
-          {
-            username : "",
-            password : ""
+    if (this.formAccedi.valid) {
+      this.http.post("http://localhost:8080/api/login/signin", body, {'headers' : headers})
+        .subscribe({
+          next: (risposta: any) => {
+            this.login = false;
+            var loginStatus: LoginStatus = risposta as LoginStatus;
+            sessionStorage.setItem("token", loginStatus.token);
+        
+            if (loginStatus.ruolo == "USER" || loginStatus.ruolo == "ADMIN") {
+              // Pagina user o ADMIN
+              this.router.navigateByUrl('home-page');
+              window.location.reload(); //aggiunger route
+            } else {
+              alert("ERRORE: Ruolo non valido");
+            }
+          },
+          error: (error: any) => {
+            if (error.status === 404) {
+              // Utente non trovato
+              alert("Utente non trovato. Controlla le credenziali e riprova.");
+            } else {
+              // Gestione degli altri tipi di errori
+              alert("Si è verificato un errore durante l'accesso: " + error.message);
+            }
+            console.error(error); // Stampa l'errore nella console per eventuali debug
           }
-        )
-      }
-
-    })
+        });
+    } else {
+      alert("Username e password non validi");
+    }
   }
 
 
   submitRegistrati(){
-     const formValues = this.formRegistrati.value;
-     const headers = {'Content-Type' : 'application/json'}
-     const body = JSON.stringify(formValues);
-    if(formValues.password == formValues.confirmPassword){
-      this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
-        var ris : boolean = risposta as boolean;
-          if(ris){
-            //Pagina login
-            alert("Registrazione Effettuata");
-            this.router.navigateByUrl(''); // routing da rendirizzare al login
-            window.location.reload();
-          }
-          else{
-            alert("ERRORE registrazione");
-            this.formRegistrati.patchValue(
-              {
-                nome: "",
-                cognome : "",
-                username : "",
-                password : "",
-                confirmPassword : ""
-              }
-            )
-          }
-      })
-    }
-    else{
-      alert("Le password non combaciano");
-    }
-  }
+    const formValues = this.formRegistrati.value;
+    const headers = {'Content-Type' : 'application/json'};
+    const body = JSON.stringify(formValues);
+    
+   if(formValues.password == formValues.confirmPassword && this.formRegistrati.valid){
+     this.http.post("http://localhost:8080/api/login/registerUser", body, {'headers' : headers}).subscribe(risposta => {
+       var ris : boolean = risposta as boolean;
+         if(ris){
+           //Pagina login
+           alert("Registrazione Effettuata");
+           this.router.navigateByUrl('');
+           window.location.reload();
+         }
+         else{
+           alert("ERRORE registrazione");
+           this.formRegistrati.reset(); 
+         }
+     })
+   }
+   else{
+     alert("Si prega di compilare tutti i campi e assicurarsi che le password combacino.");
+   }
+ }
 
   // Pulsanti per far spostare la greenbox a sinistra e destra
   //Andando a modifigare il contenuto della box
@@ -115,6 +109,7 @@ export class LoginComponent {
     this.greenboxTransform = 'translateX(80%)';
     this.signinVisible = false;
     this.signupVisible = true;
+    this.formAccedi.reset();
   }
 
   onSigninClick() {
@@ -122,6 +117,5 @@ export class LoginComponent {
     this.signupVisible = false;
     this.signinVisible = true;
   }
-
 
 }
