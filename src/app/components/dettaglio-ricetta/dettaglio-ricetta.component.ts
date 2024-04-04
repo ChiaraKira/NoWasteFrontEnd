@@ -151,6 +151,18 @@ generateUniqueId(): number {
 }
 
 
+convertiDifficolta(difficolta: number): string {     switch (difficolta) {   
+      case 1:         return 'Facile';    
+      case 2:         return 'Media';    
+      case 3:         return 'Difficile';       
+     default:         return 'Sconosciuta';     
+    }  
+  
+}
+
+
+
+
 
 
 }
