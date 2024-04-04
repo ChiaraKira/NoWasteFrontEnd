@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Ingrediente } from 'src/app/model/ingrediente';
 import { LoginService } from 'src/app/services/login.service';
@@ -11,23 +11,28 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./form-ingrediente.component.css']
 })
 export class FormIngredienteComponent {
-  ingredienteForm : FormGroup;
+  ingredienteForm: FormGroup;
 
   constructor(
     private loginService: LoginService,
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { 
+  ) {
     this.ingredienteForm = formBuilder.group(
-      {nome:"", senzaGlutine:"",vegetariano:"",vegano:""}
-      );
+      {
+        nome: ["", Validators.required],
+        senzaGlutine: "",
+        vegetariano: "",
+        vegano: ""
+      }
+    );
   }
 
-  add(){
+  add() {
     const formValues = this.ingredienteForm.value;
     const nuovoIngrediente: Ingrediente = {
-      id : 0,
+      id: 0,
       nome: formValues.nome,
       senzaGlutine: formValues.senzaGlutine,
       vegetariano: formValues.vegetariano,
@@ -35,24 +40,23 @@ export class FormIngredienteComponent {
     };
 
     var token = sessionStorage.getItem('token');
-    if (token == null) {
-      token = "admin-2"; //da rimuovere
-    }
 
     const headers = new HttpHeaders(
       { 'Content-Type': 'application/json', 'token': token as string }
     );
-    
 
-    this.http.post("http://localhost:8080/api/ingredients/addIngredient", nuovoIngrediente, { headers }).subscribe(risposta => {
-      var ris : boolean = risposta as boolean;
-       if(ris){
-         //Pagina login
-         this.router.navigateByUrl('home-page'); // routing da rendirizzare al login
-       }
-       else{
-        alert("Ingrediente non inserito");
-       }
-    });
+    if (this.ingredienteForm.valid) {
+      this.http.post("http://localhost:8080/api/ingredients/addIngredient", nuovoIngrediente, { headers }).subscribe(risposta => {
+        var ris: boolean = risposta as boolean;
+        if (ris) {
+          //Pagina login
+          alert("Ingrediente inserito con successo");
+          this.ingredienteForm.reset();
+        }
+        else {
+          alert("Ingrediente non inserito");
+        }
+      });
+    }
   }
 }

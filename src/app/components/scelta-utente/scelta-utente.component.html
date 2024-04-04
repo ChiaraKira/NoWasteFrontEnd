@@ -1,43 +1,118 @@
-<div class="container-fluid bgC d-flex justify-content-center align-items-center h-75">
-  <div class="row m-5">
+  <div class="container-fluid bgC d-flex justify-content-center align-items-center h-75 nascondi">
+    <div class="row m-5">
+
+      <section  class="example-section" [formGroup]="formSceltaUtente">
+        <h2 class="mt-5 mb-5" [@fadeInOut]>Seleziona gli ingredienti a tua disposizione:</h2>
+        <div class="row d-flex justify-content-center align-items-center ">
+        
+          <div class="col-2" *ngFor="let ingrediente of ingredienti; let i = index" [@slideInOut]>
+          <p>
+            <mat-checkbox [formControlName]="ingrediente.nome">{{ingrediente.nome}}</mat-checkbox>
+          </p>
+             
+      
+        
+          </div>
+        
+          <!-- Aggiunto il routerLink al bottone per la navigazione -->
+        
+          
+        </div>  
+        <div class="row d-flex justify-content-end align-items-end">
+          <button mat-flat-button class="bottone" (click)="submitSceltaIngredienti()" >Cerca</button> 
+
+        </div>
+        
+      </section>
+        
+      <!-- <section class="example-section" [formGroup]="formSceltaUtente">
+        <h4>La tua scelta:</h4>
+        <div *ngIf="selectedValue">
+          Ingrediente selezionato: {{ selectedValue }}
+        </div>
+        <select formControlName="selectedValue" (change)="onSelectChange($event)">
+          <option *ngFor="let ingrediente of ingredienti" [value]="ingrediente.nome">{{ ingrediente.nome }}</option>
+        </select>
+      </section> -->
+      
+    </div>
+  </div>
+
+  <div class="container h-100 mb-5 nascondi">
+    <div class="row">
+      <div class="col-12">
+        <div *ngIf="ris.length>0">
+          <div class="container-fluid">
+            <div class="row ">
+                <div class="col-12 d-flex mt-5 ">
+                    <h2 [@fadeInOut]>Ecco la lista di tutte le ricette disponibili con gli ingredienti selezionati </h2>
+        
+                  
+                </div>
+            </div>
+            
+            <div class="row d-flex justify-content-start align-items-center mt-5 ">
+                <div class="col-12 d-flex justify-content-center align-items-center" *ngFor="let risposta of ris; let i = index" [@slideInOut]>
+        
+                  <div class="col-3">
+                    <img [src]="risposta.linkImmagine" alt="immagine" style="height: 150px; width: 200px;">
+                  </div>
+                  <div class="col-9 mt-5">
+                    <p class="portata m-0">{{risposta.portata}}</p>
+                    <h3>{{risposta.nome}}</h3>
+                    <p>{{risposta.istruzioni}}</p>
+                    <div class="col-12 d-flex justify-content-around align-items-center">
+                      <h5 class="portata"> Difficoltà: {{risposta.difficolta}}</h5>
+                      <h5  class="ms-2 portata">  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="schedule">  </mat-icon>  {{risposta.tempoPreparazione}}</h5>   
+                      <h5 class="ms-2 portata"> <mat-icon>people</mat-icon>{{risposta.serving}}</h5>
+                      <button mat-flat-button class="bottone" [routerLink]="['/dettaglio-ricetta', risposta.id]">Scopri di più</button> 
+                    </div>
+                    
+                  
+                  </div>
+        
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+ <div class="container bgC d-flex justify-content-center align-items-center h-75 nascondiBig">
+  <div class="row  d-flex justify-content-around m-5">
 
     <section  class="example-section" [formGroup]="formSceltaUtente">
       <h2 class="mt-5 mb-5" [@fadeInOut]>Seleziona gli ingredienti a tua disposizione:</h2>
       <div class="row d-flex justify-content-center align-items-center ">
        
-        <div class="col-2" *ngFor="let ingrediente of ingredienti; let i = index" [@slideInOut]>
-          <p>
-            <mat-checkbox [formControlName]="ingrediente.nome">{{ingrediente.nome}}</mat-checkbox>
-        </p>
+        <div class="col-2 " *ngFor="let ingrediente of ingredienti; let i = index" [@slideInOut]>
+         <p class="d-flex justify-content-center align-items-center">
+          <mat-checkbox [formControlName]="ingrediente.nome">{{ingrediente.nome}}</mat-checkbox>
+
+         </p>
+      
        
         </div>
        
         <!-- Aggiunto il routerLink al bottone per la navigazione -->
        
         
-      </div>  
+     </div>  
       <div class="row d-flex justify-content-end align-items-end">
         <button mat-flat-button class="bottone" (click)="submitSceltaIngredienti()" >Cerca</button> 
 
       </div>
        
      </section>
-      
-     <!-- <section class="example-section" [formGroup]="formSceltaUtente">
-      <h4>La tua scelta:</h4>
-      <div *ngIf="selectedValue">
-        Ingrediente selezionato: {{ selectedValue }}
-      </div>
-      <select formControlName="selectedValue" (change)="onSelectChange($event)">
-        <option *ngFor="let ingrediente of ingredienti" [value]="ingrediente.nome">{{ ingrediente.nome }}</option>
-      </select>
-    </section> -->
+     
     
-  </div>
+ </div>
 </div>
 
-<div class="container h-100 mb-5">
-  <div class="row">
+<div class="container h-100 mb-5 nascondiBig">
+  <div class="row d-flex justify-content-center align-items-center">
     <div class="col-12">
       <div *ngIf="ris.length>0">
         <div class="container-fluid">
@@ -49,13 +124,13 @@
               </div>
           </div>
           
-          <div class="row d-flex justify-content-start align-items-center mt-5 ">
+          <div class="row d-flex justify-content-start align-items-center mt-5 flex-column">
               <div class="col-12 d-flex justify-content-center align-items-center" *ngFor="let risposta of ris; let i = index" [@slideInOut]>
-      
-                <div class="col-3">
+                
+                <div class="col-12">
                   <img [src]="risposta.linkImmagine" alt="immagine" style="height: 150px; width: 200px;">
                 </div>
-                <div class="col-9 mt-5">
+                <div class="col-12 mt-5">
                   <p class="portata m-0">{{risposta.portata}}</p>
                   <h3>{{risposta.nome}}</h3>
                   <p>{{risposta.istruzioni}}</p>
@@ -75,4 +150,4 @@
       </div>
     </div>
   </div>
-</div> 
+</div>  

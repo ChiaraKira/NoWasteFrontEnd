@@ -1,8 +1,5 @@
-.bgImg{
-    background-image: url(/assets/img/header.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-
+.bgS{
+   background-color:rgb(237, 115, 115) ;
 }
 
 
