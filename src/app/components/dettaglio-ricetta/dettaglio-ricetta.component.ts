@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Commento } from 'src/app/model/commento';
 import { Ingrediente } from 'src/app/model/ingrediente';
 import { Ricetta } from 'src/app/model/ricetta';
@@ -42,11 +42,12 @@ export class DettaglioRicettaComponent implements OnInit {
               public ingredientiService: IngredientiService,
               private formBuilder: FormBuilder,
               private http : HttpClient,
-              public commentoService: CommentoService) 
+              public commentoService: CommentoService,
+              public router : Router) 
   {
     this.ricettaId = this.route.snapshot.params['id'];
     this.formCommento = this.formBuilder.group({ });
-   
+    // this.location.reload(); 
   }
 
   ngOnInit(): void {
@@ -97,55 +98,44 @@ export class DettaglioRicettaComponent implements OnInit {
   return stars;
 }
 
-// sendCommentToBackend(): void {
-//   const formValues = this.formCommento?.value;
 
-//   const token = sessionStorage.getItem("token");
-//   const headers = { 'Content-Type': 'application/json', 'token': token as string };
-//   const commento: Commento = {
-//     id: 0,
-//     punteggio: 0,
-//     commento: formValues.commento,
-//     utente: JSON.parse(sessionStorage.getItem('utente') || '{}') as Utente,
-//     idRicetta: JSON.parse(sessionStorage.getItem('idRicetta') || '0')
-//   };
-//   const body = JSON.stringify(commento);
 
-//   this.http.post("http://localhost:8080/api/comment/addComment", body, { 'headers' : headers }).subscribe(
-//  (risposta: any) => {
-//       this.ris = risposta;
-//       console.log(this.ris);
-//     },
-//     (error) => {
-//       console.error('Errore durante la chiamata al backend:', error);
-//     }
-//   );
-// }
 
 sendCommentToBackend(commentForm: NgForm) {
   const formValues = commentForm.value;
 
   // Recupera il token dalla sessione
   const token = sessionStorage.getItem("token");
+  const idutente = token?.split("-")[1] as unknown as number;
   // Imposta le intestazioni della richiesta HTTP con il token
   const headers = { 'Content-Type': 'application/json', 'token': token as string };
-
+  
   // Crea l'oggetto del commento
   const commento: Commento = {
     id: this.generateUniqueId(), // Genera l'ID automaticamente
     punteggio: formValues.punteggio,
     commento: formValues.commento,
-    utente: JSON.parse(sessionStorage.getItem('utente') || '{}') as Utente,
-    idRicetta: JSON.parse(sessionStorage.getItem('idRicetta') || '0')
+    utente : {
+      id: idutente,
+      nome: "",
+      cognome: "",
+      user: "",
+      password: "",
+      ruolo: ""
+    },
+    idRicetta : this.ricettaId
   };
 
   // Converti l'oggetto commento in formato JSON
   const body = JSON.stringify(commento);
+  console.log(body);
+  console.log(sessionStorage);
 
   // Effettua la chiamata HTTP POST per inviare il commento al backend
   this.http.post("http://localhost:8080/api/comment/addComment", body, { 'headers': headers }).subscribe(
     (risposta: any) => {
       this.ris = risposta;
+       
       console.log(this.ris);
     },
     (error) => {
@@ -159,6 +149,7 @@ generateUniqueId(): number {
   // Ad esempio, puoi utilizzare un contatore che incrementa ogni volta che viene aggiunto un nuovo commento
   return Math.floor(Math.random() * 1000); // Esempio di generazione casuale dell'ID
 }
+
 
 
 
