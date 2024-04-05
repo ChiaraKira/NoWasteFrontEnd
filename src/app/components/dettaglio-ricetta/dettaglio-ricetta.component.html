@@ -85,10 +85,10 @@
                 <label for="punteggio" class="form-label">Punteggio (da 1 a 5)</label>
                 <input type="number" class="form-control mb-2" id="punteggio" name="punteggio" min="1" max="5" ngModel required #punteggio="ngModel">
                 <div *ngIf="punteggio.invalid && (punteggio.dirty || punteggio.touched)">
-                    <div *ngIf="punteggio?.errors?.['required']">
+                    <div class="errore"  *ngIf="punteggio?.errors?.['required']">
                         Il punteggio è obbligatorio.
                     </div>
-                    <div *ngIf="punteggio?.errors?.['min'] || punteggio?.errors?.['max']">
+                    <div class="errore" *ngIf="punteggio?.errors?.['min'] || punteggio?.errors?.['max']">
                         Il punteggio deve essere compreso tra 1 e 5.
                     </div>
                 </div>
