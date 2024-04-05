@@ -49,6 +49,9 @@
             </div> -->
             <span class="card--rating-count">Commenti Utenti: {{ricetta.commenti.length}}</span>
           </div>
+          <div *ngIf="isAdmin()" class="my-3 bottone">
+            <button class="btn btn-danger elimina" (click)="deleteRicetta(ricetta)">Elimina Ricetta</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ricetta } from 'src/app/model/ricetta';
 import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 import { RicetteService } from 'src/app/services/ricette.service';
@@ -17,7 +18,7 @@ export class ListaRicetteComponent {
   portataSelezionata?: string = "";
   portate? : string[];
   
-  constructor( private http: HttpClient, public ricetteService: RicetteService) { 
+  constructor( private http: HttpClient, public ricetteService: RicetteService, private router: Router) { 
   this.http = http;
     this.getAllRicette();
     this.getAllPortate();
@@ -85,6 +86,41 @@ export class ListaRicetteComponent {
     }
   }
 
+  isAdmin() : boolean{
+    var token = sessionStorage.getItem("token")
+    if(token != null && token.split("-")[0] == "ADMIN")
+    {
+      return true;
+    }
+    return false;
+  }
+
+  deleteRicetta(ricetta:Ricetta)
+  {
+    var token = sessionStorage.getItem("token")
+    const headers = new HttpHeaders(
+      {
+        'Content-Type' : 'application/json',
+        'token': token as string
+      }
+    );
+
+    this.http.delete("http://localhost:8080/api/recipe/deleteRecipe?id=" + ricetta.id, {headers}).subscribe(risposta =>{
+      risposta as boolean;
+      if(risposta)
+      {
+        alert("Ricetta eliminata con successo!");
+        let index = this.ricette?.findIndex(r => r.id === ricetta.id)
+        this.ricette?.splice(index!, 1);
+        let indexCopia = this.ricetteCopia?.findIndex(r => r.id === ricetta.id)
+        this.ricetteCopia?.splice(indexCopia!, 1);
+      }
+      else
+      {
+        alert("Ricetta non eliminata");
+      }
+    });
+  }
 
 }
 
