@@ -131,10 +131,10 @@
   }
   .bottone
   {
-    width: 100%;
+    z-index:898798797;
+    
   }
-
-  .elimina
-  {
-    width: 100%;
+  .elimina {
+    cursor: pointer;
+    color: #FA7070;
   }
