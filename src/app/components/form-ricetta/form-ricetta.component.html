@@ -1,4 +1,4 @@
-<div class="co">
+<div class="co ">
     <div class="row">
         <div class="col-xxl-6">
             <form id="msform" [formGroup]="ricettaForm" (ngSubmit)="inviaRicetta()">
@@ -6,7 +6,7 @@
                 <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 1 ? 'block' : 'none'">
                     <h2>Inserimento Ricetta</h2>
                     <input type="text" placeholder="Nome Ricetta" formControlName="nome">
-                    <textarea id="istruzioni" cols="30" rows="5" placeholder="Inserisci istruzioni.."
+                    <textarea id="istruzioni" cols="30" rows="5" placeholder="Inserisci i passaggi andando a capo per ogni step"
                         formControlName="istruzioni"></textarea>
                     <div class="row d-flex justify-content-between">
                         <div class="col mb-3">
@@ -52,7 +52,10 @@
                             <input type="number" min="5" step="5" formControlName="tempoPreparazione"  style="width:80px; text-align: center;" class="my-0">
                         </div>
                     </div>
-                    <input type="url" placeholder="inserisci link ricetta" formControlName="linkImmagine">
+                    <input type="url" placeholder="inserisci link immagine ricetta" formControlName="linkImmagine" >
+                    <div *ngIf="ricettaForm.get('linkImmagine')?.errors?.['linkImmagineTooLong']">
+                        Il link immagine è troppo lungo.
+                      </div>
                     <button type="button" name="next" class="next action-button" (click)="nextStep()">Vai agli ingredienti</button>
                 </fieldset>
                 <fieldset [@fadeInOut]="'in'" [style.display]="currentStep == 2 ? 'block' : 'none'">

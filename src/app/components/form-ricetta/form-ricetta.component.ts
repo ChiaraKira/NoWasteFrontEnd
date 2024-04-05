@@ -4,7 +4,7 @@ import { Ingrediente } from 'src/app/model/ingrediente';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RicettaIngrediente } from 'src/app/model/ricetta-ingrediente';
 import { LoginService } from 'src/app/services/login.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -134,7 +134,7 @@ export class FormRicettaComponent {
       difficolta: [0, Validators.required],
       serving: [0, Validators.required],
       tempoPreparazione: [0, Validators.required],
-      linkImmagine: ['', Validators.required]
+      linkImmagine: ['', [Validators.required, this.linkImmagineValidator(255)]] 
     });
   }
 
@@ -190,8 +190,18 @@ export class FormRicettaComponent {
          else{
           alert("Ricetta non inserita");
          }
-      });
-    
-
+      }); 
   }
+  linkImmagineValidator(maxLength: number): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const linkImmagine = control.value;
+      if (linkImmagine && linkImmagine.length > maxLength) {
+        return { 'linkImmagineTooLong': { value: linkImmagine } };
+      }
+      return null;
+    };
+  }
+  
 }
+
+
