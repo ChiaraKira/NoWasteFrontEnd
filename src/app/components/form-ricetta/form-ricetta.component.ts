@@ -185,7 +185,7 @@ export class FormRicettaComponent {
          if(ris){
            //Pagina login
            alert("Ricetta Inserita");
-           this.router.navigateByUrl('home-page'); // routing da rendirizzare al login
+           this.router.navigateByUrl('lista-ricette'); // routing da rendirizzare al login
          }
          else{
           alert("Ricetta non inserita");
