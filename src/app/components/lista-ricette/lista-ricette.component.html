@@ -15,6 +15,10 @@
 <div class="container-fluid mt-5">
   <div class="row">
     <div class="col-md-3 card-margin" *ngFor="let ricetta of ricetteCopia">
+      <div *ngIf="isAdmin()" class="my-3 bottone">
+        
+        <span class="elimina" (click)="deleteRicetta(ricetta)" ><mat-icon>clear</mat-icon>Elimina Ricetta</span>
+      </div>
       <div class="card">
         <div class="card--image-wrapper">
           <img style="height: 250px; width: 100%;" [src]="ricetta.linkImmagine" alt="{{ricetta.nome}}">
@@ -49,9 +53,7 @@
             </div> -->
             <span class="card--rating-count">Commenti Utenti: {{ricetta.commenti.length}}</span>
           </div>
-          <div *ngIf="isAdmin()" class="my-3 bottone">
-            <button class="btn btn-danger elimina" (click)="deleteRicetta(ricetta)">Elimina Ricetta</button>
-          </div>
+          
         </div>
       </div>
     </div>
