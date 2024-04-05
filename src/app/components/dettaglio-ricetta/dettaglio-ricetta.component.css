@@ -21,6 +21,10 @@ sup {
   
   }
 
+  .errore {
+    color: #cd0c0c;
+  }
+
   .bgC{
     background-color: #a6cf9887 ;
     max-height: 550px;
